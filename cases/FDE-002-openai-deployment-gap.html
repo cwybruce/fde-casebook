@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FDE-002｜OpenAI 的 FDE：删掉 90% 定制代码 — FDE Casebook</title>
+<style>
+:root{--bg:#faf8f5;--card:#fff;--ink:#23202b;--sub:#6d6759;--line:#e8e2d6;--accent:#b4632a;--accent2:#2f6f5e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75}
+.wrap{max-width:820px;margin:0 auto;padding:28px 18px 64px}
+.topnav{font-size:14px;margin-bottom:20px}
+.topnav a{color:var(--accent);text-decoration:none;margin-right:16px}
+.topnav a:hover{text-decoration:underline}
+article{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px 28px;box-shadow:0 1px 3px rgba(60,50,30,.05)}
+article h1{font-size:25px;line-height:1.4;margin:0 0 14px}
+article h2{font-size:19px;margin:28px 0 8px;padding-top:14px;border-top:1px solid var(--line)}
+article h3{font-size:16px;margin:20px 0 6px}
+article a{color:var(--accent)}
+article table{width:100%;border-collapse:collapse;font-size:13.5px;margin:12px 0;display:block;overflow-x:auto}
+article th,article td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+article th{background:#f3eee3}
+article blockquote{border-left:3px solid var(--accent);margin:12px 0;padding:6px 14px;background:#fbf7ee;color:var(--ink)}
+article hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+article em{color:var(--sub)}
+.origin{display:inline-block;background:var(--accent);color:#fff !important;text-decoration:none;font-weight:600;font-size:14.5px;padding:9px 20px;border-radius:8px;margin:4px 0 14px}
+footer{margin-top:26px;color:var(--sub);font-size:13px}
+footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="topnav">
+  <a href="../index.html">榜单首页</a>
+  <a href="../leaderboard.html">完整榜单</a>
+  <a href="../standards.html">入选标准</a>
+  <a href="../guide.html">7 环节能力地图</a>
+</nav>
+<article>
+<a class="origin" href="https://openai.com/index/forward-deployed-engineering-means/" target="_blank" rel="noopener">阅读原文 ↗</a>
+<h1>FDE-002｜OpenAI 的 FDE：删掉 90% 定制代码</h1>
+<ul>
+<li><strong>来源</strong>：Colin Jarvis（OpenAI FDE 负责人）《What FDE Means at OpenAI》，OpenAI 官方博客，2026-10-22。原文：https://openai.com/index/forward-deployed-engineering-means/</li>
+<li><strong>可信度</strong>：官方一手（FDE 团队负责人亲笔；文中数字为 OpenAI 官方口径，未经第三方独立核验）</li>
+<li><strong>类型</strong>：完整项目型案例（含半导体、电信两个客户场景）</li>
+<li><strong>分类</strong>：项目型 ｜ 行业：半导体 / 电信 ｜ 模式：大厂 FDE 团队驻场 ｜ 强项环节：⑤开发交付 ⑦迭代扩单 ｜ 榜单评分：92 · S（精选主榜第 1），见 <a href="../LEADERBOARD.html">LEADERBOARD.md</a></li>
+</ul>
+<h2>一句话摘要</h2>
+<p>FDE 的工作不是把定制代码越写越多，而是每隔几个月让自己"过时"一次：模型变强后，删掉当初为补短板写的胶水代码，只留下 Eval、失败案例和沉淀成 Skill 的业务知识。</p>
+<h2>核心概念：Deployment Gap（部署鸿沟）</h2>
+<p>OpenAI FDE 团队 2025 年初成立，要补的是"模型看起来能做"与"人能可靠地拿它干活"之间的距离。模型能力跑得比配套系统和流程快：有时缺的是产品，有时是 benchmark 好看、真实约束下干不了活。</p>
+<p>团队价值观：Start with the outcome, do what it takes to succeed, then follow with scale（先盯结果，不惜代价做成，再谈规模）。</p>
+<h2>全流程 7 环节拆解</h2>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 选场景</td>
+<td>半导体客户：芯片验证约占该行业项目工作量的 70%（官方口径），选高占比、高重复的环节下手，场景天花板决定投入回报</td>
+</tr>
+<tr>
+<td>② 摸现场</td>
+<td>没做过半导体的 FDE 直接嵌入客户验证团队、业余自学芯片设计——第一天不需要懂行业，但有责任把它学会</td>
+</tr>
+<tr>
+<td>③ 定方案</td>
+<td>和客户工程师共建 Eval，测 AI 能否生成有用测试、正确诊断芯片故障；同时为每个场景写定制 Harness，先跑通再谈通用化</td>
+</tr>
+<tr>
+<td>④ 数据与集成</td>
+<td>来源未披露细节；后期复制到新团队时，集成动作被标准化为"换连接器/MCP"</td>
+</tr>
+<tr>
+<td>⑤ 开发交付</td>
+<td>转折点：Codex 变强后，把定制应用改造成通用 Harness 上的插件和 Skills，每个项目删掉约 90% 定制代码；电信语音客服案例中，模型在关键 Eval 上只有约 60% 时如实告知客户、把能力缺口反馈给 Research，6 个月内 Eval 从约 60% → 80% → 90%+ 才上线</td>
+</tr>
+<tr>
+<td>⑥ 上线采用</td>
+<td>半导体案例 3–6 个月全部上生产：定向测试生成省时约 48%，内核优化中位性能提升 22%，几周的调试压缩到几小时（均为官方口径）</td>
+</tr>
+<tr>
+<td>⑦ 迭代扩单</td>
+<td>扩到新团队只剩三件事：换连接器/MCP、建新 Eval、上线。2026 年 8 月实例：首次部署 2 个月，复制到第二个团队只用 1 天</td>
+</tr>
+</tbody>
+</table>
+<h2>关键数字（官方口径，未独立核验）</h2>
+<ul>
+<li>定向测试生成省时约 48%；内核优化中位性能提升 22%</li>
+<li>每个项目删掉约 90% 定制代码</li>
+<li>电信案例关键 Eval：约 60% → 90%+（6 个月）</li>
+<li>复制到第二个团队：2 个月 → 1 天</li>
+</ul>
+<h2>对入行者的启示</h2>
+<ul>
+<li>评估自己的交付物时问一句：模型升级后，这堆代码还有多少必须存在？如果答案是"全部"，说明你沉淀的是胶水，不是资产。</li>
+<li>真正的复利资产只有三样：Eval、失败案例、Skill 化的业务知识。入行早期就刻意往这三样上面积累。</li>
+<li>"第一天不需要懂行业，但有责任学会"是官方给出的入场方式——跨行业入行 FDE 是常态，嵌入和自学速度才是门槛。</li>
+</ul>
+<h2>verdict</h2>
+<p><strong>学，这是目前最权威的 FDE 一手定义源。</strong> 尤其"删代码观"值得每个入行者内化：FDE 的交付标准不是"写了多少"，而是"留下了多少经得起模型升级的东西"。</p>
+<h2>评分与维度分析（总分 92 · S 级，海外榜第 1）</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>29/30</td>
+<td>官方博客、FDE 负责人亲笔；仅因数字未经第三方核验扣 1 分</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>22/25</td>
+<td>7 环节覆盖 6 环（见下表），数据与集成环节仅一句带过</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>18/20</td>
+<td>模型不达标时如实告知客户、把缺口反哺 Research，是可复用的现场解法</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>13/15</td>
+<td>硬数字密集（48% / 90% / 2 个月→1 天），但均为官方口径</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>10/10</td>
+<td>删代码观、Eval 先行、复制三件事，可直接照做</td>
+</tr>
+</tbody>
+</table>
+<p><strong>7 环节覆盖分析</strong>：①选场景 ●（选占工作量 70% 的验证环节）②摸现场 ●（嵌入团队+自学业务）③定方案 ●（共建 Eval 与 Harness）④数据与集成 ○（仅"换连接器/MCP"一笔）⑤开发交付 ●（删 90% 定制代码、Eval 60%→90%+）⑥上线采用 ●（3–6 个月上生产及效果数字）⑦迭代扩单 ●（复制到新团队 1 天）</p>
+<hr />
+<p><em>本文为公开来源的学习拆解，归纳自 OpenAI 官方博客公开内容，引文均为短引；数字为官方口径，未经第三方核验，请以原文为准。</em></p>
+</article>
+<footer><p>FDE Casebook · 本页由仓库 Markdown 自动生成，GitHub 仅作源码仓库。维护：Bruce Cao（<a href="https://x.com/sycbruce">@sycbruce</a>）</p></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FDE-001｜为什么企业买了 AI 却用不起来：一个一线实践者的 FDE 定义与三层漏斗 — FDE Casebook</title>
+<style>
+:root{--bg:#faf8f5;--card:#fff;--ink:#23202b;--sub:#6d6759;--line:#e8e2d6;--accent:#b4632a;--accent2:#2f6f5e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75}
+.wrap{max-width:820px;margin:0 auto;padding:28px 18px 64px}
+.topnav{font-size:14px;margin-bottom:20px}
+.topnav a{color:var(--accent);text-decoration:none;margin-right:16px}
+.topnav a:hover{text-decoration:underline}
+article{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px 28px;box-shadow:0 1px 3px rgba(60,50,30,.05)}
+article h1{font-size:25px;line-height:1.4;margin:0 0 14px}
+article h2{font-size:19px;margin:28px 0 8px;padding-top:14px;border-top:1px solid var(--line)}
+article h3{font-size:16px;margin:20px 0 6px}
+article a{color:var(--accent)}
+article table{width:100%;border-collapse:collapse;font-size:13.5px;margin:12px 0;display:block;overflow-x:auto}
+article th,article td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+article th{background:#f3eee3}
+article blockquote{border-left:3px solid var(--accent);margin:12px 0;padding:6px 14px;background:#fbf7ee;color:var(--ink)}
+article hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+article em{color:var(--sub)}
+.origin{display:inline-block;background:var(--accent);color:#fff !important;text-decoration:none;font-weight:600;font-size:14.5px;padding:9px 20px;border-radius:8px;margin:4px 0 14px}
+footer{margin-top:26px;color:var(--sub);font-size:13px}
+footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="topnav">
+  <a href="../index.html">榜单首页</a>
+  <a href="../leaderboard.html">完整榜单</a>
+  <a href="../standards.html">入选标准</a>
+  <a href="../guide.html">7 环节能力地图</a>
+</nav>
+<article>
+<a class="origin" href="https://x.com/liangzhu_AI" target="_blank" rel="noopener">作者主页 ↗（原帖直链待补）</a>
+<h1>FDE-001｜为什么企业买了 AI 却用不起来：一个一线实践者的 FDE 定义与三层漏斗</h1>
+<ul>
+<li><strong>来源</strong>：良竹 @liangzhu_AI《掌控AI·FDE实战 01》（X 长文，2026 年 10 月）。作者自述 14 年软件与项目经验，定位 AI 创业、产品出海与 FDE 实践，个人站 liangzhu.me。作者主页：https://x.com/liangzhu_AI （原帖直链待补，拿到后更新）</li>
+<li><strong>可信度</strong>：一手从业者自述（方法论框架，非单一项目复盘；文中未给出具体客户项目数据）</li>
+<li><strong>类型</strong>：框架型案例——它不复盘某一个项目，而是给出判断"企业 AI 为什么落不了地"的分析工具</li>
+<li><strong>分类</strong>：框架型 ｜ 行业：通用 ｜ 强项环节：⑥上线采用 ｜ 榜单评分：68 · B（观察），见 <a href="../LEADERBOARD.html">LEADERBOARD.md</a></li>
+</ul>
+<h2>一句话摘要</h2>
+<p>企业 AI 落地失败，多数不是模型不行、也不是员工不行，而是只修了最底下的操作层，没人做"翻译层"和"结构层"的活——FDE 补的正是这两层。</p>
+<h2>核心框架：三层漏斗</h2>
+<ol>
+<li><strong>操作层</strong>：买课、买会员、教员工写提示词。门槛最低，绝大多数公司停在这一层。</li>
+<li><strong>翻译层</strong>：把真实业务拆解成 AI 能执行的任务。需要既懂业务又懂模型能力边界的人。</li>
+<li><strong>结构层</strong>：把藏在老员工脑子里的隐性经验，固化成规则、流程和系统约束。最难，也最值钱。</li>
+</ol>
+<p>一个直接推论：只修操作层时，员工只敢拿 AI 改周报、润色通知——不是态度问题，是结构问题。AI 永远只会流向无考核、无风险的边缘活。</p>
+<h2>全流程 7 环节拆解</h2>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 选场景</td>
+<td>来源未披露具体的场景筛选方法论；框架隐含判据：优先选能沉到翻译层/结构层的场景，而不是只做操作层培训</td>
+</tr>
+<tr>
+<td>② 摸现场</td>
+<td>来源未披露</td>
+</tr>
+<tr>
+<td>③ 定方案</td>
+<td>来源未披露</td>
+</tr>
+<tr>
+<td>④ 数据与集成</td>
+<td>来源未披露</td>
+</tr>
+<tr>
+<td>⑤ 开发交付</td>
+<td>来源未披露</td>
+</tr>
+<tr>
+<td>⑥ 上线采用</td>
+<td>本卡核心：采用失败的结构性解释——没人用，往往不是培训不够，而是业务从未被翻译成 AI 可执行的任务、经验从未被固化成规则</td>
+</tr>
+<tr>
+<td>⑦ 迭代扩单</td>
+<td>来源未披露</td>
+</tr>
+</tbody>
+</table>
+<h2>对入行者的启示</h2>
+<ul>
+<li>面试和工作中被问"为什么企业 AI 用不起来"，先分层再回答：操作层的问题用培训解，翻译层和结构层的问题只能靠下场交付解。把锅推给"员工执行力"，是这个行业最常见的误判。</li>
+<li>FDE 的价值定位不在操作层（那是讲师和售后干的），在翻译层与结构层：拆业务、固化经验、设机器关卡。</li>
+<li>自检问题：你手上正在做的事，属于哪一层？如果长期只有操作层，你做的不是 FDE，是培训。</li>
+</ul>
+<h2>verdict</h2>
+<p><strong>学。</strong> 这是中文语境里少见的、由一线实践者给出的 FDE 分析框架。它最大的用处是提供一种"分层看问题"的眼光，后面每个案例都可以拿它来对照：这个项目到底卡在哪一层。</p>
+<h2>评分与维度分析（总分 68 · B 级观察，国内榜第 2）</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>24/30</td>
+<td>一线实践者本人长文；框架未经其公开项目数据佐证</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>17/25</td>
+<td>框架内自洽，但只实质覆盖上线采用一环</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>13/20</td>
+<td>有结构性解释，无具体项目的困难现场</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>4/15</td>
+<td>全文无项目数字——主要短板</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>10/10</td>
+<td>三层漏斗可直接当分析工具用，满分</td>
+</tr>
+</tbody>
+</table>
+<p><strong>7 环节覆盖分析</strong>：①选场景 ◐（框架隐含判据）②摸现场 ○未披露 ③定方案 ○未披露 ④数据与集成 ○未披露 ⑤开发交付 ○未披露 ⑥上线采用 ●（本卡核心：采用失败的结构解释）⑦迭代扩单 ○未披露。注：框架型案例的价值不在环节覆盖，在判据本身。</p>
+<hr />
+<p><em>本文为公开来源的学习拆解，观点归纳自原作者公开内容，引文均为短引；数字与事实口径以原文为准。原作者如认为引用不当，请通过 Issues 联系删除。</em></p>
+</article>
+<footer><p>FDE Casebook · 本页由仓库 Markdown 自动生成，GitHub 仅作源码仓库。维护：Bruce Cao（<a href="https://x.com/sycbruce">@sycbruce</a>）</p></footer>
+</div>
+</body>
+</html>

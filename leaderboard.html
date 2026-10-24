@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FDE 榜单｜不排热度，排含金量 — FDE Casebook</title>
+<style>
+:root{--bg:#faf8f5;--card:#fff;--ink:#23202b;--sub:#6d6759;--line:#e8e2d6;--accent:#b4632a;--accent2:#2f6f5e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75}
+.wrap{max-width:820px;margin:0 auto;padding:28px 18px 64px}
+.topnav{font-size:14px;margin-bottom:20px}
+.topnav a{color:var(--accent);text-decoration:none;margin-right:16px}
+.topnav a:hover{text-decoration:underline}
+article{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px 28px;box-shadow:0 1px 3px rgba(60,50,30,.05)}
+article h1{font-size:25px;line-height:1.4;margin:0 0 14px}
+article h2{font-size:19px;margin:28px 0 8px;padding-top:14px;border-top:1px solid var(--line)}
+article h3{font-size:16px;margin:20px 0 6px}
+article a{color:var(--accent)}
+article table{width:100%;border-collapse:collapse;font-size:13.5px;margin:12px 0;display:block;overflow-x:auto}
+article th,article td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+article th{background:#f3eee3}
+article blockquote{border-left:3px solid var(--accent);margin:12px 0;padding:6px 14px;background:#fbf7ee;color:var(--ink)}
+article hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+article em{color:var(--sub)}
+.origin{display:inline-block;background:var(--accent);color:#fff !important;text-decoration:none;font-weight:600;font-size:14.5px;padding:9px 20px;border-radius:8px;margin:4px 0 14px}
+footer{margin-top:26px;color:var(--sub);font-size:13px}
+footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="topnav">
+  <a href="index.html">榜单首页</a>
+  <a href="leaderboard.html">完整榜单</a>
+  <a href="standards.html">入选标准</a>
+  <a href="guide.html">7 环节能力地图</a>
+</nav>
+<article>
+
+<h1>FDE 榜单｜不排热度，排含金量</h1>
+<p>热度榜排的是谁会炒，我们排的是<strong>一条案例到底能让人学到多少真东西</strong>。评分标准见 <a href="standards.html">STANDARDS.md</a>：硬门槛一票否决，100 分制五维评分（来源可信度 30 / 流程完整度 25 / 困难与解法密度 20 / 数字可核验性 15 / 可迁移性 10），分数与理由全部公开。</p>
+<p>榜单按<strong>海外 / 国内</strong>分开呈现——两边的 FDE 生态、信源形态和岗位结构差别很大，混排没有意义。案例榜之外另有<strong>人物榜</strong>（值得长期盯的一手来源），同样分国内/海外。</p>
+<p><strong>网页版（可点「阅读原文」直达来源）</strong>：https://cwybruce.github.io/fde-casebook/</p>
+<p>最近更新：2026-10-24（v0.3，双榜分开 + 每案五维分数与评价）</p>
+<hr />
+<h2>一、海外案例榜</h2>
+<h3>第 1 名 · <a href="cases/FDE-002-openai-deployment-gap.html">FDE-002 OpenAI：删掉 90% 定制代码</a> — 92 分 · S 级</h3>
+<p>分类：项目型 ｜ 半导体 / 电信 ｜ 大厂 FDE 团队驻场 ｜ 强项环节 ⑤开发交付 ⑦迭代扩单
+原文：https://openai.com/index/forward-deployed-engineering-means/</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>29/30</td>
+<td>OpenAI 官方博客、FDE 负责人亲笔，一手中的一手；仅因数字未经第三方核验扣 1 分</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>22/25</td>
+<td>7 环节覆盖 6 环（选场景/摸现场/定方案/开发交付/上线采用/迭代扩单），仅数据与集成环节一句带过</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>18/20</td>
+<td>"模型只有 60% 时如实告知客户并反哺 Research"是别处学不到的现场解法</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>13/15</td>
+<td>48% 省时、90% 删减、2 个月→1 天都是硬数字；但均为官方口径、无第三方复核</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>10/10</td>
+<td>删代码观、Eval 先行、复制三件事，入行者可直接照做</td>
+</tr>
+</tbody>
+</table>
+<p>总评：目前公开材料里 FDE 项目复盘的天花板。这个库的主榜第 1 名短期内很难被超过。</p>
+<p><em>海外榜目前仅 1 个入选——完整项目型且过硬门槛的海外公开材料同样稀缺（多数大厂 FDE 项目不公开过程），持续收集中。</em></p>
+<hr />
+<h2>二、国内案例榜</h2>
+<h3>第 1 名 · <a href="cases/FDE-004-china-entrepreneur-fde-truth.html">FDE-004 《中国企业家》深访：落地的残酷真相</a> — 78 分 · A 级</h3>
+<p>分类：拼图型 ｜ 跨行业（制造 / to B 软件）｜ 强项环节 ②摸现场 ⑥上线采用
+原文：https://finance.sina.cn/stock/jdts/2026-10-21/detail-inivysym6175878.d.html</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>20/30</td>
+<td>实名从业者口述为主，但含匿名信源、多处转述，薪酬数字为媒体观察口径</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>23/25</td>
+<td>7 环节几乎全覆盖，是国内材料里罕见的"全程图"；仅定方案环节缺单一项目的 POC 细节</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>19/20</td>
+<td>利益再分配、集成无人认领、续费死亡——全是会议室级别的真实困难，且给了利益清单这样的解法</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>7/15</td>
+<td>定价数字为创始人自报，薪酬为媒体查招聘平台所得，多处标注未核验</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>9/10</td>
+<td>两类 FDE 之分、利益清单、验收要看得见的数字，都能直接用</td>
+</tr>
+</tbody>
+</table>
+<p>总评：国内榜目前信息量最大的一条。把它当"行业现场拼图"读，不要当单一项目复盘引用。</p>
+<h3>第 2 名 · <a href="cases/FDE-001-liangzhu-fde-framework.html">FDE-001 良竹：FDE 定义与三层漏斗</a> — 68 分 · B 级（观察）</h3>
+<p>分类：框架型 ｜ 通用 ｜ 强项环节 ⑥上线采用
+原文：作者主页 https://x.com/liangzhu_AI （原帖直链待补）</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>24/30</td>
+<td>自述 14 年软件与项目经验的一线实践者，本人系列长文；但框架未经其公开项目数据佐证</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>17/25</td>
+<td>类型内自洽（分层逻辑完整），但只实质覆盖上线采用一环，其余环节未展开</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>13/20</td>
+<td>给出了"为什么没人用"的结构性解释，但没有具体项目的困难现场</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>4/15</td>
+<td>全文无项目数字，这是它分数的主要短板</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>10/10</td>
+<td>满分。三层漏斗是可以立刻拿去分析任何企业 AI 项目的工具</td>
+</tr>
+</tbody>
+</table>
+<p>总评：分数不高是因为它不是项目案例；但就"框架价值"单项论，它是国内材料里最值得先读的一篇。</p>
+<h3>第 3 名 · <a href="cases/FDE-003-miles-mazy-geely-training.html">FDE-003 @miles_mazy：吉利近 500 人培训现场</a> — 58 分 · B 级（观察）</h3>
+<p>分类：观察型 ｜ 汽车 ｜ 专家培训切入 ｜ 强项环节 ⑥上线采用
+原文：https://x.com/miles_mazy/status/2113624481759429118</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>23/30</td>
+<td>一手自述、现场照片可佐证培训发生；但"近 20 个案例"等数字为自报</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>9/25</td>
+<td>项目过程基本未披露，只有需求侧信号，这是观察型的固有上限</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>11/20</td>
+<td>"运维脏活"一条观察含金量高，但整体困难细节稀薄</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>5/15</td>
+<td>近 500 人、近 20 个案例均为自报口径</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>10/10</td>
+<td>职业路径样本（专家培训切入交付）+ multi-agent 必学判断，对入行者直接有用</td>
+</tr>
+</tbody>
+</table>
+<p>总评：当信号读，别当案例读。它的排名会随着作者后续披露真实项目过程而变动。</p>
+<hr />
+<h2>三、人物榜（值得长期盯的一手来源）</h2>
+<p>排的不是粉丝量，是<strong>一手含量</strong>：这个人产出的东西里，有多少是自己真做过、真交付过的现场信息。评级为编者评价。</p>
+<h3>海外</h3>
+<table>
+<thead>
+<tr>
+<th>人物</th>
+<th>身份</th>
+<th>为什么值得盯</th>
+<th>一手含量</th>
+<th>相关案例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Colin Jarvis</td>
+<td>OpenAI FDE 负责人</td>
+<td>FDE 官方定义与旗舰项目复盘的源头，目前信息密度最高的官方声音</td>
+<td>S</td>
+<td><a href="cases/FDE-002-openai-deployment-gap.html">FDE-002</a></td>
+</tr>
+</tbody>
+</table>
+<h3>国内</h3>
+<table>
+<thead>
+<tr>
+<th>人物</th>
+<th>身份</th>
+<th>为什么值得盯</th>
+<th>一手含量</th>
+<th>相关案例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>良竹 <a href="https://x.com/liangzhu_AI">@liangzhu_AI</a></td>
+<td>一线实践者，自述 14 年软件与项目经验</td>
+<td>《掌控AI·FDE实战》系列，把 FDE 讲成可执行框架的中文作者</td>
+<td>A</td>
+<td><a href="cases/FDE-001-liangzhu-fde-framework.html">FDE-001</a></td>
+</tr>
+<tr>
+<td><a href="https://x.com/miles_mazy">@miles_mazy</a></td>
+<td>大厂 AI 专家裸辞，做企业培训与落地</td>
+<td>高频发布企业现场信号（车企培训、multi-agent 教学），观察头部企业需求的窗口</td>
+<td>A</td>
+<td><a href="cases/FDE-003-miles-mazy-geely-training.html">FDE-003</a></td>
+</tr>
+<tr>
+<td>冯璐瑶</td>
+<td>钥蚀科技创始人，FDE 创业交付团队</td>
+<td>少数公开真实定价与中小客户画像的创业型 FDE（目前信源经媒体深访转述）</td>
+<td>B</td>
+<td><a href="cases/FDE-004-china-entrepreneur-fde-truth.html">FDE-004</a></td>
+</tr>
+<tr>
+<td>码良 <a href="https://x.com/cxjwin">@cxjwin</a></td>
+<td>Agent 工程作者</td>
+<td>其 multi-agent 材料被 FDE 企业培训直接引用——相邻领域，但 FDE 必学</td>
+<td>B</td>
+<td>关联 <a href="cases/FDE-003-miles-mazy-geely-training.html">FDE-003</a></td>
+</tr>
+</tbody>
+</table>
+<p><em>人物榜随案例收录滚动增补：新案例的作者/关键人物经核验后入榜；长期只发概念、不发一手现场的，会被降级或移出。</em></p>
+<h2>榜单维护节奏</h2>
+<ul>
+<li>每日：新案例按 <a href="standards.html">入选标准</a> 筛选、评分、入对应分类（国内/海外分开）</li>
+<li>每周：更新一次榜单，标注新入榜与名次/等级变动</li>
+<li>每月：一期精选合集，汇总当月 S/A 级案例与人物榜变动</li>
+</ul>
+<p>对评分有异议或有案例/人物推荐，欢迎开 Issue——附直链和理由，核验后处理。</p>
+</article>
+<footer><p>FDE Casebook · 本页由仓库 Markdown 自动生成，GitHub 仅作源码仓库。维护：Bruce Cao（<a href="https://x.com/sycbruce">@sycbruce</a>）</p></footer>
+</div>
+</body>
+</html>
