@@ -46,6 +46,8 @@ FDE 是 2025 年以来科技行业增长最快的岗位之一：OpenAI、Anthrop
 
 ## 榜单与入选标准
 
+- **网页版榜单（推荐）**：https://cwybruce.github.io/fde-casebook/ —— 国内/海外双榜 + 每案五维分数与评价 + 「阅读原文」直达按钮
+
 - [FDE 榜单（LEADERBOARD.md）](LEADERBOARD.md)：不排热度，排含金量——案例精选主榜 + 分类全榜 + 人物榜（值得长期盯的一手来源）
 - [入选标准（STANDARDS.md）](STANDARDS.md)：硬门槛一票否决 + 100 分五维评分 + 三维分类，全部公开
 
