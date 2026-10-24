@@ -50,6 +50,7 @@ FDE 是 2025 年以来科技行业增长最快的岗位之一：OpenAI、Anthrop
 
 - [FDE 榜单（LEADERBOARD.md）](LEADERBOARD.md)：不排热度，排含金量——案例精选主榜 + 分类全榜 + 人物榜（值得长期盯的一手来源）
 - [入选标准（STANDARDS.md）](STANDARDS.md)：硬门槛一票否决 + 100 分五维评分 + 三维分类，全部公开
+- [证书栏目（CERTIFICATIONS.md）](CERTIFICATIONS.md)：FDE 专项证书的分辨工具——先讲清"没有一张证书被雇主普遍认可"，再按五条维度逐张拆（首批：腾讯云 FDE、ADaSci、IIT Roorkee）
 
 ## 入行指南（跨案例提炼）
 

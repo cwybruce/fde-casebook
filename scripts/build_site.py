@@ -144,6 +144,7 @@ TEMPLATE = """<!DOCTYPE html>
     <a href="{prefix}leaderboard.html">完整榜单</a>
     <a href="{prefix}standards.html">入选标准</a>
     <a href="{prefix}guide.html">7 环节能力地图</a>
+    <a href="{prefix}certifications.html">证书栏目</a>
   </div>
 </nav>
 <header class="page-hero">
@@ -248,6 +249,7 @@ def main() -> int:
     jobs.append((ROOT / "LEADERBOARD.md", ROOT / "leaderboard.html", "", ""))
     jobs.append((ROOT / "STANDARDS.md", ROOT / "standards.html", "", ""))
     jobs.append((ROOT / "guide" / "7-stage-map.md", ROOT / "guide.html", "", ""))
+    jobs.append((ROOT / "CERTIFICATIONS.md", ROOT / "certifications.html", "", ""))
     for md, out, prefix, origin in jobs:
         title = convert(md, out, prefix, origin)
         print(f"built {out.relative_to(ROOT)}  <-  {md.relative_to(ROOT)}  ({title[:40]})")

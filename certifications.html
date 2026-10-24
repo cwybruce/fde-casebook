@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>FDE 证书栏目｜先帮你分辨，再谈值不值得考 — FDE Casebook</title>
+<style>
+:root{
+  --paper:#f7f4ee;--surface:#fffdfa;--surface-muted:#f0ebe2;--ink:#202522;--sub:#66675f;
+  --line:#ded8cc;--line-strong:#c7bfb1;--accent:#954b25;--accent-bright:#dda77d;--green:#2f6656;
+  --grade-s:#98711c;--grade-a:#954b25;--grade-b:#526b7b;--night:#19211f;--night-sub:#b9c1ba;
+  --font-sans:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --font-serif:Georgia,"Songti SC","Noto Serif CJK SC","SimSun",serif;
+  --text-xs:12px;--text-sm:14px;--text-base:16.5px;--text-h3:19px;--text-h2:26px;--text-h1:42px;
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;
+  --radius-sm:5px;--radius:9px;--shadow:0 8px 24px rgba(34,39,32,.045);--measure:880px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-sans);font-size:var(--text-base);line-height:1.85;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.wrap{width:min(var(--measure),calc(100% - 48px));margin-inline:auto}
+.topnav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px;border-bottom:1px solid var(--line);font-size:var(--text-sm)}
+.brand{color:var(--ink);font-family:var(--font-serif);font-size:18px;font-weight:700;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+.navlinks{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.navlinks a{display:inline-flex;align-items:center;min-height:40px;padding:4px 10px;color:var(--sub);text-decoration:none;border-radius:var(--radius-sm)}
+.navlinks a:hover{color:var(--accent);background:var(--surface-muted)}
+.page-hero{background:var(--night);color:#f6f2e9;border-bottom:3px solid var(--accent)}
+.page-hero .wrap{padding-block:52px 46px}
+.eyebrow{margin:0 0 18px;color:var(--accent-bright);font-size:var(--text-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.page-hero h1{max-width:780px;margin:0;font-family:var(--font-serif);font-size:clamp(32px,5vw,var(--text-h1));font-weight:700;line-height:1.28;letter-spacing:-.035em}
+.case-meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px;padding:0;list-style:none}
+.case-meta li{padding:3px 10px;border:1px solid #46504a;border-radius:var(--radius-sm);color:#d5dbd4;font-size:var(--text-xs);line-height:1.7}
+.score-band{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:30px;padding-top:24px;border-top:1px solid #3a433e}
+.total-score{display:flex;align-items:baseline;gap:7px;font-variant-numeric:tabular-nums;line-height:1}
+.total-score strong{font-family:var(--font-serif);font-size:52px;font-weight:400;letter-spacing:-.04em}
+.total-score span{color:var(--night-sub);font-size:var(--text-sm)}
+.grade{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:2px 10px;border:1px solid currentColor;border-radius:var(--radius-sm);font-size:var(--text-sm);font-weight:700;line-height:1.2;white-space:nowrap}
+.grade-s{color:#e0bc69}.grade-a{color:var(--accent-bright)}.grade-b{color:#a8bfce}
+.rank{color:var(--night-sub);font-size:var(--text-sm)}
+.origin{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin-left:auto;padding:8px 18px;background:var(--accent-bright);border:1px solid var(--accent-bright);border-radius:var(--radius-sm);color:var(--night)!important;font-size:var(--text-sm);font-weight:700;text-decoration:none;transition:background .18s ease,transform .18s ease}
+.origin:hover{background:#edbd97;transform:translateY(-1px)}
+.article-body{padding-block:36px 64px}
+.content-section{margin:0 0 24px;padding:30px 34px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow-wrap:anywhere}
+.content-section.intro{padding-top:26px}
+.content-section h2{margin:0 0 20px;padding-bottom:14px;border-bottom:1px solid var(--line);font-family:var(--font-serif);font-size:var(--text-h2);line-height:1.4;letter-spacing:-.025em}
+.content-section h3{margin:28px 0 10px;font-size:var(--text-h3);line-height:1.55;letter-spacing:-.015em}
+.content-section p{margin:0 0 17px}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{margin:0 0 18px;padding-left:1.5em}
+.content-section li{margin:7px 0}
+.content-section a{overflow-wrap:anywhere}
+.source-meta{margin:0!important;padding:0!important;list-style:none;color:var(--sub);font-size:var(--text-sm)}
+.source-meta li{padding:9px 0;margin:0;border-bottom:1px solid var(--line)}
+.source-meta li:last-child{border-bottom:0}
+.summary-section{border-top:3px solid var(--green)}
+.summary-section p:last-child{font-family:var(--font-serif);font-size:20px;line-height:1.75}
+.stage-section{background:#f2f3ed;border-color:#d5ddd2}
+.verdict-section{border-left:3px solid var(--accent)}
+.verdict-section p:last-child{font-size:18px}
+.excerpt-section{scroll-margin-top:24px}
+blockquote{margin:22px 0;padding:20px 24px;background:var(--surface-muted);border-left:3px solid var(--accent);color:var(--ink)}
+blockquote p{font-family:var(--font-serif);line-height:1.85}
+.content-section em{color:var(--sub);font-size:var(--text-sm)}
+.table-scroll{width:100%;margin:20px 0;overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm)}
+table{width:100%;min-width:560px;border-collapse:collapse;font-size:var(--text-sm);line-height:1.7;font-variant-numeric:tabular-nums}
+.score-table{min-width:660px}
+th,td{min-width:96px;padding:13px 15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--surface-muted);color:#484d47;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td:nth-child(2){white-space:nowrap}
+.score-section{padding:0;overflow:hidden;border-top:3px solid var(--green)}
+.score-section>h2{margin:0;padding:26px 34px 20px;background:#eef1e9;border-bottom:1px solid #d5ddd2}
+.score-section>.table-scroll{margin:0;border:0;border-radius:0}
+.score-section td:first-child{font-weight:700;white-space:nowrap}
+.score-section td:nth-child(2){color:var(--green);font-weight:700}
+.coverage-note{margin:0!important;padding:24px 34px;background:#f8f8f2;border-top:1px solid #d5ddd2}
+.coverage-note strong{color:var(--green);font-size:var(--text-sm);letter-spacing:.05em}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+footer{border-top:1px solid var(--line);color:var(--sub);font-size:var(--text-xs)}
+footer .wrap{padding-block:24px 40px}
+footer p{margin:0}
+footer a{min-height:40px;display:inline-flex;align-items:center}
+@media(max-width:680px){
+  :root{--text-base:16px;--text-h2:23px}
+  .wrap{width:min(var(--measure),calc(100% - 32px))}
+  .topnav{align-items:flex-start;flex-direction:column;gap:4px;padding-block:14px 10px}
+  .navlinks{width:100%;gap:0 2px}
+  .navlinks a{padding-inline:8px;font-size:13px}
+  .page-hero .wrap{padding-block:34px 30px}
+  .page-hero h1{font-size:32px;line-height:1.35}
+  .case-meta{margin-bottom:18px}
+  .score-band{gap:14px;margin-top:24px;padding-top:20px}
+  .total-score strong{font-size:46px}
+  .origin{width:100%;margin:6px 0 0}
+  .article-body{padding-block:24px 44px}
+  .content-section{margin-bottom:16px;padding:24px 20px}
+  .content-section h2{margin-bottom:16px;padding-bottom:12px}
+  .summary-section p:last-child{font-size:18px}
+  blockquote{margin:18px 0;padding:16px 18px}
+  th,td{padding:11px 12px}
+  .score-section>h2{padding:22px 20px 17px}
+  .coverage-note{padding:20px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="topnav wrap" aria-label="站内导航">
+  <a class="brand" href="index.html">FDE Casebook</a>
+  <div class="navlinks">
+    <a href="index.html">榜单首页</a>
+    <a href="leaderboard.html">完整榜单</a>
+    <a href="standards.html">入选标准</a>
+    <a href="guide.html">7 环节能力地图</a>
+    <a href="certifications.html">证书栏目</a>
+  </div>
+</nav>
+<header class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">FDE Casebook · Field research</p>
+
+    <h1>FDE 证书栏目｜先帮你分辨，再谈值不值得考</h1>
+
+  </div>
+</header>
+<main class="article-body wrap">
+  <article><section class="content-section intro">
+<blockquote>
+<p>先说一句大实话：目前<strong>没有任何一张 FDE 证书被雇主普遍认可</strong>——这个岗位没有统一的 accreditation 机构，招聘流程也不拿证书筛人（行业内有此共识判断）。一张证书能带来的，至多是"简历上多一行"和"学习路径的骨架"；真正能换 offer 的，永远是交付过的项目和可验证的作品。</p>
+<p>所以这个栏目的定位不是"考证推荐清单"，而是<strong>分辨工具</strong>：每一张证书都按同一把尺子拆开——颁发方是谁、考什么、含不含实操、多少钱、有效期多久、认可证据在哪。值不值得考的结论写在每条末尾，带口径。</p>
+</blockquote>
+</section><section class="content-section"><h2>评价维度（每张证书都按这五条拆）</h2>
+<ol>
+<li><strong>颁发方</strong>：大厂 / 高校 / 独立认证机构 / 培训机构——权威性依次递减，且厂商证书的背书范围基本只在自家生态内。</li>
+<li><strong>考核方式</strong>：纯理论选择题 / 含上机实操 / 以作品（capstone）答辩为准——越接近真实交付，含金量越高。</li>
+<li><strong>与岗位匹配度</strong>：考纲覆盖 7 环节的哪几环？是 FDE 通用能力，还是某家产品的手册？</li>
+<li><strong>成本</strong>：费用（未公开的标"待确认"不编）、备考时长、有效期与续证规则。</li>
+<li><strong>认可证据</strong>：招聘方是否明确提及、持证者就业数据是否可核验——没有证据的，写"无公开证据"，不写"广受认可"。</li>
+</ol>
+</section><section class="content-section"><h2>CERT-001｜腾讯云人工智能前沿部署工程师（FDE）认证</h2>
+<ul class="source-meta">
+<li><strong>颁发方</strong>：腾讯云培训认证（大厂厂商证书）</li>
+<li><strong>出处</strong>：https://cloud.tencent.com/edu/training/cert/detail?type=CID（2026/10/16 更新；经本站核验）</li>
+<li><strong>定位</strong>：以 AI 前沿部署驱动业务落地与组织经验复用的交付型骨干；承担客户需求洞察、企业智能体方案设计与上线安全治理。</li>
+<li><strong>报考画像</strong>：要求有企业客户项目交付经验，参与过需求调研到验收交付完整周期；理解真伪需求识别、评测驱动验收、数据安全边界与人工兜底。</li>
+<li><strong>考核方式</strong>：理论考试；线下，120 分钟，60 题（单选 1.5 分 + 多选 2 分），70 分通过。每次购买只含 1 次考试机会，不过或缺考需重新购买。</li>
+<li><strong>课程</strong>：12 个模块，含 FDE 本质、Echo 与 Delta、进场访谈挖三层、隐性流程、一线抵触、PEV 交付闭环、L0–L4 成熟度框架、Land and Expand、Skill 沉淀、人工兜底。</li>
+<li><strong>知识分布</strong>：概览与方法论 11.5% / 腾讯云 AI 体系矩阵 8.5% / 人工智能工程 10% / WorkBuddy 上手实操 10% / 企业后台与 WMA 配置实战 10% / 进场-挖真需求 10% / 交付-做成且验得动 10% / 沉淀-把经验变成组织资产 10.5% / FDE 养成计划 10% / 安全治理与护栏 9.5%。</li>
+<li><strong>费用</strong>：页面未公开，登录后可见——<strong>待确认，不编数字</strong>。</li>
+<li><strong>有效期</strong>：2 年，到期需重新购买考试续证。</li>
+<li><strong>与岗位匹配度</strong>：覆盖 7 环节多环（进场/交付/沉淀/治理），但约 3 成知识点是腾讯产品矩阵（WorkBuddy、CodeBuddy、ADP、Miora、WMA），通用 FDE 能力约占 7 成。</li>
+<li><strong>认可证据</strong>：无公开的招聘方提及或持证就业数据。</li>
+<li><strong>verdict</strong>：<strong>腾讯生态内值得看，生态外谨慎</strong>。目标岗位在腾讯云/WorkBuddy 相关交付链上，或想快速补一行官方认证时可考虑；若目标是通用 FDE 岗位，备考时间不如花在交付项目和案例库上。</li>
+</ul>
+</section><section class="content-section"><h2>CERT-002｜ADaSci CFDE / CFDAS（海外 · 独立认证机构）</h2>
+<ul>
+<li><strong>颁发方</strong>：ADaSci（独立认证机构，非大厂、非高校）</li>
+<li><strong>出处</strong>：https://adasci.org/forward-deployed-engineer-certification（机构自述，未独立核验费用与通过率）</li>
+<li><strong>定位</strong>：FDE 专项认证。CFDE（30 小时）为入门档；CFDAS（60 小时）= CFDE + Agentic AI 架构（CAASA），12 个模块，120 题、2 小时监考。</li>
+<li><strong>考核方式</strong>：自定进度学习 + 监考笔试；是否含实操作品，未在公开页明确——<strong>待核验</strong>。</li>
+<li><strong>费用 / 有效期</strong>：公开页未明确——<strong>待确认，不编数字</strong>。</li>
+<li><strong>与岗位匹配度</strong>：课程覆盖 FDE 全流程（定范围、接数据、建 Agent 与集成、硬化、安全合规、可观测、度量业务结果、反哺产品），通用性高于厂商证书。</li>
+<li><strong>认可证据</strong>：无公开的招聘方提及或持证就业数据。</li>
+<li><strong>verdict</strong>：<strong>观望</strong>。它是目前少见的"非厂商、通用型"FDE 专项认证，方向对；但机构本身新、认可证据为零，考之前先确认费用、监考形式与证书查验方式。</li>
+</ul>
+</section><section class="content-section"><h2>CERT-003｜IIT Roorkee 远程教育中心 · 前沿部署 AI 工程研究生证书（海外 · 高校）</h2>
+<ul>
+<li><strong>颁发方</strong>：印度理工学院鲁尔基分校（IIT Roorkee）继续教育中心（高校背书）</li>
+<li><strong>出处</strong>：https://futurense.com/iit-roorkee/pg-certificate-in-forward-deployed-ai-engineering（项目页自述）</li>
+<li><strong>定位</strong>：Post Graduate Certificate in Forward Deployed AI Engineering；面向希望进入企业 AI 部署的在职工程师。</li>
+<li><strong>形式</strong>：约 3 个月、约 85 学时，周末线上直播（每次 2–3 小时），每周约 10 小时投入；首期拟 2026 年 9 月开班（以项目页为准）。</li>
+<li><strong>考核方式</strong>：课程制证书，是否含 capstone 答辩未在公开页明确——<strong>待核验</strong>。</li>
+<li><strong>费用</strong>：公开页未明确——<strong>待确认，不编数字</strong>。</li>
+<li><strong>与岗位匹配度</strong>：培养路径覆盖发现 → 原型 → 验证 → 上线 → 迭代的完整部署循环，偏系统学习而非速成考证。</li>
+<li><strong>认可证据</strong>：无公开的招聘方提及或持证就业数据。</li>
+<li><strong>verdict</strong>：<strong>适合想系统补课的人，不适合急着拿证的人</strong>。高校背书在简历上比培训机构好看，但 3 个月周期长、且对国内 FDE 岗位的直接背书有限。</li>
+</ul>
+</section><section class="content-section"><h2>其他：培训机构课程证书（合并说明，不单独编号）</h2>
+<ul>
+<li>Scaler「AI 前沿部署工程师课程」（https://www.scaler.com/ai-forward-deployed-engineer-course/）、Quality Thought「AI FDE 课程」（https://fde.qualitythought.in/，以 capstone 答辩发证）、Learnbay、Nexson IT 等印度培训机构均提供结课证书。</li>
+<li><strong>统一 verdict</strong>：证书本身的区分度低；这类项目的真实价值在作品集（capstone 项目、部署文档、面试辅导），不在证书那一行。选这类项目时，看作品要求和导师背景，不看"包就业"承诺——没有任何培训机构能控制招聘结果。</li>
+</ul>
+</section><section class="content-section"><h2>征集</h2>
+<ul>
+<li>发现新的 FDE 专项认证、或某张证书的费用/通过率/认可证据有更新，欢迎开 Issue，附官方出处直链。核验后按同一评价维度入库。</li>
+<li>本栏目不收"AI 通识课""大模型应用课"等泛 AI 证书，只收明确以 FDE / 前沿部署交付为考核对象的证书。</li>
+</ul></section></article>
+</main>
+<footer><div class="wrap"><p>FDE Casebook · 本页由仓库 Markdown 自动生成，GitHub 仅作源码仓库。维护：Bruce Cao（<a href="https://x.com/sycbruce">@sycbruce</a>）</p></div></footer>
+</body>
+</html>
