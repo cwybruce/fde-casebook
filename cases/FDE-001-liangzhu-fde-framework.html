@@ -3,59 +3,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
 <title>FDE-001｜为什么企业买了 AI 却用不起来：一个一线实践者的 FDE 定义与三层漏斗 — FDE Casebook</title>
 <style>
-:root{--bg:#faf8f5;--card:#fff;--ink:#23202b;--sub:#6d6759;--line:#e8e2d6;--accent:#b4632a;--accent2:#2f6f5e}
+:root{
+  --paper:#f7f4ee;--surface:#fffdfa;--surface-muted:#f0ebe2;--ink:#202522;--sub:#66675f;
+  --line:#ded8cc;--line-strong:#c7bfb1;--accent:#954b25;--accent-bright:#dda77d;--green:#2f6656;
+  --grade-s:#98711c;--grade-a:#954b25;--grade-b:#526b7b;--night:#19211f;--night-sub:#b9c1ba;
+  --font-sans:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --font-serif:Georgia,"Songti SC","Noto Serif CJK SC","SimSun",serif;
+  --text-xs:12px;--text-sm:14px;--text-base:16.5px;--text-h3:19px;--text-h2:26px;--text-h1:42px;
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;
+  --radius-sm:5px;--radius:9px;--shadow:0 8px 24px rgba(34,39,32,.045);--measure:880px;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75}
-.wrap{max-width:820px;margin:0 auto;padding:28px 18px 64px}
-.topnav{font-size:14px;margin-bottom:20px}
-.topnav a{color:var(--accent);text-decoration:none;margin-right:16px}
-.topnav a:hover{text-decoration:underline}
-article{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px 28px;box-shadow:0 1px 3px rgba(60,50,30,.05)}
-article h1{font-size:25px;line-height:1.4;margin:0 0 14px}
-article h2{font-size:19px;margin:28px 0 8px;padding-top:14px;border-top:1px solid var(--line)}
-article h3{font-size:16px;margin:20px 0 6px}
-article a{color:var(--accent)}
-article table{width:100%;border-collapse:collapse;font-size:13.5px;margin:12px 0;display:block;overflow-x:auto}
-article th,article td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
-article th{background:#f3eee3}
-article blockquote{border-left:3px solid var(--accent);margin:12px 0;padding:6px 14px;background:#fbf7ee;color:var(--ink)}
-article hr{border:none;border-top:1px solid var(--line);margin:22px 0}
-article em{color:var(--sub)}
-.origin{display:inline-block;background:var(--accent);color:#fff !important;text-decoration:none;font-weight:600;font-size:14.5px;padding:9px 20px;border-radius:8px;margin:4px 0 14px}
-footer{margin-top:26px;color:var(--sub);font-size:13px}
-footer a{color:var(--accent);text-decoration:none}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-sans);font-size:var(--text-base);line-height:1.85;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.wrap{width:min(var(--measure),calc(100% - 48px));margin-inline:auto}
+.topnav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px;border-bottom:1px solid var(--line);font-size:var(--text-sm)}
+.brand{color:var(--ink);font-family:var(--font-serif);font-size:18px;font-weight:700;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+.navlinks{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.navlinks a{display:inline-flex;align-items:center;min-height:40px;padding:4px 10px;color:var(--sub);text-decoration:none;border-radius:var(--radius-sm)}
+.navlinks a:hover{color:var(--accent);background:var(--surface-muted)}
+.page-hero{background:var(--night);color:#f6f2e9;border-bottom:3px solid var(--accent)}
+.page-hero .wrap{padding-block:52px 46px}
+.eyebrow{margin:0 0 18px;color:var(--accent-bright);font-size:var(--text-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.page-hero h1{max-width:780px;margin:0;font-family:var(--font-serif);font-size:clamp(32px,5vw,var(--text-h1));font-weight:700;line-height:1.28;letter-spacing:-.035em}
+.case-meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px;padding:0;list-style:none}
+.case-meta li{padding:3px 10px;border:1px solid #46504a;border-radius:var(--radius-sm);color:#d5dbd4;font-size:var(--text-xs);line-height:1.7}
+.score-band{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:30px;padding-top:24px;border-top:1px solid #3a433e}
+.total-score{display:flex;align-items:baseline;gap:7px;font-variant-numeric:tabular-nums;line-height:1}
+.total-score strong{font-family:var(--font-serif);font-size:52px;font-weight:400;letter-spacing:-.04em}
+.total-score span{color:var(--night-sub);font-size:var(--text-sm)}
+.grade{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:2px 10px;border:1px solid currentColor;border-radius:var(--radius-sm);font-size:var(--text-sm);font-weight:700;line-height:1.2;white-space:nowrap}
+.grade-s{color:#e0bc69}.grade-a{color:var(--accent-bright)}.grade-b{color:#a8bfce}
+.rank{color:var(--night-sub);font-size:var(--text-sm)}
+.origin{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin-left:auto;padding:8px 18px;background:var(--accent-bright);border:1px solid var(--accent-bright);border-radius:var(--radius-sm);color:var(--night)!important;font-size:var(--text-sm);font-weight:700;text-decoration:none;transition:background .18s ease,transform .18s ease}
+.origin:hover{background:#edbd97;transform:translateY(-1px)}
+.article-body{padding-block:36px 64px}
+.content-section{margin:0 0 24px;padding:30px 34px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow-wrap:anywhere}
+.content-section.intro{padding-top:26px}
+.content-section h2{margin:0 0 20px;padding-bottom:14px;border-bottom:1px solid var(--line);font-family:var(--font-serif);font-size:var(--text-h2);line-height:1.4;letter-spacing:-.025em}
+.content-section h3{margin:28px 0 10px;font-size:var(--text-h3);line-height:1.55;letter-spacing:-.015em}
+.content-section p{margin:0 0 17px}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{margin:0 0 18px;padding-left:1.5em}
+.content-section li{margin:7px 0}
+.content-section a{overflow-wrap:anywhere}
+.source-meta{margin:0!important;padding:0!important;list-style:none;color:var(--sub);font-size:var(--text-sm)}
+.source-meta li{padding:9px 0;margin:0;border-bottom:1px solid var(--line)}
+.source-meta li:last-child{border-bottom:0}
+.summary-section{border-top:3px solid var(--green)}
+.summary-section p:last-child{font-family:var(--font-serif);font-size:20px;line-height:1.75}
+.stage-section{background:#f2f3ed;border-color:#d5ddd2}
+.verdict-section{border-left:3px solid var(--accent)}
+.verdict-section p:last-child{font-size:18px}
+.excerpt-section{scroll-margin-top:24px}
+blockquote{margin:22px 0;padding:20px 24px;background:var(--surface-muted);border-left:3px solid var(--accent);color:var(--ink)}
+blockquote p{font-family:var(--font-serif);line-height:1.85}
+.content-section em{color:var(--sub);font-size:var(--text-sm)}
+.table-scroll{width:100%;margin:20px 0;overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm)}
+table{width:100%;min-width:560px;border-collapse:collapse;font-size:var(--text-sm);line-height:1.7;font-variant-numeric:tabular-nums}
+.score-table{min-width:660px}
+th,td{min-width:96px;padding:13px 15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--surface-muted);color:#484d47;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td:nth-child(2){white-space:nowrap}
+.score-section{padding:0;overflow:hidden;border-top:3px solid var(--green)}
+.score-section>h2{margin:0;padding:26px 34px 20px;background:#eef1e9;border-bottom:1px solid #d5ddd2}
+.score-section>.table-scroll{margin:0;border:0;border-radius:0}
+.score-section td:first-child{font-weight:700;white-space:nowrap}
+.score-section td:nth-child(2){color:var(--green);font-weight:700}
+.coverage-note{margin:0!important;padding:24px 34px;background:#f8f8f2;border-top:1px solid #d5ddd2}
+.coverage-note strong{color:var(--green);font-size:var(--text-sm);letter-spacing:.05em}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+footer{border-top:1px solid var(--line);color:var(--sub);font-size:var(--text-xs)}
+footer .wrap{padding-block:24px 40px}
+footer p{margin:0}
+footer a{min-height:40px;display:inline-flex;align-items:center}
+@media(max-width:680px){
+  :root{--text-base:16px;--text-h2:23px}
+  .wrap{width:min(var(--measure),calc(100% - 32px))}
+  .topnav{align-items:flex-start;flex-direction:column;gap:4px;padding-block:14px 10px}
+  .navlinks{width:100%;gap:0 2px}
+  .navlinks a{padding-inline:8px;font-size:13px}
+  .page-hero .wrap{padding-block:34px 30px}
+  .page-hero h1{font-size:32px;line-height:1.35}
+  .case-meta{margin-bottom:18px}
+  .score-band{gap:14px;margin-top:24px;padding-top:20px}
+  .total-score strong{font-size:46px}
+  .origin{width:100%;margin:6px 0 0}
+  .article-body{padding-block:24px 44px}
+  .content-section{margin-bottom:16px;padding:24px 20px}
+  .content-section h2{margin-bottom:16px;padding-bottom:12px}
+  .summary-section p:last-child{font-size:18px}
+  blockquote{margin:18px 0;padding:16px 18px}
+  th,td{padding:11px 12px}
+  .score-section>h2{padding:22px 20px 17px}
+  .coverage-note{padding:20px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="wrap">
-<nav class="topnav">
-  <a href="../index.html">榜单首页</a>
-  <a href="../leaderboard.html">完整榜单</a>
-  <a href="../standards.html">入选标准</a>
-  <a href="../guide.html">7 环节能力地图</a>
+<nav class="topnav wrap" aria-label="站内导航">
+  <a class="brand" href="../index.html">FDE Casebook</a>
+  <div class="navlinks">
+    <a href="../index.html">榜单首页</a>
+    <a href="../leaderboard.html">完整榜单</a>
+    <a href="../standards.html">入选标准</a>
+    <a href="../guide.html">7 环节能力地图</a>
+  </div>
 </nav>
-<article>
-<a class="origin" href="#original-excerpts">站内读原文摘录 ↓</a>
-<h1>FDE-001｜为什么企业买了 AI 却用不起来：一个一线实践者的 FDE 定义与三层漏斗</h1>
-<ul>
+<header class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">FDE Casebook · Field research</p>
+    <ul class="case-meta"><li>框架型</li><li>行业：通用</li><li>强项环节：⑥上线采用</li></ul>
+    <h1>FDE-001｜为什么企业买了 AI 却用不起来：一个一线实践者的 FDE 定义与三层漏斗</h1>
+    <div class="score-band">
+      <div class="total-score"><strong>68</strong><span>/ 100</span></div>
+      <span class="grade grade-b">B 级</span>
+      <span class="rank">国内榜第 2</span>
+      <a class="origin" href="#original-excerpts">站内读原文摘录 ↓</a>
+    </div>
+  </div>
+</header>
+<main class="article-body wrap">
+  <article><section class="content-section intro">
+<ul class="source-meta">
 <li><strong>来源</strong>：良竹 @liangzhu_AI《掌控AI·FDE实战 01》（X 长文，2026 年 10 月）。作者自述 14 年软件与项目经验，定位 AI 创业、产品出海与 FDE 实践，个人站 liangzhu.me。作者主页：https://x.com/liangzhu_AI （原帖直链待补，拿到后更新）</li>
 <li><strong>可信度</strong>：一手从业者自述（方法论框架，非单一项目复盘；文中未给出具体客户项目数据）</li>
 <li><strong>类型</strong>：框架型案例——它不复盘某一个项目，而是给出判断"企业 AI 为什么落不了地"的分析工具</li>
 <li><strong>分类</strong>：框架型 ｜ 行业：通用 ｜ 强项环节：⑥上线采用 ｜ 榜单评分：68 · B（观察），见 <a href="../LEADERBOARD.html">LEADERBOARD.md</a></li>
 </ul>
-<h2>一句话摘要</h2>
+</section><section class="content-section summary-section"><h2>一句话摘要</h2>
 <p>企业 AI 落地失败，多数不是模型不行、也不是员工不行，而是只修了最底下的操作层，没人做"翻译层"和"结构层"的活——FDE 补的正是这两层。</p>
-<h2>核心框架：三层漏斗</h2>
+</section><section class="content-section"><h2>核心框架：三层漏斗</h2>
 <ol>
 <li><strong>操作层</strong>：买课、买会员、教员工写提示词。门槛最低，绝大多数公司停在这一层。</li>
 <li><strong>翻译层</strong>：把真实业务拆解成 AI 能执行的任务。需要既懂业务又懂模型能力边界的人。</li>
 <li><strong>结构层</strong>：把藏在老员工脑子里的隐性经验，固化成规则、流程和系统约束。最难，也最值钱。</li>
 </ol>
 <p>一个直接推论：只修操作层时，员工只敢拿 AI 改周报、润色通知——不是态度问题，是结构问题。AI 永远只会流向无考核、无风险的边缘活。</p>
-<h2>全流程 7 环节拆解</h2>
-<table>
+</section><section class="content-section stage-section"><h2>全流程 7 环节拆解</h2>
+<div class="table-scroll" tabindex="0"><table>
 <thead>
 <tr>
 <th>环节</th>
@@ -92,24 +185,24 @@ footer a{color:var(--accent);text-decoration:none}
 <td>来源未披露</td>
 </tr>
 </tbody>
-</table>
-<h2>对入行者的启示</h2>
+</table></div>
+</section><section class="content-section"><h2>对入行者的启示</h2>
 <ul>
 <li>面试和工作中被问"为什么企业 AI 用不起来"，先分层再回答：操作层的问题用培训解，翻译层和结构层的问题只能靠下场交付解。把锅推给"员工执行力"，是这个行业最常见的误判。</li>
 <li>FDE 的价值定位不在操作层（那是讲师和售后干的），在翻译层与结构层：拆业务、固化经验、设机器关卡。</li>
 <li>自检问题：你手上正在做的事，属于哪一层？如果长期只有操作层，你做的不是 FDE，是培训。</li>
 </ul>
-<h2>verdict</h2>
+</section><section class="content-section verdict-section"><h2>verdict</h2>
 <p><strong>学。</strong> 这是中文语境里少见的、由一线实践者给出的 FDE 分析框架。它最大的用处是提供一种"分层看问题"的眼光，后面每个案例都可以拿它来对照：这个项目到底卡在哪一层。</p>
 <p><a id="original-excerpts"></a></p>
-<h2>原文摘录（站内可读）</h2>
+</section><section class="content-section excerpt-section"><h2>原文摘录（站内可读）</h2>
 <blockquote>
 <p><strong>三层漏斗（归纳自原文，非原句）</strong>：企业用 AI 分三层——操作层：买课、买会员、教员工写提示词；翻译层：把真实业务拆成 AI 能执行的任务；结构层：把藏在老员工脑子里的隐性经验，固化成规则和流程。绝大多数公司只修了操作层就停了。</p>
 <p><strong>采用失败的解释（归纳自原文，非原句）</strong>：员工不是不会用 AI——只修操作层时，AI 只会被拿去改周报、润色通知，因为它永远只流向无考核、无风险的边缘活。这不是态度问题，是结构问题。</p>
 </blockquote>
 <p><em>摘录说明：本卡来源原帖直链待补（作者主页 https://x.com/liangzhu_AI ），以上为框架要点归纳，未使用引号原句；拿到原帖后将补原句摘录与直链。</em></p>
-<h2>评分与维度分析（总分 68 · B 级观察，国内榜第 2）</h2>
-<table>
+</section><section class="content-section score-section"><h2>评分与维度分析（总分 68 · B 级观察，国内榜第 2）</h2>
+<div class="table-scroll" tabindex="0"><table class="score-table">
 <thead>
 <tr>
 <th>维度</th>
@@ -144,12 +237,11 @@ footer a{color:var(--accent);text-decoration:none}
 <td>三层漏斗可直接当分析工具用，满分</td>
 </tr>
 </tbody>
-</table>
-<p><strong>7 环节覆盖分析</strong>：①选场景 ◐（框架隐含判据）②摸现场 ○未披露 ③定方案 ○未披露 ④数据与集成 ○未披露 ⑤开发交付 ○未披露 ⑥上线采用 ●（本卡核心：采用失败的结构解释）⑦迭代扩单 ○未披露。注：框架型案例的价值不在环节覆盖，在判据本身。</p>
+</table></div>
+<p class="coverage-note"><strong>7 环节覆盖分析</strong>：①选场景 ◐（框架隐含判据）②摸现场 ○未披露 ③定方案 ○未披露 ④数据与集成 ○未披露 ⑤开发交付 ○未披露 ⑥上线采用 ●（本卡核心：采用失败的结构解释）⑦迭代扩单 ○未披露。注：框架型案例的价值不在环节覆盖，在判据本身。</p>
 <hr />
-<p><em>本文为公开来源的学习拆解，观点归纳自原作者公开内容，引文均为短引；数字与事实口径以原文为准。原作者如认为引用不当，请通过 Issues 联系删除。</em></p>
-</article>
-<footer><p>FDE Casebook · 本页由仓库 Markdown 自动生成，GitHub 仅作源码仓库。维护：Bruce Cao（<a href="https://x.com/sycbruce">@sycbruce</a>）</p></footer>
-</div>
+<p><em>本文为公开来源的学习拆解，观点归纳自原作者公开内容，引文均为短引；数字与事实口径以原文为准。原作者如认为引用不当，请通过 Issues 联系删除。</em></p></section></article>
+</main>
+<footer><div class="wrap"><p>FDE Casebook · 本页由仓库 Markdown 自动生成，GitHub 仅作源码仓库。维护：Bruce Cao（<a href="https://x.com/sycbruce">@sycbruce</a>）</p></div></footer>
 </body>
 </html>
