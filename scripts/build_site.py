@@ -17,12 +17,14 @@ import markdown
 
 ROOT = Path(__file__).resolve().parent.parent
 
-ORIGINALS = {
-    "FDE-001-liangzhu-fde-framework": ("https://x.com/liangzhu_AI", "作者主页 ↗（原帖直链待补）"),
-    "FDE-002-openai-deployment-gap": ("https://openai.com/index/forward-deployed-engineering-means/", "阅读原文 ↗"),
-    "FDE-003-miles-mazy-geely-training": ("https://x.com/miles_mazy/status/2113624481759429118", "阅读原文 ↗"),
-    "FDE-004-china-entrepreneur-fde-truth": ("https://finance.sina.cn/stock/jdts/2026-10-21/detail-inivysym6175878.d.html", "阅读原文 ↗"),
-}
+# 阅读不出站：案例页顶部按钮只跳到本页「原文摘录（站内可读）」锚点，
+# 原始出处链接仅在摘录节末尾以小字出现，供核验，不作阅读入口。
+CASE_STEMS = [
+    "FDE-001-liangzhu-fde-framework",
+    "FDE-002-openai-deployment-gap",
+    "FDE-003-miles-mazy-geely-training",
+    "FDE-004-china-entrepreneur-fde-truth",
+]
 
 CSS = """
 :root{--bg:#faf8f5;--card:#fff;--ink:#23202b;--sub:#6d6759;--line:#e8e2d6;--accent:#b4632a;--accent2:#2f6f5e}
@@ -99,8 +101,7 @@ def main() -> int:
     jobs = []
     for md in sorted((ROOT / "cases").glob("*.md")):
         stem = md.stem
-        url, label = ORIGINALS.get(stem, ("", ""))
-        origin = f'<a class="origin" href="{url}" target="_blank" rel="noopener">{label}</a>' if url else ""
+        origin = '<a class="origin" href="#original-excerpts">站内读原文摘录 ↓</a>' if stem in CASE_STEMS else ""
         jobs.append((md, ROOT / "cases" / f"{stem}.html", "../", origin))
     jobs.append((ROOT / "LEADERBOARD.md", ROOT / "leaderboard.html", "", ""))
     jobs.append((ROOT / "STANDARDS.md", ROOT / "standards.html", "", ""))
