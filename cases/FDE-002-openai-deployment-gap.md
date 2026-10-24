@@ -3,6 +3,7 @@
 - **来源**：Colin Jarvis（OpenAI FDE 负责人）《What FDE Means at OpenAI》，OpenAI 官方博客，2026-10-22。原文：https://openai.com/index/forward-deployed-engineering-means/
 - **可信度**：官方一手（FDE 团队负责人亲笔；文中数字为 OpenAI 官方口径，未经第三方独立核验）
 - **类型**：完整项目型案例（含半导体、电信两个客户场景）
+- **分类**：项目型 ｜ 行业：半导体 / 电信 ｜ 模式：大厂 FDE 团队驻场 ｜ 强项环节：⑤开发交付 ⑦迭代扩单 ｜ 榜单评分：92 · S（精选主榜第 1），见 [LEADERBOARD.md](../LEADERBOARD.md)
 
 ## 一句话摘要
 

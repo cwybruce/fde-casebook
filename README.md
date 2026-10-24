@@ -22,14 +22,32 @@ FDE 是 2025 年以来科技行业增长最快的岗位之一：OpenAI、Anthrop
 
 **拆解纪律**：每个环节只写来源里真实讲到的；来源没讲的，明确标注「来源未披露」，绝不脑补。数字一律注明口径（官方口径/作者自报/媒体观察），未独立核验的会写明。案例的可迁移启示写在每篇末尾的「对入行者的启示」，点评结论写在 verdict 里：学 / 不学，为什么。
 
-## 案例索引
+## 案例索引（按形态分类呈现，全榜与评分见 [LEADERBOARD.md](LEADERBOARD.md)）
 
-| 编号 | 标题 | 来源 | 类型 |
-|---|---|---|---|
-| [FDE-001](cases/FDE-001-liangzhu-fde-framework.md) | 为什么企业买了 AI 却用不起来：FDE 定义与三层漏斗 | 良竹 @liangzhu_AI，一手从业者自述 | 框架型 |
-| [FDE-002](cases/FDE-002-openai-deployment-gap.md) | OpenAI 的 FDE：删掉 90% 定制代码 | OpenAI 官方博客（FDE 负责人亲笔） | 完整项目型 |
-| [FDE-003](cases/FDE-003-miles-mazy-geely-training.md) | 站在吉利近 500 人面前讲 FDE：企业培训现场 | @miles_mazy，一手从业者自述 | 观察型 |
-| [FDE-004](cases/FDE-004-china-entrepreneur-fde-truth.md) | 一天一万元疯抢 FDE，落地的残酷真相 | 《中国企业家》媒体深度报道 | 行业拼图型 |
+**项目型**
+| 编号 | 标题 | 来源 | 行业 | 评分 |
+|---|---|---|---|---|
+| [FDE-002](cases/FDE-002-openai-deployment-gap.md) | OpenAI 的 FDE：删掉 90% 定制代码 | OpenAI 官方博客（FDE 负责人亲笔） | 半导体 / 电信 | 92 · S |
+
+**框架型**
+| 编号 | 标题 | 来源 | 行业 | 评分 |
+|---|---|---|---|---|
+| [FDE-001](cases/FDE-001-liangzhu-fde-framework.md) | 为什么企业买了 AI 却用不起来：FDE 定义与三层漏斗 | 良竹 @liangzhu_AI，一手从业者自述 | 通用 | 68 · B |
+
+**观察型**
+| 编号 | 标题 | 来源 | 行业 | 评分 |
+|---|---|---|---|---|
+| [FDE-003](cases/FDE-003-miles-mazy-geely-training.md) | 站在吉利近 500 人面前讲 FDE：企业培训现场 | @miles_mazy，一手从业者自述 | 汽车 | 58 · B |
+
+**拼图型**
+| 编号 | 标题 | 来源 | 行业 | 评分 |
+|---|---|---|---|---|
+| [FDE-004](cases/FDE-004-china-entrepreneur-fde-truth.md) | 一天一万元疯抢 FDE，落地的残酷真相 | 《中国企业家》媒体深度报道 | 跨行业 | 78 · A |
+
+## 榜单与入选标准
+
+- [FDE 榜单（LEADERBOARD.md）](LEADERBOARD.md)：不排热度，排含金量——案例精选主榜 + 分类全榜 + 人物榜（值得长期盯的一手来源）
+- [入选标准（STANDARDS.md）](STANDARDS.md)：硬门槛一票否决 + 100 分五维评分 + 三维分类，全部公开
 
 ## 入行指南（跨案例提炼）
 
