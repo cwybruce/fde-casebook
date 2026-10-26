@@ -83,6 +83,7 @@ main{padding-block:16px 64px}
 @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .verdict{margin:0;padding:14px 16px;background:#f5f0e7;border-left:3px solid var(--accent);color:#45463f;font-size:var(--text-sm);line-height:1.75}
 .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.card{margin:0 0 22px;padding:22px 24px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
 .card-note{margin:14px 0 0;color:var(--sub);font-size:var(--text-xs)}
 .people-list{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
 .person{display:grid;grid-template-columns:180px 210px minmax(0,1fr) 64px;gap:20px;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
@@ -158,6 +159,8 @@ footer a{display:inline-flex;align-items:center;min-height:40px}
     <a href="standards.html">入选标准</a>
     <a href="guide.html">7 环节能力地图</a>
     <a href="certifications.html">证书栏目</a>
+    <a href="job-market.html">招聘与市场</a>
+    <a href="changelog.html">更新日志</a>
   </div>
 </nav>
 <div class="wrap">
@@ -178,10 +181,32 @@ footer a{display:inline-flex;align-items:center;min-height:40px}
 </header>
 
 <main>
-<section class="board-section" id="overseas-cases">
-  <div class="section-head"><h2>海外案例榜</h2><span class="en">Overseas Cases</span></div>
-  <p class="note">评分维度：来源可信度 30 / 流程完整度 25 / 困难与解法密度 20 / 数字可核验性 15 / 可迁移性 10。</p>
+<section class="board-section" id="reading-path">
+  <div class="section-head"><h2>新手路径 · 先读这三篇</h2><span class="en">Start Here</span></div>
+  <p class="note">第一次来，不用按编号读。按这个顺序，三篇就能摸到 FDE 落地的正反两面加一套分析工具：</p>
+  <div class="card">
+    <p class="ctitle">① <a href="cases/FDE-005-bylixing-agent-into-enterprise.html">FDE-005｜用一流模型，选二流方案</a>（甲方视角）</p>
+    <p class="card-note">先看甲方老板亲述乙方进来会撞什么墙：权限两个月、信息税、分配先于考核。</p>
+    <p class="ctitle">② <a href="cases/FDE-002-openai-deployment-gap.html">FDE-002｜删掉 90% 定制代码</a>（乙方天花板）</p>
+    <p class="card-note">再看 OpenAI 怎么做交付：删代码观、Eval 先行、复制三件事。</p>
+    <p class="ctitle">③ <a href="cases/FDE-001-liangzhu-fde-framework.html">FDE-001｜FDE 定义与三层漏斗</a>（分析工具）</p>
+    <p class="card-note">最后拿三层漏斗当工具，去拆任何一个企业 AI 项目为什么用不起来。</p>
+    <p class="card-note">按环节找：⑥上线采用 → FDE-005；⑤开发交付 → FDE-002；②摸现场 → FDE-004；完整五维评分见<a href="leaderboard.html">完整榜单</a>。</p>
+  </div>
+</section>
 
+<section class="board-section" id="latest-updates">
+  <div class="section-head"><h2>最新更新</h2><span class="en">Latest</span></div>
+  <div class="card">
+    <p class="ctitle">2026-10-26｜<a href="cases/FDE-005-bylixing-agent-into-enterprise.html">新增 FDE-005，国内榜首易主</a></p>
+    <p class="card-note">张立行甲方案例 86 分 · S 级登顶国内榜；人物榜新增张立行。另：新增「招聘与市场」累计页与本页导读结构。</p>
+    <p class="card-note">往期变动见<a href="changelog.html">更新日志</a>；每日新案例与市场统计见每日日报（本对话）。</p>
+  </div>
+</section>
+
+<section class="board-section" id="overseas-cases">
+  <div class="section-head"><h2>海外案例榜 · 速览</h2><span class="en">Overseas Cases</span></div>
+  <p class="note">速览只列名次与分数，五维评分与评价见<a href="leaderboard.html">完整榜单</a>。</p>
   <article class="case-card">
     <div class="case-rank"><strong>01</strong><span>海外第 1 名</span></div>
     <div class="case-content">
@@ -189,24 +214,15 @@ footer a{display:inline-flex;align-items:center;min-height:40px}
         <h3 class="ctitle"><a href="cases/FDE-002-openai-deployment-gap.html">FDE-002｜OpenAI 的 FDE：删掉 90% 定制代码</a></h3>
         <div class="score"><strong>92</strong><small class="grade grade-s">S 级</small></div>
       </div>
-      <div class="tags"><span>项目型</span><span>半导体 / 电信</span><span>大厂 FDE 团队驻场</span><span>强项：⑤开发交付 ⑦迭代扩单</span></div>
-      <div class="dims">
-        <div class="dim"><span class="name">来源可信度</span><span class="bar"><i style="width:97%"></i></span><span class="val">29/30</span><span class="cmt">官方博客、FDE 负责人亲笔；仅因数字未经第三方核验扣 1 分</span></div>
-        <div class="dim"><span class="name">流程完整度</span><span class="bar"><i style="width:88%"></i></span><span class="val">22/25</span><span class="cmt">7 环节覆盖 6 环，仅数据与集成一句带过</span></div>
-        <div class="dim"><span class="name">困难与解法</span><span class="bar"><i style="width:90%"></i></span><span class="val">18/20</span><span class="cmt">模型只有 60% 时如实告知客户并反哺 Research，别处学不到</span></div>
-        <div class="dim"><span class="name">数字可核验</span><span class="bar"><i style="width:87%"></i></span><span class="val">13/15</span><span class="cmt">48% 省时、90% 删减、2 个月→1 天，硬数字密集但为官方口径</span></div>
-        <div class="dim"><span class="name">可迁移性</span><span class="bar"><i style="width:100%"></i></span><span class="val">10/10</span><span class="cmt">删代码观、Eval 先行、复制三件事，可直接照做</span></div>
-      </div>
-      <p class="verdict">总评：目前公开材料里 FDE 项目复盘的天花板。主榜第 1 名短期内很难被超过。</p>
-      <div class="btns"><a class="btn primary" href="cases/FDE-002-openai-deployment-gap.html#original-excerpts">站内读原文摘录</a><a class="btn ghost" href="cases/FDE-002-openai-deployment-gap.html">看拆解</a></div>
+      <div class="tags"><span>项目型</span><span>半导体 / 电信</span><span>强项：⑤开发交付 ⑦迭代扩单</span></div>
+      <div class="btns"><a class="btn ghost" href="cases/FDE-002-openai-deployment-gap.html">看拆解</a></div>
     </div>
   </article>
-  <p class="note">海外榜目前仅 1 个入选——完整项目型且过硬门槛的海外公开材料同样稀缺，持续收集中。</p>
 </section>
 
 <section class="board-section" id="china-cases">
-  <div class="section-head"><h2>国内案例榜</h2><span class="en">China Cases</span></div>
-
+  <div class="section-head"><h2>国内案例榜 · 速览</h2><span class="en">China Cases</span></div>
+  <p class="note">速览只列名次与分数，五维评分与评价见<a href="leaderboard.html">完整榜单</a>。</p>
   <article class="case-card">
     <div class="case-rank"><strong>01</strong><span>国内第 1 名</span></div>
     <div class="case-content">
@@ -215,18 +231,9 @@ footer a{display:inline-flex;align-items:center;min-height:40px}
         <div class="score"><strong>86</strong><small class="grade grade-s">S 级</small></div>
       </div>
       <div class="tags"><span>框架型</span><span>电商（跨境电商）</span><span>强项：⑥上线采用 ④数据与集成</span></div>
-      <div class="dims">
-        <div class="dim"><span class="name">来源可信度</span><span class="bar"><i style="width:90%"></i></span><span class="val">27/30</span><span class="cmt">作者亲述全年实践、博客首发可核验；公司名未披露、数字自报扣 3 分</span></div>
-        <div class="dim"><span class="name">流程完整度</span><span class="bar"><i style="width:88%"></i></span><span class="val">22/25</span><span class="cmt">7 环节覆盖 6 环半，国内单篇覆盖最全</span></div>
-        <div class="dim"><span class="name">困难与解法</span><span class="bar"><i style="width:95%"></i></span><span class="val">19/20</span><span class="cmt">信息税、权限两个月、分配先于考核，全是组织级真现场</span></div>
-        <div class="dim"><span class="name">数字可核验</span><span class="bar"><i style="width:53%"></i></span><span class="val">8/15</span><span class="cmt">Token 量与月成本具体但全为自报、无第三方核验</span></div>
-        <div class="dim"><span class="name">可迁移性</span><span class="bar"><i style="width:100%"></i></span><span class="val">10/10</span><span class="cmt">二流解清单、光谱定位、金字塔、模型分层，可直接照做</span></div>
-      </div>
-      <p class="verdict">总评：本库第一篇甲方案例，也是国内榜第一个 S 级。与良竹 FDE 实战 01 正反对照读效果最好。</p>
-      <div class="btns"><a class="btn primary" href="cases/FDE-005-bylixing-agent-into-enterprise.html#original-excerpts">站内读原文摘录</a><a class="btn ghost" href="cases/FDE-005-bylixing-agent-into-enterprise.html">看拆解</a></div>
+      <div class="btns"><a class="btn ghost" href="cases/FDE-005-bylixing-agent-into-enterprise.html">看拆解</a></div>
     </div>
   </article>
-
   <article class="case-card">
     <div class="case-rank"><strong>02</strong><span>国内第 2 名</span></div>
     <div class="case-content">
@@ -235,18 +242,9 @@ footer a{display:inline-flex;align-items:center;min-height:40px}
         <div class="score"><strong>78</strong><small class="grade grade-a">A 级</small></div>
       </div>
       <div class="tags"><span>拼图型</span><span>跨行业（制造 / to B 软件）</span><span>强项：②摸现场 ⑥上线采用</span></div>
-      <div class="dims">
-        <div class="dim"><span class="name">来源可信度</span><span class="bar"><i style="width:67%"></i></span><span class="val">20/30</span><span class="cmt">实名口述为主，但含匿名信源与转述，薪酬为媒体观察口径</span></div>
-        <div class="dim"><span class="name">流程完整度</span><span class="bar"><i style="width:92%"></i></span><span class="val">23/25</span><span class="cmt">7 环节几乎全覆盖，国内罕见的"全程图"</span></div>
-        <div class="dim"><span class="name">困难与解法</span><span class="bar"><i style="width:95%"></i></span><span class="val">19/20</span><span class="cmt">利益再分配、集成无人认领、续费死亡，全是真现场</span></div>
-        <div class="dim"><span class="name">数字可核验</span><span class="bar"><i style="width:47%"></i></span><span class="val">7/15</span><span class="cmt">定价为自报、薪酬为媒体查招聘平台，多处未核验</span></div>
-        <div class="dim"><span class="name">可迁移性</span><span class="bar"><i style="width:90%"></i></span><span class="val">9/10</span><span class="cmt">两类 FDE 之分、利益清单、验收要看得见的数字</span></div>
-      </div>
-      <p class="verdict">总评：国内榜目前信息量最大的一条。当"行业现场拼图"读，不要当单一项目复盘引用。</p>
-      <div class="btns"><a class="btn primary" href="cases/FDE-004-china-entrepreneur-fde-truth.html#original-excerpts">站内读原文摘录</a><a class="btn ghost" href="cases/FDE-004-china-entrepreneur-fde-truth.html">看拆解</a></div>
+      <div class="btns"><a class="btn ghost" href="cases/FDE-004-china-entrepreneur-fde-truth.html">看拆解</a></div>
     </div>
   </article>
-
   <article class="case-card">
     <div class="case-rank"><strong>03</strong><span>国内第 3 名</span></div>
     <div class="case-content">
@@ -255,19 +253,9 @@ footer a{display:inline-flex;align-items:center;min-height:40px}
         <div class="score"><strong>68</strong><small class="grade grade-b">B 级 · 观察</small></div>
       </div>
       <div class="tags"><span>框架型</span><span>通用</span><span>强项：⑥上线采用</span></div>
-      <div class="dims">
-        <div class="dim"><span class="name">来源可信度</span><span class="bar"><i style="width:80%"></i></span><span class="val">24/30</span><span class="cmt">自述 14 年经验的一线实践者；框架未经其项目数据佐证</span></div>
-        <div class="dim"><span class="name">流程完整度</span><span class="bar"><i style="width:68%"></i></span><span class="val">17/25</span><span class="cmt">分层逻辑自洽，但只实质覆盖上线采用一环</span></div>
-        <div class="dim"><span class="name">困难与解法</span><span class="bar"><i style="width:65%"></i></span><span class="val">13/20</span><span class="cmt">有"为什么没人用"的结构解释，无具体项目现场</span></div>
-        <div class="dim"><span class="name">数字可核验</span><span class="bar"><i style="width:27%"></i></span><span class="val">4/15</span><span class="cmt">全文无项目数字——主要短板</span></div>
-        <div class="dim"><span class="name">可迁移性</span><span class="bar"><i style="width:100%"></i></span><span class="val">10/10</span><span class="cmt">满分。三层漏斗可立刻拿去分析任何企业 AI 项目</span></div>
-      </div>
-      <p class="verdict">总评：分数不高是因为它不是项目案例；论框架价值，它是国内材料里最值得先读的一篇。</p>
-      <div class="btns"><a class="btn primary" href="cases/FDE-001-liangzhu-fde-framework.html#original-excerpts">站内读原文摘录</a><a class="btn ghost" href="cases/FDE-001-liangzhu-fde-framework.html">看拆解</a></div>
-      <p class="card-note">注：原帖直链待补，拿到后第一时间更新为原文直达。</p>
+      <div class="btns"><a class="btn ghost" href="cases/FDE-001-liangzhu-fde-framework.html">看拆解</a></div>
     </div>
   </article>
-
   <article class="case-card">
     <div class="case-rank"><strong>04</strong><span>国内第 4 名</span></div>
     <div class="case-content">
@@ -275,16 +263,8 @@ footer a{display:inline-flex;align-items:center;min-height:40px}
         <h3 class="ctitle"><a href="cases/FDE-003-miles-mazy-geely-training.html">FDE-003｜站在吉利近 500 人面前讲 FDE：企业培训现场</a></h3>
         <div class="score"><strong>58</strong><small class="grade grade-b">B 级 · 观察</small></div>
       </div>
-      <div class="tags"><span>观察型</span><span>汽车</span><span>专家培训切入</span><span>强项：⑥上线采用</span></div>
-      <div class="dims">
-        <div class="dim"><span class="name">来源可信度</span><span class="bar"><i style="width:77%"></i></span><span class="val">23/30</span><span class="cmt">一手自述、现场可佐证；"近 20 个案例"为自报</span></div>
-        <div class="dim"><span class="name">流程完整度</span><span class="bar"><i style="width:36%"></i></span><span class="val">9/25</span><span class="cmt">项目过程基本未披露，只有需求侧信号</span></div>
-        <div class="dim"><span class="name">困难与解法</span><span class="bar"><i style="width:55%"></i></span><span class="val">11/20</span><span class="cmt">"运维脏活"一条观察含金量高，其余稀薄</span></div>
-        <div class="dim"><span class="name">数字可核验</span><span class="bar"><i style="width:33%"></i></span><span class="val">5/15</span><span class="cmt">近 500 人、近 20 个案例均为自报口径</span></div>
-        <div class="dim"><span class="name">可迁移性</span><span class="bar"><i style="width:100%"></i></span><span class="val">10/10</span><span class="cmt">职业路径样本 + multi-agent 必学判断，直接有用</span></div>
-      </div>
-      <p class="verdict">总评：当信号读，别当案例读。排名随作者后续披露真实项目过程而变动。</p>
-      <div class="btns"><a class="btn primary" href="cases/FDE-003-miles-mazy-geely-training.html#original-excerpts">站内读原文摘录</a><a class="btn ghost" href="cases/FDE-003-miles-mazy-geely-training.html">看拆解</a></div>
+      <div class="tags"><span>观察型</span><span>汽车</span><span>强项：⑥上线采用</span></div>
+      <div class="btns"><a class="btn ghost" href="cases/FDE-003-miles-mazy-geely-training.html">看拆解</a></div>
     </div>
   </article>
 </section>
