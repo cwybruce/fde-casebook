@@ -6,7 +6,7 @@
 
 **网页版（全部内容站内可读，原文核心段落已摘录进各案例页）**：https://cwybruce.github.io/fde-casebook/
 
-最近更新：2026-10-24（v0.3，双榜分开 + 每案五维分数与评价）
+最近更新：2026-10-26（新增 FDE-005 张立行甲方案例，86 分 S 级，国内榜首易主）
 
 ---
 
@@ -32,7 +32,21 @@
 
 ## 二、国内案例榜
 
-### 第 1 名 · [FDE-004 《中国企业家》深访：落地的残酷真相](cases/FDE-004-china-entrepreneur-fde-truth.md) — 78 分 · A 级
+### 第 1 名 · [FDE-005 张立行：用一流模型，选二流方案](cases/FDE-005-bylixing-agent-into-enterprise.md) — 86 分 · S 级
+分类：框架型 ｜ 电商（跨境电商）｜ 甲方内部架构师自建 ｜ 强项环节 ⑥上线采用 ④数据与集成
+原文：https://zj1123581321.com/posts/261023-agent-into-enterprise/
+
+| 维度 | 分数 | 评价 |
+|---|---|---|
+| 来源可信度 | 27/30 | 作者本人亲述全年实践、博客首发全文可核验；仅因公司名未披露、内部数字自报扣 3 分 |
+| 流程完整度 | 22/25 | 7 环节覆盖 6 环半，是国内材料里覆盖最全的单篇；仅迭代扩单的复制路径未披露 |
+| 困难与解法密度 | 19/20 | 信息税、权限两个月、分配先于考核、贡献者被裁禁区——组织级别的真现场 |
+| 数字可核验性 | 8/15 | Token 量与月成本具体但全为自报、无第三方核验 |
+| 可迁移性 | 10/10 | 二流解清单、光谱定位、人员金字塔、模型分层，可直接照做 |
+
+总评：本库第一篇甲方案例，也是国内榜第一个 S 级。与良竹 FDE 实战 01 做正反对照读效果最好；引用时注意公司名未披露、内部数字自报、分配方案自承未落地三处口径。
+
+### 第 2 名 · [FDE-004 《中国企业家》深访：落地的残酷真相](cases/FDE-004-china-entrepreneur-fde-truth.md) — 78 分 · A 级
 分类：拼图型 ｜ 跨行业（制造 / to B 软件）｜ 强项环节 ②摸现场 ⑥上线采用
 原文：https://finance.sina.cn/stock/jdts/2026-10-21/detail-inivysym6175878.d.html
 
@@ -46,7 +60,7 @@
 
 总评：国内榜目前信息量最大的一条。把它当"行业现场拼图"读，不要当单一项目复盘引用。
 
-### 第 2 名 · [FDE-001 良竹：FDE 定义与三层漏斗](cases/FDE-001-liangzhu-fde-framework.md) — 68 分 · B 级（观察）
+### 第 3 名 · [FDE-001 良竹：FDE 定义与三层漏斗](cases/FDE-001-liangzhu-fde-framework.md) — 68 分 · B 级（观察）
 分类：框架型 ｜ 通用 ｜ 强项环节 ⑥上线采用
 原文：作者主页 https://x.com/liangzhu_AI （原帖直链待补）
 
@@ -60,7 +74,7 @@
 
 总评：分数不高是因为它不是项目案例；但就"框架价值"单项论，它是国内材料里最值得先读的一篇。
 
-### 第 3 名 · [FDE-003 @miles_mazy：吉利近 500 人培训现场](cases/FDE-003-miles-mazy-geely-training.md) — 58 分 · B 级（观察）
+### 第 4 名 · [FDE-003 @miles_mazy：吉利近 500 人培训现场](cases/FDE-003-miles-mazy-geely-training.md) — 58 分 · B 级（观察）
 分类：观察型 ｜ 汽车 ｜ 专家培训切入 ｜ 强项环节 ⑥上线采用
 原文：https://x.com/miles_mazy/status/2113624481759429118
 
@@ -90,6 +104,7 @@
 
 | 人物 | 身份 | 为什么值得盯 | 一手含量 | 相关案例 |
 |---|---|---|---|---|
+| 张立行 [@bylixing](https://x.com/bylixing) | 跨境电商公司 Agent 架构师，一人搭完全公司 Agent 底座 | 中文语境第一篇甲方视角落地长文，二流解/信息税/分配先于考核的源头 | A | [FDE-005](cases/FDE-005-bylixing-agent-into-enterprise.md) |
 | 良竹 [@liangzhu_AI](https://x.com/liangzhu_AI) | 一线实践者，自述 14 年软件与项目经验 | 《掌控AI·FDE实战》系列，把 FDE 讲成可执行框架的中文作者 | A | [FDE-001](cases/FDE-001-liangzhu-fde-framework.md) |
 | [@miles_mazy](https://x.com/miles_mazy) | 大厂 AI 专家裸辞，做企业培训与落地 | 高频发布企业现场信号（车企培训、multi-agent 教学），观察头部企业需求的窗口 | A | [FDE-003](cases/FDE-003-miles-mazy-geely-training.md) |
 | 冯璐瑶 | 钥蚀科技创始人，FDE 创业交付团队 | 少数公开真实定价与中小客户画像的创业型 FDE（目前信源经媒体深访转述） | B | [FDE-004](cases/FDE-004-china-entrepreneur-fde-truth.md) |

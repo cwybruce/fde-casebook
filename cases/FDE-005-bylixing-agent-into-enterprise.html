@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>FDE-005｜众人拾柴火焰高：实体企业上 Agent，用一流模型，选二流方案 — FDE Casebook</title>
+<style>
+:root{
+  --paper:#f7f4ee;--surface:#fffdfa;--surface-muted:#f0ebe2;--ink:#202522;--sub:#66675f;
+  --line:#ded8cc;--line-strong:#c7bfb1;--accent:#954b25;--accent-bright:#dda77d;--green:#2f6656;
+  --grade-s:#98711c;--grade-a:#954b25;--grade-b:#526b7b;--night:#19211f;--night-sub:#b9c1ba;
+  --font-sans:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --font-serif:Georgia,"Songti SC","Noto Serif CJK SC","SimSun",serif;
+  --text-xs:12px;--text-sm:14px;--text-base:16.5px;--text-h3:19px;--text-h2:26px;--text-h1:42px;
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;
+  --radius-sm:5px;--radius:9px;--shadow:0 8px 24px rgba(34,39,32,.045);--measure:880px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-sans);font-size:var(--text-base);line-height:1.85;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.wrap{width:min(var(--measure),calc(100% - 48px));margin-inline:auto}
+.topnav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px;border-bottom:1px solid var(--line);font-size:var(--text-sm)}
+.brand{color:var(--ink);font-family:var(--font-serif);font-size:18px;font-weight:700;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+.navlinks{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.navlinks a{display:inline-flex;align-items:center;min-height:40px;padding:4px 10px;color:var(--sub);text-decoration:none;border-radius:var(--radius-sm)}
+.navlinks a:hover{color:var(--accent);background:var(--surface-muted)}
+.page-hero{background:var(--night);color:#f6f2e9;border-bottom:3px solid var(--accent)}
+.page-hero .wrap{padding-block:52px 46px}
+.eyebrow{margin:0 0 18px;color:var(--accent-bright);font-size:var(--text-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.page-hero h1{max-width:780px;margin:0;font-family:var(--font-serif);font-size:clamp(32px,5vw,var(--text-h1));font-weight:700;line-height:1.28;letter-spacing:-.035em}
+.case-meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px;padding:0;list-style:none}
+.case-meta li{padding:3px 10px;border:1px solid #46504a;border-radius:var(--radius-sm);color:#d5dbd4;font-size:var(--text-xs);line-height:1.7}
+.score-band{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:30px;padding-top:24px;border-top:1px solid #3a433e}
+.total-score{display:flex;align-items:baseline;gap:7px;font-variant-numeric:tabular-nums;line-height:1}
+.total-score strong{font-family:var(--font-serif);font-size:52px;font-weight:400;letter-spacing:-.04em}
+.total-score span{color:var(--night-sub);font-size:var(--text-sm)}
+.grade{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:2px 10px;border:1px solid currentColor;border-radius:var(--radius-sm);font-size:var(--text-sm);font-weight:700;line-height:1.2;white-space:nowrap}
+.grade-s{color:#e0bc69}.grade-a{color:var(--accent-bright)}.grade-b{color:#a8bfce}
+.rank{color:var(--night-sub);font-size:var(--text-sm)}
+.origin{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin-left:auto;padding:8px 18px;background:var(--accent-bright);border:1px solid var(--accent-bright);border-radius:var(--radius-sm);color:var(--night)!important;font-size:var(--text-sm);font-weight:700;text-decoration:none;transition:background .18s ease,transform .18s ease}
+.origin:hover{background:#edbd97;transform:translateY(-1px)}
+.article-body{padding-block:36px 64px}
+.content-section{margin:0 0 24px;padding:30px 34px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow-wrap:anywhere}
+.content-section.intro{padding-top:26px}
+.content-section h2{margin:0 0 20px;padding-bottom:14px;border-bottom:1px solid var(--line);font-family:var(--font-serif);font-size:var(--text-h2);line-height:1.4;letter-spacing:-.025em}
+.content-section h3{margin:28px 0 10px;font-size:var(--text-h3);line-height:1.55;letter-spacing:-.015em}
+.content-section p{margin:0 0 17px}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{margin:0 0 18px;padding-left:1.5em}
+.content-section li{margin:7px 0}
+.content-section a{overflow-wrap:anywhere}
+.source-meta{margin:0!important;padding:0!important;list-style:none;color:var(--sub);font-size:var(--text-sm)}
+.source-meta li{padding:9px 0;margin:0;border-bottom:1px solid var(--line)}
+.source-meta li:last-child{border-bottom:0}
+.summary-section{border-top:3px solid var(--green)}
+.summary-section p:last-child{font-family:var(--font-serif);font-size:20px;line-height:1.75}
+.stage-section{background:#f2f3ed;border-color:#d5ddd2}
+.verdict-section{border-left:3px solid var(--accent)}
+.verdict-section p:last-child{font-size:18px}
+.excerpt-section{scroll-margin-top:24px}
+blockquote{margin:22px 0;padding:20px 24px;background:var(--surface-muted);border-left:3px solid var(--accent);color:var(--ink)}
+blockquote p{font-family:var(--font-serif);line-height:1.85}
+.content-section em{color:var(--sub);font-size:var(--text-sm)}
+.table-scroll{width:100%;margin:20px 0;overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm)}
+table{width:100%;min-width:560px;border-collapse:collapse;font-size:var(--text-sm);line-height:1.7;font-variant-numeric:tabular-nums}
+.score-table{min-width:660px}
+th,td{min-width:96px;padding:13px 15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--surface-muted);color:#484d47;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td:nth-child(2){white-space:nowrap}
+.score-section{padding:0;overflow:hidden;border-top:3px solid var(--green)}
+.score-section>h2{margin:0;padding:26px 34px 20px;background:#eef1e9;border-bottom:1px solid #d5ddd2}
+.score-section>.table-scroll{margin:0;border:0;border-radius:0}
+.score-section td:first-child{font-weight:700;white-space:nowrap}
+.score-section td:nth-child(2){color:var(--green);font-weight:700}
+.coverage-note{margin:0!important;padding:24px 34px;background:#f8f8f2;border-top:1px solid #d5ddd2}
+.coverage-note strong{color:var(--green);font-size:var(--text-sm);letter-spacing:.05em}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+footer{border-top:1px solid var(--line);color:var(--sub);font-size:var(--text-xs)}
+footer .wrap{padding-block:24px 40px}
+footer p{margin:0}
+footer a{min-height:40px;display:inline-flex;align-items:center}
+@media(max-width:680px){
+  :root{--text-base:16px;--text-h2:23px}
+  .wrap{width:min(var(--measure),calc(100% - 32px))}
+  .topnav{align-items:flex-start;flex-direction:column;gap:4px;padding-block:14px 10px}
+  .navlinks{width:100%;gap:0 2px}
+  .navlinks a{padding-inline:8px;font-size:13px}
+  .page-hero .wrap{padding-block:34px 30px}
+  .page-hero h1{font-size:32px;line-height:1.35}
+  .case-meta{margin-bottom:18px}
+  .score-band{gap:14px;margin-top:24px;padding-top:20px}
+  .total-score strong{font-size:46px}
+  .origin{width:100%;margin:6px 0 0}
+  .article-body{padding-block:24px 44px}
+  .content-section{margin-bottom:16px;padding:24px 20px}
+  .content-section h2{margin-bottom:16px;padding-bottom:12px}
+  .summary-section p:last-child{font-size:18px}
+  blockquote{margin:18px 0;padding:16px 18px}
+  th,td{padding:11px 12px}
+  .score-section>h2{padding:22px 20px 17px}
+  .coverage-note{padding:20px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="topnav wrap" aria-label="站内导航">
+  <a class="brand" href="../index.html">FDE Casebook</a>
+  <div class="navlinks">
+    <a href="../index.html">榜单首页</a>
+    <a href="../leaderboard.html">完整榜单</a>
+    <a href="../standards.html">入选标准</a>
+    <a href="../guide.html">7 环节能力地图</a>
+    <a href="../certifications.html">证书栏目</a>
+  </div>
+</nav>
+<header class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">FDE Casebook · Field research</p>
+
+    <h1>FDE-005｜众人拾柴火焰高：实体企业上 Agent，用一流模型，选二流方案</h1>
+    <div class="score-band">
+      <div class="total-score"><strong>86</strong><span>/ 100</span></div>
+      <span class="grade grade-s">S 级</span>
+      <span class="rank">国内榜第 1</span>
+
+    </div>
+  </div>
+</header>
+<main class="article-body wrap">
+  <article><section class="content-section intro">
+<ul class="source-meta">
+<li><strong>来源</strong>：张立行 @bylixing，跨境电商公司 Agent 架构师（作者自述：约 30 人公司里一人搭完全公司 Agent 底座），博客首发 2026-10-23。原文：https://zj1123581321.com/posts/261023-agent-into-enterprise/ ｜ 推文：https://x.com/bylixing/status/2113659227122336022</li>
+<li><strong>可信度</strong>：一手从业者自述（作者本人亲述全年实践；公司名与行业细分未披露，内部数字为作者自报，未独立核验）</li>
+<li><strong>类型</strong>：框架型（以一家跨境电商公司全年实践为底本的方法论）｜ 行业：电商（跨境电商）｜ FDE 模式：甲方内部架构师自建 ｜ 强项环节：⑥上线采用 ④数据与集成 ｜ 榜单评分：86 · S，见 <a href="../LEADERBOARD.html">LEADERBOARD.md</a></li>
+</ul>
+</section><section class="content-section summary-section"><h2>一句话摘要</h2>
+<p>中文语境第一篇甲方视角的企业 Agent 落地长文：作者本人就是那个"一个人搭完全公司 Agent 底座"的人，结论极硬——模型决定上限，上下文和闭环决定实际发挥，而组织机制决定上下文和闭环能不能建起来；落地八成是组织和利益问题，不是技术问题。</p>
+</section><section class="content-section stage-section"><h2>全流程 7 环节拆解（只引来源真实讲到的）</h2>
+<h3>① 选场景</h3>
+<ul>
+<li><strong>增量优先，不在存量里内卷</strong>：存量里用 AI 省人 = 动某个人的地盘，阻力最大；用增量分增量，阻力最小。作者类比孝文帝迁都：不在旧都和旧贵族硬碰，换新地盘重新分配。</li>
+<li><strong>双赢先行</strong>：投放团队先跑通——优化师自己摸索让 Agent 操控浏览器点广告后台，粗糙但证明了真需求，公司再收编成稳定工具。</li>
+<li><strong>样本按光谱选</strong>：模型公司只看方向不抄打法；和自己在"数字↔物理光谱"上位置相近的先行者，踩的坑才是你会踩的坑。OpenAI / Anthropic 领先半年到一年，但它们全在数字端。</li>
+<li><strong>两个自检问题</strong>：① 公司里正在发生的事，Agent 看得见吗？② Agent 做了一个判断，它能知道结果好不好吗？</li>
+</ul>
+<h3>② 摸现场</h3>
+<ul>
+<li><strong>老板先下场，当联席 CEO</strong>：必须一把手亲做的两个理由——只有一把手天然站在公司整体利益上（部门与员工都只优化局部）；一把手亲手用过才知道能力边界，不会被忽悠。</li>
+<li><strong>判断不一致三分法</strong>：Agent 判断和老板不一致时，原因只有三种——信息没给到（技术活）／模型能力不够（等升级或换顶级模型）／<strong>公司压根没记录</strong>（最有价值，暴露只活在某人脑子、微信群、口头里的组织漏洞）。</li>
+<li><strong>补货闭环样例</strong>：补 500 件的理由记在表上 → 一个月后回填实际销量／断货／压货 → Agent 对理由与结果找偏差（如没算大促）→ 沉淀成规则，下次补货前先读。教训不会自动进模型，只能记在 Agent 下次一定会读到的地方。</li>
+</ul>
+<h3>③ 定方案</h3>
+<ul>
+<li><strong>二流解</strong>：老组织架构下小步调整，先提效，再从业务发展中找调整点。一流解（把 Agent 当正式成员、围绕它重构组织架构与分钱）只适合从零开始的新组织。</li>
+<li><strong>载体判断</strong>：飞书多维表格是作者原话定性的"目前国内最好的、同时面向人和 Agent 的协作型数据库"——人随手改、手机拍照上传，Agent 有现成读写通道，权限与离职回收等琐事平台已做好；自研系统每加一个字段要走需求—排期—开发—测试，而业务策略一天一变，等不起。</li>
+<li><strong>记多细的标准</strong>：看这条信息在业务闭环里是否真起作用。帐篷差评"漏水"：只记"库存 1000 件"闭环就断了；记到批次／供应商面料／质检，Agent 才能定位到某批次某供应商，决策完差评率再回验——闭环才转起来。</li>
+<li><strong>分工边界</strong>：几百万行广告历史数据进正规数据库；需要人机共同维护的状态类信息才上飞书表。会议录音转文字存档是最低成本起步动作。</li>
+</ul>
+<h3>④ 数据与集成</h3>
+<ul>
+<li><strong>一张表串商品一生</strong>：内外部五六个系统定期汇总到飞书多维表格，商品全生命周期的状态、决策理由与结果回填都在同一处。</li>
+<li><strong>外部两小时，内部两个月</strong>：外部平台数据调接口／模拟浏览，几小时接进来；内部满意度回访线推了两个多月，大部分时间耗在权限、申请、责任归属的协调上。技术的墙常比部门的墙好翻。</li>
+<li><strong>信息税</strong>：每多记一条信息 = 给业务流程加一道"税"。供应链同事拜访供应商，以前口头对一下就行；现在要求全程录音、关键节点拍照、上传建档——对公司价值极大，对同事本人价值答不上来。税重了必然不填／乱填／应付填，表上信息反而失真。</li>
+<li><strong>动手前两问</strong>：这条信息真能改变某个决策吗？一线多花的那几分钟值不值？不值别记；值，就先把那几分钟压到接近零（录音自动转写归档、拍照一键完成）。作者自承供应链这条至今无好解法，只能定制度 + 重点产品强推。</li>
+</ul>
+<h3>⑤ 开发交付</h3>
+<ul>
+<li><strong>搭戏台，不写剧本</strong>：架构师先搭统一数据源／权限／工具平台／反馈机制，再观察"野生做法"，传播开了就收编正规化。顺序铁律：先有人走出路，公司再修路，不要预判需求闷头开发半年。</li>
+<li><strong>收编正例</strong>：投放优化师操控浏览器点广告后台（野生做法）→ 公司把广告操作能力正式开放成稳定工具 → 员工省心且多赚钱，公司盘子变大，双赢，自己长，不用推。</li>
+<li><strong>模型分层 = 成本结构</strong>：执行层用最便宜最快的（作者一线全用 DeepSeek Flash 档）；决策层舍得用最顶级的，甚至多家顶级模型交叉讨论；折中模式：杂活便宜模型干，关键判断把整理好的信息交给顶级模型"只借它最贵的那几分钟"。不要用 Token 消耗量衡量落地效果，要看业务结果。</li>
+</ul>
+<h3>⑥ 上线采用</h3>
+<ul>
+<li><strong>分配先于考核</strong>：10 万能不能变 15 万——优化师月广告消耗 10 万，用 AI 后还是 10 万只是更轻松，算不算价值？作者分两层：分配和目标不变时，"更轻松"就是 AI 能给他的全部；想变 15 万本质是分配问题，不是 KPI 问题（指标成考核目标就失真，古德哈特定律）。公司真正想要的是"业务扩大 10 倍、人只增 2 倍"，得先想多出来的收益怎么分，再谈考核。作者坦白：新的分配方式自己也还没落地，此节是想法层推演。</li>
+<li><strong>绝对禁区</strong>：谁贡献了工作流，谁就被裁——下一个人学到的就是"把经验藏好"，转型氛围直接废掉。</li>
+<li><strong>悖论</strong>：谁 AI 用得越好，谁越不需要公司。最该留住的恰是最有能力离开的人（既懂业务又能自己搭工作流），要舍得分钱，让他觉得留下比单干划算。</li>
+<li><strong>人员金字塔</strong>：顶层 Agent 架构师 1–2 人（既懂 Agent 又懂业务，作者公司就是他一个人；找不到时的次优解是老板自己去懂 Agent）；中层积极分子 3%–5%（真实业务里用出成绩、沉淀工作流给其他人抄；大多数人"因为看见所以相信"）；基层大多数不用懂 Agent，按沉淀好的流程点按钮／走审批，核心职责是低摩擦地留下下一轮 Agent 需要的信息。不要追求 100% AI 使用率，不要搞全员培训人人学提示词。</li>
+<li><strong>上行下效</strong>：老板天天对着表决策，其他人自然被迫在表上协作；负责人汇报前必须带来表上没有的东西。</li>
+</ul>
+<h3>⑦ 迭代扩单</h3>
+<ul>
+<li><strong>定时巡检与跨源发现</strong>：Agent 定时巡检拦截问题（该上架的卡了 20 天、客诉率到警戒线没人管）；上下文够厚时，让最强模型跨几十个数据源找"销量为什么掉了"的意外关联。</li>
+<li>扩单／复制到新业务线的具体路径：来源未披露。</li>
+</ul>
+</section><section class="content-section"><h2>关键数字（口径已注明）</h2>
+<ul>
+<li>约 30 人跨境电商团队，Agent 底座由作者一人搭建（作者自述）</li>
+<li>每天 10–20 亿 Token、月成本五六千元（作者自报，未独立核验）</li>
+<li>执行层全用 DeepSeek Flash 档，决策层用顶级模型（作者自述）</li>
+<li>外部平台接入以小时计，内部满意度回访线协调两个多月（作者自述）</li>
+<li>人员金字塔：架构师 1–2 人，积极分子 3%–5%（作者自述）</li>
+</ul>
+</section><section class="content-section"><h2>对入行者的启示</h2>
+<ul>
+<li><strong>面试要补甲方视角</strong>：此前案例库多为乙方视角，这篇是甲方老板亲述"乙方进来会撞什么墙"——权限两个月、信息税、分配先于考核。面试讲 FDE 时能说出"落地八成是组织问题，我会先找双赢的增量场景"，是明显的认知差。</li>
+<li><strong>摸现场先找双赢的增量场景</strong>：别在存量里动人地盘；先让一线"因为看见所以相信"，再谈扩面。</li>
+<li><strong>利益清单是上线采用的硬输出物</strong>：谁出力、谁受益、多出来的收益怎么分——写不清楚，推广会在会议室里被耗死；考核指标一旦立起来就会失真，别拿使用率和 Token 量当验收。</li>
+<li><strong>模型分层是成本观</strong>：执行层便宜模型、决策层顶级模型；不要用 Token 量衡量落地效果，要看业务结果。</li>
+<li><strong>样本按光谱选</strong>：别照搬数字端大厂的打法，和自己在数字↔物理光谱上同位的先行者，踩的坑才是你会踩的坑。</li>
+</ul>
+</section><section class="content-section verdict-section"><h2>verdict</h2>
+<p><strong>学。</strong> 这是中文语境第一篇甲方视角的企业 Agent 落地长文，也是本库第一篇甲方案例，与良竹 FDE 实战 01 做正反对照读效果最好。二流解、信息税、分配先于考核三组概念可以直接进面试。引用时注意两处口径：公司名与行业细分未披露，内部数字（Token 量、成本）为作者自报未核验；10 万→15 万的分配方案作者自承未落地，引用时只能当想法层推演，不能当已验证解法。</p>
+<p><a id="original-excerpts"></a></p>
+</section><section class="content-section excerpt-section"><h2>原文摘录（站内可读）</h2>
+<blockquote>
+<p><strong>作者（原文原句）</strong>："你要什么我不知道，对我有什么用我也不知道，但你非要我表演给你看。"——说的是要求一线为 Agent 多记信息时，对方真实的感受。</p>
+<p><strong>作者（原文要点）</strong>：最重要的永远是你组织的上下文——纠结选哪家 Agent 产品之前，先问公司正在发生的事 Agent 看不看得见、判断完有没有结果回填。</p>
+<p><strong>作者（原文原句）</strong>：先有人走出路，公司再修路——不要预判需求闷头开发半年。</p>
+<p><strong>作者（原文要点）</strong>：分配先于考核。想变 15 万本质是分配问题，不是 KPI 问题；新的分配方式作者自承还没落地。</p>
+<p><strong>作者（原文要点）</strong>：外部平台数据几小时接进来，内部满意度回访线推了两个多月，大部分时间耗在权限、申请、责任归属的协调上。</p>
+</blockquote>
+<p><em>摘录说明：标「原文原句」的为博客短引，标「原文要点」的为归纳转述；原始出处（仅核验用）：https://zj1123581321.com/posts/261023-agent-into-enterprise/</em></p>
+</section><section class="content-section score-section"><h2>评分与维度分析（总分 86 · S 级，国内榜第 1）</h2>
+<div class="table-scroll" tabindex="0"><table class="score-table">
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>27/30</td>
+<td>作者本人亲述全年实践、博客首发全文可核验，一手中的一手；仅因公司名未披露、内部数字自报扣 3 分</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>22/25</td>
+<td>7 环节覆盖 6 环半（选场景/摸现场/定方案/数据与集成/开发交付/上线采用全披露，迭代扩单仅巡检部分），是国内材料里覆盖最全的单篇</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>19/20</td>
+<td>信息税、权限两个月、分配先于考核、贡献者被裁禁区——困难与解法都是组织级别的真现场</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>8/15</td>
+<td>Token 量与月成本具体但全为自报、无第三方核验——主要扣分项</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>10/10</td>
+<td>二流解清单、光谱定位、人员金字塔、模型分层，入行者可直接照做</td>
+</tr>
+</tbody>
+</table></div>
+<p class="coverage-note"><strong>7 环节覆盖分析</strong>：①选场景 ●（增量优先、双赢先行、光谱选样本）②摸现场 ●（联席 CEO、判断不一致三分法、补货闭环）③定方案 ●（二流解、飞书多维表格载体、记多细的标准）④数据与集成 ●（一张表串商品一生、外部小时级 vs 内部月级、信息税）⑤开发交付 ●（搭戏台、收编野生工作流、模型分层）⑥上线采用 ●（分配先于考核、禁区、金字塔分层）⑦迭代扩单 ◐（定时巡检与跨源发现，扩单复制路径未披露）</p>
+<hr />
+<p><em>本文为公开来源的学习拆解，归纳自张立行公开博客，引文均为短引并注明出处；自报与未核验数字已逐项标注，请以原文为准。</em></p></section></article>
+</main>
+<footer><div class="wrap"><p>FDE Casebook · 本页由仓库 Markdown 自动生成，GitHub 仅作源码仓库。维护：Bruce Cao（<a href="https://x.com/sycbruce">@sycbruce</a>）</p></div></footer>
+</body>
+</html>

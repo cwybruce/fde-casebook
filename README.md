@@ -32,6 +32,7 @@ FDE 是 2025 年以来科技行业增长最快的岗位之一：OpenAI、Anthrop
 **框架型**
 | 编号 | 标题 | 来源 | 行业 | 评分 |
 |---|---|---|---|---|
+| [FDE-005](cases/FDE-005-bylixing-agent-into-enterprise.md) | 众人拾柴火焰高：实体企业上 Agent，用一流模型，选二流方案 | 张立行 @bylixing，一手甲方自述 | 电商（跨境电商） | 86 · S |
 | [FDE-001](cases/FDE-001-liangzhu-fde-framework.md) | 为什么企业买了 AI 却用不起来：FDE 定义与三层漏斗 | 良竹 @liangzhu_AI，一手从业者自述 | 通用 | 68 · B |
 
 **观察型**
