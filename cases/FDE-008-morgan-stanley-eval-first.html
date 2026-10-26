@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>FDE-008｜摩根士丹利：先建考题，再谈上线 — FDE Casebook</title>
+<style>
+:root{
+  --paper:#f7f4ee;--surface:#fffdfa;--surface-muted:#f0ebe2;--ink:#202522;--sub:#66675f;
+  --line:#ded8cc;--line-strong:#c7bfb1;--accent:#954b25;--accent-bright:#dda77d;--green:#2f6656;
+  --grade-s:#98711c;--grade-a:#954b25;--grade-b:#526b7b;--night:#19211f;--night-sub:#b9c1ba;
+  --font-sans:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --font-serif:Georgia,"Songti SC","Noto Serif CJK SC","SimSun",serif;
+  --text-xs:12px;--text-sm:14px;--text-base:16.5px;--text-h3:19px;--text-h2:26px;--text-h1:42px;
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;
+  --radius-sm:5px;--radius:9px;--shadow:0 8px 24px rgba(34,39,32,.045);--measure:880px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-sans);font-size:var(--text-base);line-height:1.85;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.wrap{width:min(var(--measure),calc(100% - 48px));margin-inline:auto}
+.topnav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px;border-bottom:1px solid var(--line);font-size:var(--text-sm)}
+.brand{color:var(--ink);font-family:var(--font-serif);font-size:18px;font-weight:700;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+.navlinks{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.navlinks a{display:inline-flex;align-items:center;min-height:40px;padding:4px 10px;color:var(--sub);text-decoration:none;border-radius:var(--radius-sm)}
+.navlinks a:hover{color:var(--accent);background:var(--surface-muted)}
+.page-hero{background:var(--night);color:#f6f2e9;border-bottom:3px solid var(--accent)}
+.page-hero .wrap{padding-block:52px 46px}
+.eyebrow{margin:0 0 18px;color:var(--accent-bright);font-size:var(--text-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.page-hero h1{max-width:780px;margin:0;font-family:var(--font-serif);font-size:clamp(32px,5vw,var(--text-h1));font-weight:700;line-height:1.28;letter-spacing:-.035em}
+.case-meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px;padding:0;list-style:none}
+.case-meta li{padding:3px 10px;border:1px solid #46504a;border-radius:var(--radius-sm);color:#d5dbd4;font-size:var(--text-xs);line-height:1.7}
+.score-band{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:30px;padding-top:24px;border-top:1px solid #3a433e}
+.total-score{display:flex;align-items:baseline;gap:7px;font-variant-numeric:tabular-nums;line-height:1}
+.total-score strong{font-family:var(--font-serif);font-size:52px;font-weight:400;letter-spacing:-.04em}
+.total-score span{color:var(--night-sub);font-size:var(--text-sm)}
+.grade{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:2px 10px;border:1px solid currentColor;border-radius:var(--radius-sm);font-size:var(--text-sm);font-weight:700;line-height:1.2;white-space:nowrap}
+.grade-s{color:#e0bc69}.grade-a{color:var(--accent-bright)}.grade-b{color:#a8bfce}
+.rank{color:var(--night-sub);font-size:var(--text-sm)}
+.origin{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin-left:auto;padding:8px 18px;background:var(--accent-bright);border:1px solid var(--accent-bright);border-radius:var(--radius-sm);color:var(--night)!important;font-size:var(--text-sm);font-weight:700;text-decoration:none;transition:background .18s ease,transform .18s ease}
+.origin:hover{background:#edbd97;transform:translateY(-1px)}
+.article-body{padding-block:36px 64px}
+.content-section{margin:0 0 24px;padding:30px 34px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow-wrap:anywhere}
+.content-section.intro{padding-top:26px}
+.content-section h2{margin:0 0 20px;padding-bottom:14px;border-bottom:1px solid var(--line);font-family:var(--font-serif);font-size:var(--text-h2);line-height:1.4;letter-spacing:-.025em}
+.content-section h3{margin:28px 0 10px;font-size:var(--text-h3);line-height:1.55;letter-spacing:-.015em}
+.content-section p{margin:0 0 17px}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{margin:0 0 18px;padding-left:1.5em}
+.content-section li{margin:7px 0}
+.content-section a{overflow-wrap:anywhere}
+.source-meta{margin:0!important;padding:0!important;list-style:none;color:var(--sub);font-size:var(--text-sm)}
+.source-meta li{padding:9px 0;margin:0;border-bottom:1px solid var(--line)}
+.source-meta li:last-child{border-bottom:0}
+.summary-section{border-top:3px solid var(--green)}
+.summary-section p:last-child{font-family:var(--font-serif);font-size:20px;line-height:1.75}
+.stage-section{background:#f2f3ed;border-color:#d5ddd2}
+.verdict-section{border-left:3px solid var(--accent)}
+.verdict-section p:last-child{font-size:18px}
+.excerpt-section{scroll-margin-top:24px}
+blockquote{margin:22px 0;padding:20px 24px;background:var(--surface-muted);border-left:3px solid var(--accent);color:var(--ink)}
+blockquote p{font-family:var(--font-serif);line-height:1.85}
+.content-section em{color:var(--sub);font-size:var(--text-sm)}
+.table-scroll{width:100%;margin:20px 0;overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm)}
+table{width:100%;min-width:560px;border-collapse:collapse;font-size:var(--text-sm);line-height:1.7;font-variant-numeric:tabular-nums}
+.score-table{min-width:660px}
+th,td{min-width:96px;padding:13px 15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--surface-muted);color:#484d47;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td:nth-child(2){white-space:nowrap}
+.score-section{padding:0;overflow:hidden;border-top:3px solid var(--green)}
+.score-section>h2{margin:0;padding:26px 34px 20px;background:#eef1e9;border-bottom:1px solid #d5ddd2}
+.score-section>.table-scroll{margin:0;border:0;border-radius:0}
+.score-section td:first-child{font-weight:700;white-space:nowrap}
+.score-section td:nth-child(2){color:var(--green);font-weight:700}
+.coverage-note{margin:0!important;padding:24px 34px;background:#f8f8f2;border-top:1px solid #d5ddd2}
+.coverage-note strong{color:var(--green);font-size:var(--text-sm);letter-spacing:.05em}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+footer{border-top:1px solid var(--line);color:var(--sub);font-size:var(--text-xs)}
+footer .wrap{padding-block:24px 40px}
+footer p{margin:0}
+footer a{min-height:40px;display:inline-flex;align-items:center}
+@media(max-width:680px){
+  :root{--text-base:16px;--text-h2:23px}
+  .wrap{width:min(var(--measure),calc(100% - 32px))}
+  .topnav{align-items:flex-start;flex-direction:column;gap:4px;padding-block:14px 10px}
+  .navlinks{width:100%;gap:0 2px}
+  .navlinks a{padding-inline:8px;font-size:13px}
+  .page-hero .wrap{padding-block:34px 30px}
+  .page-hero h1{font-size:32px;line-height:1.35}
+  .case-meta{margin-bottom:18px}
+  .score-band{gap:14px;margin-top:24px;padding-top:20px}
+  .total-score strong{font-size:46px}
+  .origin{width:100%;margin:6px 0 0}
+  .article-body{padding-block:24px 44px}
+  .content-section{margin-bottom:16px;padding:24px 20px}
+  .content-section h2{margin-bottom:16px;padding-bottom:12px}
+  .summary-section p:last-child{font-size:18px}
+  blockquote{margin:18px 0;padding:16px 18px}
+  th,td{padding:11px 12px}
+  .score-section>h2{padding:22px 20px 17px}
+  .coverage-note{padding:20px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="topnav wrap" aria-label="站内导航">
+  <a class="brand" href="../index.html">FDE Casebook</a>
+  <div class="navlinks">
+    <a href="../index.html">榜单首页</a>
+    <a href="../leaderboard.html">完整榜单</a>
+    <a href="../standards.html">入选标准</a>
+    <a href="../guide.html">7 环节能力地图</a>
+    <a href="../certifications.html">证书栏目</a>
+    <a href="../job-market.html">招聘与市场</a>
+    <a href="../changelog.html">更新日志</a>
+  </div>
+</nav>
+<header class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">FDE Casebook · Field research</p>
+    <ul class="case-meta"><li>方法型</li><li>行业：银行 / 金融服务（财富管理）</li><li>模式：客户方 AI 团队 + OpenAI 联合调优</li><li>强项环节：⑤开发交付 ③定方案</li></ul>
+    <h1>FDE-008｜摩根士丹利：先建考题，再谈上线</h1>
+    <div class="score-band">
+      <div class="total-score"><strong>77</strong><span>/ 100</span></div>
+      <span class="grade grade-a">A 级</span>
+      <span class="rank">海外榜第 2</span>
+      <a class="origin" href="#original-excerpts">站内读原文摘录 ↓</a>
+    </div>
+  </div>
+</header>
+<main class="article-body wrap">
+  <article><section class="content-section intro">
+<ul class="source-meta">
+<li><strong>来源</strong>：OpenAI 官方博客《Morgan Stanley uses AI evals to shape the future of financial services》（客户案例；抓取页未显示发布日期）。原文：https://openai.com/index/morgan-stanley/</li>
+<li><strong>可信度</strong>：官方一手案例（摩根士丹利全公司 AI 产品与架构战略负责人 David Wu 具名表态；文中数字为 OpenAI / 摩根士丹利官方口径，未经第三方独立核验）</li>
+<li><strong>类型</strong>：方法型短案例——篇幅很短，但 eval 先行的方法讲得极其具体</li>
+<li><strong>分类</strong>：方法型 ｜ 行业：银行 / 金融服务（财富管理）｜ 模式：客户方 AI 团队 + OpenAI 联合调优 ｜ 强项环节：⑤开发交付 ③定方案 ｜ 榜单评分：77 · A（海外榜第 2），见 <a href="../leaderboard.html">LEADERBOARD.md</a></li>
+</ul>
+</section><section class="content-section summary-section"><h2>一句话摘要</h2>
+<p>摩根士丹利在金融服务业上线 AI 的前提不是"模型够强"，而是"考题先立好"：每一个用例部署前都要过评估框架，用真实业务场景测模型表现，再由专家反馈驱动改进。摘要评估、翻译评估、检索调优三步走完，顾问能回答的问题才从 7000 道扩展到 10 万文档里的任意问题。这是本批三张卡里方法论最硬的一张，也是 FDE-002"Eval 先行"之后最值得对照读的第二例。</p>
+</section><section class="content-section stage-section"><h2>全流程 7 环节拆解（只引来源真实讲到的）</h2>
+<h3>① 选场景</h3>
+<ul>
+<li><strong>三个目标起步，不贪多</strong>：一是更快检索信息，帮顾问省下翻文档的时间；二是自动化重复任务，如总结研究报告；三是提供按客户需求定制的洞察。三个目标都落在"顾问每天已经在做的事"上，没有新造场景。</li>
+<li><strong>前提是信任门槛</strong>：金融服务业上线 AI，必须同时满足"创造超额价值"和"达到公司对质量与可靠性的严格标准"。选场景的第一判据不是效果，是能不能过这道标准。</li>
+</ul>
+<h3>② 摸现场</h3>
+<ul>
+<li><strong>顾问的时间花在哪</strong>：翻文档找信息耗时数小时，是原文明确写出的现场痛点。顾问的知识在文档里，但找的过程摩擦极大。</li>
+<li><strong>文档规模</strong>：语料库最终达到 10 万文档。摸现场的另一面是"材料一直在膨胀"，评估与检索必须跟着膨胀走，不能只做一次性验证。</li>
+</ul>
+<h3>③ 定方案</h3>
+<ul>
+<li><strong>Eval 框架是方案本身</strong>：摩根士丹利的做法是，为每一个 AI 用例部署前都建立评估框架，用真实业务场景衡量模型表现，并以专家反馈在每一步指导改进。框架不是上线后的质检，是部署前的门。</li>
+<li><strong>框架会演进</strong>：原文明确说评估框架不是静态的，而是随着团队学习不断演进。先摘要评估，后翻译评估，再检索调优——顺序本身就是方案的一部分。</li>
+</ul>
+<h3>④ 数据与集成</h3>
+<ul>
+<li><strong>检索方法是关键变量</strong>：团队与 OpenAI 密切合作，微调检索方法，确保 AI 能处理不断扩大的文档库。具体的检索算法、切分策略、向量库选型：来源未披露。</li>
+<li><strong>语料从 7000 问到 10 万文档</strong>：David Wu 的表述是，团队从只能回答 7000 个问题，发展到可以有效回答 10 万文档里的任意问题。这是检索与评估共同作用的结果，不是单点模型升级。</li>
+</ul>
+<h3>⑤ 开发交付</h3>
+<ul>
+<li><strong>摘要评估怎么做</strong>：针对 GPT-4 总结海量智力资本与流程内容的能力做评估，顾问与提示工程师一起给 AI 回答的准确性与连贯性打分，再据此优化提示词、提升输出质量。打分人、打分标准、迭代轮次都写清楚了，这是全篇最硬的一段。</li>
+<li><strong>翻译评估是第二步</strong>：为多语言客户引入翻译评估。评估维度与结果：来源未披露。</li>
+<li><strong>每日回归拦截</strong>：筛查摘要里提到的"每日回归拦截"，本篇原文中没有对应表述，成卡时已剔除，不得引用。原文只说框架随学习演进，没有写回归频率与拦截机制。</li>
+</ul>
+<h3>⑥ 上线采用</h3>
+<ul>
+<li><strong>采用效果写在对话里</strong>：顾问现在能和客户聊以前没聊过的话题，因为知识与沟通之间的摩擦已经归零（另一位负责人 McMillan 的表述，归纳转述）。这是采用效果的定性证据，不是使用率数字。</li>
+<li><strong>采用规模数字</strong>：原文没有披露顾问人数、日活、使用率。7000 问到 10 万文档是能力边界的变化，不是采用率，引用时不能偷换。</li>
+</ul>
+<h3>⑦ 迭代扩单</h3>
+<ul>
+<li>扩到新用例、新业务线的具体路径：来源未披露。原文只讲了评估框架随学习演进，没有写扩单计划。</li>
+</ul>
+</section><section class="content-section"><h2>关键数字（口径已注明）</h2>
+<ul>
+<li>7000 个问题 → 10 万文档里的任意问题（David Wu 表述，官方口径；时间跨度未披露）</li>
+<li>三个起步目标：检索提速、摘要自动化、定制洞察（原文列举）</li>
+<li>摘要评估打分人：顾问与提示工程师；打分维度：准确性与连贯性（原文明确）</li>
+<li>以下内容本篇原文没有，成卡时已剔除，不得引用：准确率分数、评估轮次、每日回归拦截机制、顾问人数与使用率、项目时间线</li>
+</ul>
+</section><section class="content-section"><h2>对入行者的启示</h2>
+<ul>
+<li><strong>Eval 先行是可以直接抄的作业</strong>：部署前先建考题，用真实业务场景测，再由业务专家（不是只由工程师）打分。摩根士丹利的打分人是顾问 + 提示工程师，这个组合本身就是方法：业务懂对错，工程懂怎么改。</li>
+<li><strong>框架要写进方案，不要写进附录</strong>：这里的评估框架不是质检环节，是"每一个用例部署前都要过"的门。面试讲方案时，把 eval 放在定方案环节讲，而不是开发交付的末尾提一句。</li>
+<li><strong>能力边界比准确率更有说服力</strong>：7000 问到 10 万文档，讲的是系统能覆盖的问题面扩大了，不是某个百分比提升。讲自己的项目时，先讲覆盖面，再讲分数。</li>
+<li><strong>短案例也要守口径</strong>：这篇原文只有约一页，凡是原文没写的（回归机制、准确率、时间线）一律不写。宁可卡片短，也不要把筛查摘要的推断写成原文。</li>
+</ul>
+</section><section class="content-section verdict-section"><h2>verdict</h2>
+<p><strong>学，方法论必读。</strong> 它是本批唯一把"怎么做评估"讲到打分人、打分维度、演进顺序这个粒度的方法型案例，和 FDE-002 的 Eval 先行形成一线一证：002 讲的是删代码观下的评估文化，008 讲的是评估框架的具体操作。短板也很明确：篇幅极短，没有失败案例、没有准确率、没有扩单路径，A 级给的是方法密度，不是完整度。</p>
+<p><a id="original-excerpts"></a></p>
+</section><section class="content-section excerpt-section"><h2>原文摘录（站内可读）</h2>
+<blockquote>
+<p><strong>作者（原文要点）</strong>：每一个 AI 用例部署前都要过评估框架，用真实业务场景衡量模型表现，专家反馈在每一步指导改进；框架不是静态的，随学习不断演进。</p>
+<p><strong>作者（原文要点）</strong>：摘要评估由顾问与提示工程师一起打分，维度是准确性与连贯性，再据此优化提示词；随后引入翻译评估，并与 OpenAI 合作微调检索方法。</p>
+<p><strong>作者（原文要点）</strong>：团队从只能回答 7000 个问题，发展到可以有效回答 10 万文档里的任意问题；顾问能和客户聊以前没聊过的话题，知识与沟通之间的摩擦归零。</p>
+</blockquote>
+<p><em>摘录说明：标「原文要点」的为归纳转述；原始出处（仅核验用）：https://openai.com/index/morgan-stanley/</em></p>
+</section><section class="content-section score-section"><h2>评分与维度分析（总分 77 · A 级，海外榜第 2）</h2>
+<div class="table-scroll" tabindex="0"><table class="score-table">
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>26/30</td>
+<td>OpenAI 官方案例、客户方负责人具名表态，一手；但属厂商渠道短案例，数字未经第三方核验，扣 4 分</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>16/25</td>
+<td>7 环节覆盖 5 环：选场景/定方案/开发交付较实，数据集成只有检索调优一句，迭代扩单未披露</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>15/20</td>
+<td>严格质量标准、专家打分、语料膨胀下的检索调优，困难与解法一一对应；但无失败与调优细节</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>10/15</td>
+<td>7000 问到 10 万文档是硬边界数字，但无准确率、无时间线、无采用率，扣 5 分</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>10/10</td>
+<td>满分。Eval 先行、业务专家打分、框架随学习演进，任何行业的 FDE 项目都能直接照做</td>
+</tr>
+</tbody>
+</table></div>
+<p class="coverage-note"><strong>7 环节覆盖分析</strong>：①选场景 ●（三个目标起步、信任门槛先行）②摸现场 ◐（顾问翻文档耗时、语料膨胀）③定方案 ●（部署前必过评估框架、框架随学习演进）④数据与集成 ◐（检索方法微调、10 万文档语料，具体方法未披露）⑤开发交付 ●（摘要评估打分人+维度、翻译评估、检索调优）⑥上线采用 ◐（对话摩擦归零的定性证据，采用率未披露）⑦迭代扩单 ○（来源未披露）</p>
+<hr />
+<p><em>本文为公开来源的学习拆解，归纳自 OpenAI 官方案例，引文均为短引并注明出处；原文未写的内容已逐项剔除，请以原文为准。</em></p></section></article>
+</main>
+<footer><div class="wrap"><p>FDE Casebook · 本页由仓库 Markdown 自动生成，GitHub 仅作源码仓库。维护：Bruce Cao（<a href="https://x.com/sycbruce">@sycbruce</a>）</p></div></footer>
+</body>
+</html>

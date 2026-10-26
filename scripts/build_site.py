@@ -23,6 +23,10 @@ CASE_STEMS = [
     "FDE-002-openai-deployment-gap",
     "FDE-003-miles-mazy-geely-training",
     "FDE-004-china-entrepreneur-fde-truth",
+    "FDE-005-bylixing-agent-into-enterprise",
+    "FDE-006-john-deere-ai-customer-success",
+    "FDE-007-bbva-chatgpt-enterprise-rollout",
+    "FDE-008-morgan-stanley-eval-first",
 ]
 
 CSS = """
@@ -168,8 +172,8 @@ TEMPLATE = """<!DOCTYPE html>
 
 def fix_links(source: str) -> str:
     source = re.sub(r'href="([^"]+)\.md(["#])', r'href="\1.html\2', source)
-    source = source.replace('href="LEADERBOARD.html"', 'href="leaderboard.html"')
-    return source.replace('href="STANDARDS.html"', 'href="standards.html"')
+    source = source.replace('LEADERBOARD.html', 'leaderboard.html')
+    return source.replace('STANDARDS.html', 'standards.html')
 
 
 def decorate_body(body: str) -> str:

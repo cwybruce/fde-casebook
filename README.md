@@ -28,6 +28,17 @@ FDE 是 2025 年以来科技行业增长最快的岗位之一：OpenAI、Anthrop
 | 编号 | 标题 | 来源 | 行业 | 评分 |
 |---|---|---|---|---|
 | [FDE-002](cases/FDE-002-openai-deployment-gap.md) | OpenAI 的 FDE：删掉 90% 定制代码 | OpenAI 官方博客（FDE 负责人亲笔） | 半导体 / 电信 | 92 · S |
+| [FDE-006](cases/FDE-006-john-deere-ai-customer-success.md) | 约翰迪尔：用 AI 客户成功模型卖精准农业 | OpenAI 官方博客（客户方高管访谈） | 农业（精准农业 / 农机） | 76 · A |
+
+**推广型**
+| 编号 | 标题 | 来源 | 行业 | 评分 |
+|---|---|---|---|---|
+| [FDE-007](cases/FDE-007-bbva-chatgpt-enterprise-rollout.md) | BBVA：3300 到 120000，高度监管银行的 ChatGPT 推广 | OpenAI 官方博客（合作扩展公告） | 银行（金融服务） | 69 · B |
+
+**方法型**
+| 编号 | 标题 | 来源 | 行业 | 评分 |
+|---|---|---|---|---|
+| [FDE-008](cases/FDE-008-morgan-stanley-eval-first.md) | 摩根士丹利：先建考题，再谈上线 | OpenAI 官方博客（客户案例） | 银行 / 金融服务（财富管理） | 77 · A |
 
 **框架型**
 | 编号 | 标题 | 来源 | 行业 | 评分 |

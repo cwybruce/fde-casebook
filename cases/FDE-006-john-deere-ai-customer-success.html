@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>FDE-006｜约翰迪尔：用 AI 客户成功模型卖精准农业 — FDE Casebook</title>
+<style>
+:root{
+  --paper:#f7f4ee;--surface:#fffdfa;--surface-muted:#f0ebe2;--ink:#202522;--sub:#66675f;
+  --line:#ded8cc;--line-strong:#c7bfb1;--accent:#954b25;--accent-bright:#dda77d;--green:#2f6656;
+  --grade-s:#98711c;--grade-a:#954b25;--grade-b:#526b7b;--night:#19211f;--night-sub:#b9c1ba;
+  --font-sans:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --font-serif:Georgia,"Songti SC","Noto Serif CJK SC","SimSun",serif;
+  --text-xs:12px;--text-sm:14px;--text-base:16.5px;--text-h3:19px;--text-h2:26px;--text-h1:42px;
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;
+  --radius-sm:5px;--radius:9px;--shadow:0 8px 24px rgba(34,39,32,.045);--measure:880px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-sans);font-size:var(--text-base);line-height:1.85;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.wrap{width:min(var(--measure),calc(100% - 48px));margin-inline:auto}
+.topnav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px;border-bottom:1px solid var(--line);font-size:var(--text-sm)}
+.brand{color:var(--ink);font-family:var(--font-serif);font-size:18px;font-weight:700;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+.navlinks{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.navlinks a{display:inline-flex;align-items:center;min-height:40px;padding:4px 10px;color:var(--sub);text-decoration:none;border-radius:var(--radius-sm)}
+.navlinks a:hover{color:var(--accent);background:var(--surface-muted)}
+.page-hero{background:var(--night);color:#f6f2e9;border-bottom:3px solid var(--accent)}
+.page-hero .wrap{padding-block:52px 46px}
+.eyebrow{margin:0 0 18px;color:var(--accent-bright);font-size:var(--text-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.page-hero h1{max-width:780px;margin:0;font-family:var(--font-serif);font-size:clamp(32px,5vw,var(--text-h1));font-weight:700;line-height:1.28;letter-spacing:-.035em}
+.case-meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px;padding:0;list-style:none}
+.case-meta li{padding:3px 10px;border:1px solid #46504a;border-radius:var(--radius-sm);color:#d5dbd4;font-size:var(--text-xs);line-height:1.7}
+.score-band{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:30px;padding-top:24px;border-top:1px solid #3a433e}
+.total-score{display:flex;align-items:baseline;gap:7px;font-variant-numeric:tabular-nums;line-height:1}
+.total-score strong{font-family:var(--font-serif);font-size:52px;font-weight:400;letter-spacing:-.04em}
+.total-score span{color:var(--night-sub);font-size:var(--text-sm)}
+.grade{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:2px 10px;border:1px solid currentColor;border-radius:var(--radius-sm);font-size:var(--text-sm);font-weight:700;line-height:1.2;white-space:nowrap}
+.grade-s{color:#e0bc69}.grade-a{color:var(--accent-bright)}.grade-b{color:#a8bfce}
+.rank{color:var(--night-sub);font-size:var(--text-sm)}
+.origin{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin-left:auto;padding:8px 18px;background:var(--accent-bright);border:1px solid var(--accent-bright);border-radius:var(--radius-sm);color:var(--night)!important;font-size:var(--text-sm);font-weight:700;text-decoration:none;transition:background .18s ease,transform .18s ease}
+.origin:hover{background:#edbd97;transform:translateY(-1px)}
+.article-body{padding-block:36px 64px}
+.content-section{margin:0 0 24px;padding:30px 34px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow-wrap:anywhere}
+.content-section.intro{padding-top:26px}
+.content-section h2{margin:0 0 20px;padding-bottom:14px;border-bottom:1px solid var(--line);font-family:var(--font-serif);font-size:var(--text-h2);line-height:1.4;letter-spacing:-.025em}
+.content-section h3{margin:28px 0 10px;font-size:var(--text-h3);line-height:1.55;letter-spacing:-.015em}
+.content-section p{margin:0 0 17px}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{margin:0 0 18px;padding-left:1.5em}
+.content-section li{margin:7px 0}
+.content-section a{overflow-wrap:anywhere}
+.source-meta{margin:0!important;padding:0!important;list-style:none;color:var(--sub);font-size:var(--text-sm)}
+.source-meta li{padding:9px 0;margin:0;border-bottom:1px solid var(--line)}
+.source-meta li:last-child{border-bottom:0}
+.summary-section{border-top:3px solid var(--green)}
+.summary-section p:last-child{font-family:var(--font-serif);font-size:20px;line-height:1.75}
+.stage-section{background:#f2f3ed;border-color:#d5ddd2}
+.verdict-section{border-left:3px solid var(--accent)}
+.verdict-section p:last-child{font-size:18px}
+.excerpt-section{scroll-margin-top:24px}
+blockquote{margin:22px 0;padding:20px 24px;background:var(--surface-muted);border-left:3px solid var(--accent);color:var(--ink)}
+blockquote p{font-family:var(--font-serif);line-height:1.85}
+.content-section em{color:var(--sub);font-size:var(--text-sm)}
+.table-scroll{width:100%;margin:20px 0;overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm)}
+table{width:100%;min-width:560px;border-collapse:collapse;font-size:var(--text-sm);line-height:1.7;font-variant-numeric:tabular-nums}
+.score-table{min-width:660px}
+th,td{min-width:96px;padding:13px 15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--surface-muted);color:#484d47;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td:nth-child(2){white-space:nowrap}
+.score-section{padding:0;overflow:hidden;border-top:3px solid var(--green)}
+.score-section>h2{margin:0;padding:26px 34px 20px;background:#eef1e9;border-bottom:1px solid #d5ddd2}
+.score-section>.table-scroll{margin:0;border:0;border-radius:0}
+.score-section td:first-child{font-weight:700;white-space:nowrap}
+.score-section td:nth-child(2){color:var(--green);font-weight:700}
+.coverage-note{margin:0!important;padding:24px 34px;background:#f8f8f2;border-top:1px solid #d5ddd2}
+.coverage-note strong{color:var(--green);font-size:var(--text-sm);letter-spacing:.05em}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+footer{border-top:1px solid var(--line);color:var(--sub);font-size:var(--text-xs)}
+footer .wrap{padding-block:24px 40px}
+footer p{margin:0}
+footer a{min-height:40px;display:inline-flex;align-items:center}
+@media(max-width:680px){
+  :root{--text-base:16px;--text-h2:23px}
+  .wrap{width:min(var(--measure),calc(100% - 32px))}
+  .topnav{align-items:flex-start;flex-direction:column;gap:4px;padding-block:14px 10px}
+  .navlinks{width:100%;gap:0 2px}
+  .navlinks a{padding-inline:8px;font-size:13px}
+  .page-hero .wrap{padding-block:34px 30px}
+  .page-hero h1{font-size:32px;line-height:1.35}
+  .case-meta{margin-bottom:18px}
+  .score-band{gap:14px;margin-top:24px;padding-top:20px}
+  .total-score strong{font-size:46px}
+  .origin{width:100%;margin:6px 0 0}
+  .article-body{padding-block:24px 44px}
+  .content-section{margin-bottom:16px;padding:24px 20px}
+  .content-section h2{margin-bottom:16px;padding-bottom:12px}
+  .summary-section p:last-child{font-size:18px}
+  blockquote{margin:18px 0;padding:16px 18px}
+  th,td{padding:11px 12px}
+  .score-section>h2{padding:22px 20px 17px}
+  .coverage-note{padding:20px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="topnav wrap" aria-label="站内导航">
+  <a class="brand" href="../index.html">FDE Casebook</a>
+  <div class="navlinks">
+    <a href="../index.html">榜单首页</a>
+    <a href="../leaderboard.html">完整榜单</a>
+    <a href="../standards.html">入选标准</a>
+    <a href="../guide.html">7 环节能力地图</a>
+    <a href="../certifications.html">证书栏目</a>
+    <a href="../job-market.html">招聘与市场</a>
+    <a href="../changelog.html">更新日志</a>
+  </div>
+</nav>
+<header class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">FDE Casebook · Field research</p>
+    <ul class="case-meta"><li>项目型</li><li>行业：农业（精准农业 / 农机）</li><li>模式：大厂客户成功模型（厂商 AI 能力 + 客户业务结合）</li><li>强项环节：⑥上线采用 ⑤开发交付</li></ul>
+    <h1>FDE-006｜约翰迪尔：用 AI 客户成功模型卖精准农业</h1>
+    <div class="score-band">
+      <div class="total-score"><strong>76</strong><span>/ 100</span></div>
+      <span class="grade grade-a">A 级</span>
+      <span class="rank">海外榜第 3</span>
+      <a class="origin" href="#original-excerpts">站内读原文摘录 ↓</a>
+    </div>
+  </div>
+</header>
+<main class="article-body wrap">
+  <article><section class="content-section intro">
+<ul class="source-meta">
+<li><strong>来源</strong>：OpenAI 官方博客《John Deere transforms agriculture with AI》，访谈约翰迪尔高管 Justin Rose（Executive Function 系列；抓取页未显示发布日期）。原文：https://openai.com/index/john-deere-justin-rose/</li>
+<li><strong>可信度</strong>：官方一手访谈（客户方高管亲述；文中数字为 OpenAI / 约翰迪尔官方口径，未经第三方独立核验）</li>
+<li><strong>类型</strong>：产品与客户成功模型访谈——不是 FDE 团队的部署复盘，部署过程细节较薄</li>
+<li><strong>分类</strong>：项目型 ｜ 行业：农业（精准农业 / 农机）｜ 模式：大厂客户成功模型（厂商 AI 能力 + 客户业务结合）｜ 强项环节：⑥上线采用 ⑤开发交付 ｜ 榜单评分：76 · A（海外榜第 3），见 <a href="../leaderboard.html">LEADERBOARD.md</a></li>
+</ul>
+</section><section class="content-section summary-section"><h2>一句话摘要</h2>
+<p>约翰迪尔的打法不是先卖一个 AI 功能，而是把 AI 织进客户全旅程：买设备时教人用、农忙季盯着机器状态提醒、季末用 ROI 报告证明省了多少钱，再靠"用出价值再付费"的订阅制让续费变得顺理成章。最值得偷的是这套旅程设计和订阅定价，而不是某个模型细节——原文根本没讲模型与部署细节。</p>
+</section><section class="content-section stage-section"><h2>全流程 7 环节拆解（只引来源真实讲到的）</h2>
+<h3>① 选场景</h3>
+<ul>
+<li><strong>目标先定死</strong>：让农户更赚钱、更可持续，同时少用土地、化学品和人力。美国一家农场一年约养活 169 人，美国一年种约 12 万亿株玉米大豆——规模本身就是选场景的理由：单株优化的收益乘上这个量级才成立。</li>
+<li><strong>场景锚点是精准喷洒</strong>：传统喷洒整片田打药，See &amp; Spray 只打杂草。这是全篇唯一讲透的产品场景，其他农业、建筑、林业、草坪产品线只在公司介绍里一笔带过。</li>
+<li><strong>农户要的不是 AI，是时间</strong>：农户同时是 CEO、CFO、CTO，还要亲自下地；播种窗口只有约三周，劳动力又短缺。省时间、别误农时，是场景成立的第一判据。</li>
+</ul>
+<h3>② 摸现场</h3>
+<ul>
+<li><strong>先破一个迷思</strong>：农户不是不懂技术，是"务实"——技术证明了价值才采用，且一次坏年景就可能赔光全部，没有反复试错的机会。原文把"40 次收获"说成"40,000 次学习优化机会"，讲的是 AI 把每次作业都变成可复盘的数据，前提是系统真的在田里跑起来。</li>
+<li><strong>经销商的真实痛点</strong>：诊断一台机器故障，现在要翻几千页手册和维修记录，耗时数小时。AI 工具的价值首先体现在这里：直接给出诊断、零件清单和维修指引，而不是先讲模型多先进。</li>
+<li><strong>购买后才暴露的缺口</strong>：客户买了新设备，往往一开始并不完全理解它的能力。摸现场不能只摸买之前，要摸"买回去不会用"这一段。</li>
+</ul>
+<h3>③ 定方案</h3>
+<ul>
+<li><strong>订阅制定价是方案的一部分</strong>：从一次性高价转向可续订的订阅许可，降低前期成本，客户"用出价值再付费"，厂商的成功与客户的成功绑定。原文没有披露订阅价格、计价细则与续费率，引用时别脑补。</li>
+<li><strong>走出试点靠统一愿景</strong>：原文原话层面的判断是，规模化首先要求团队从一开始就对方向 crystal clear，否则会不断返工和错位。具体的试点边界、验收标准、组织分工：来源未披露。</li>
+<li><strong>三方协作</strong>：业务、技术团队与 OpenAI 密切合作，讨论的问题包括 AI 网络结构、评估体系搭建、前沿推理模型集成——只列了议题，没有展开任何一题的解法。</li>
+</ul>
+<h3>④ 数据与集成</h3>
+<ul>
+<li><strong>数据规模是真实的</strong>：几十万台机器、数百万英亩，靠实时远程数据（telematics）在正确时刻给可执行的洞察。传统客户成功会发自动喷洒提醒，但如果整周下雨，这条提醒就是骚扰——数据的作用首先是"别在错误的时间打扰人"。</li>
+<li><strong>实时诊断闭环</strong>：同时分析几千台机器，定位问题并向客户和经销商推送针对性建议。接了哪些系统、数据怎么回流、延迟与离线怎么处理：来源未披露。</li>
+</ul>
+<h3>⑤ 开发交付</h3>
+<ul>
+<li><strong>See &amp; Spray 的硬参数</strong>：36 个摄像头 + 机器学习，只识别杂草并喷洒，时速 12–15 英里，每分钟覆盖约三个足球场，化学品用量最多减少 70%（官方口径）。这是全篇最硬的一组数字，也是唯一可以原样引用的技术细节。</li>
+<li><strong>AI 客户成功的三件套</strong>：自然语言提问、个性化设置指引、基于历史用量与未来天气的季前建议（如用 See &amp; Spray 能少用多少药）。模型选型、评估方法、准确率：来源未披露。</li>
+<li><strong>季中干预的例子</strong>：喷洒机该在田里却不在，系统通知经销商并附细节；机器退回传统喷洒时，帮着诊断原因——可能是喷杆高度不对、开太快，或摄像头需要清洁。诊断到"下一次作业体验更好"为止，这是交付闭环的终点，不是演示的终点。</li>
+</ul>
+<h3>⑥ 上线采用</h3>
+<ul>
+<li><strong>全旅程织入，不是单点上线</strong>：购机（提问 + 设置指引 + 季前建议）→ 季中（状态提醒 + 异常诊断）→ 季末（个性化 ROI 报告，汇总节省与效率提升）。原文的愿景是：一支小团队借助实时数据，以 1000:1 的客户配比提供个性化支持，替代传统的 10:1，同时保持人在回路中。注意：1000:1 是愿景表述，不是已达成的运营数字。</li>
+<li><strong>续费设计</strong>：因为按"看到真实收益才付费"计价，季末 ROI 报告就是续费的论据。原文没有披露实际续费率与客户留存数字。</li>
+</ul>
+<h3>⑦ 迭代扩单</h3>
+<ul>
+<li><strong>可迁移的模型宣称</strong>：原文称这套 AI 原生客户成功模型可以应用到任何行业。约翰迪尔内部向其他产品线（建筑、林业等）复制的路径、时间表与结果：来源未披露。</li>
+<li><strong>反馈反哺研究</strong>：筛查摘要里提到的"反馈反哺研究"，本篇访谈原文中没有对应表述，成卡时已剔除，不得引用。</li>
+</ul>
+</section><section class="content-section"><h2>关键数字（口径已注明）</h2>
+<ul>
+<li>36 个摄像头，时速 12–15 英里，每分钟约三个足球场，化学品用量最多减少 70%（OpenAI / 约翰迪尔官方口径）</li>
+<li>约翰迪尔机器每年行驶约地球表面三分之一（高管自述，约数）</li>
+<li>一家美国农场一年约养活 169 人，美国一年约 12 万亿株玉米大豆（高管自述，约数）</li>
+<li>AI 客户成功愿景配比 1000:1，传统 10:1（愿景表述，非已达成数字）</li>
+<li>订阅制：可续订许可、按使用付费（定价细则与续费率未披露）</li>
+</ul>
+</section><section class="content-section"><h2>对入行者的启示</h2>
+<ul>
+<li><strong>订阅制是采用设计，不是财务细节</strong>："用出价值再付费"直接回答了客户"买回去不会用"的恐惧，比任何功能清单都更能推动采用。面试讲落地时，可以把定价机制当成上线采用环节的一环来讲。</li>
+<li><strong>先找经销商的翻手册之痛</strong>：几千页手册、数小时诊断，是比农户端更具体、更容易验证的切入点。找场景时优先找"现在靠人翻资料"的环节。</li>
+<li><strong>旅程比单点重要</strong>：购机、季中、季末三段都有 AI 的位置，缺了季末 ROI 报告，前面两段的价值都无法结算。做方案时先画全旅程，再填功能。</li>
+<li><strong>别把愿景当战绩</strong>：1000:1 是愿景，70% 是产品上限表述（up to），引用时必须带上这两个限定词，否则就是夸大。</li>
+</ul>
+</section><section class="content-section verdict-section"><h2>verdict</h2>
+<p><strong>学，但要按访谈读，别按复盘读。</strong> 它的价值在产品场景选择、订阅定价与全旅程客户成功设计三处，都是入行者可以直接偷的方法；但它不是 FDE 部署复盘——没有 FDE 团队编制、评估体系细节、失败与调优过程，7 环节里定方案与数据集成基本只有方向没有做法。引用时守住两条：70% 是上限口径，1000:1 是愿景；筛查摘要里的"农户互动提升 6 倍"本篇原文没有，已剔除。</p>
+<p><a id="original-excerpts"></a></p>
+</section><section class="content-section excerpt-section"><h2>原文摘录（站内可读）</h2>
+<blockquote>
+<p><strong>作者（原文要点）</strong>：农户不是不懂技术，是务实——技术证明了价值才采用，且一次坏年景就可能赔光，没有反复试错的机会。</p>
+<p><strong>作者（原文要点）</strong>：经销商诊断一台机器故障，现在要翻几千页手册和维修记录、耗时数小时；AI 直接给诊断、零件清单和维修指引。</p>
+<p><strong>作者（原文原句）</strong>："This is the slowest it's ever going to go."——讲 AI 发展速度，意思是现在就是最慢的时候，组织必须不断提速。</p>
+<p><strong>作者（原文要点）</strong>：季末用个性化 ROI 报告证明节省与效率提升，让续费成为顺理成章的决定；1000:1 的客户成功配比是愿景，不是已达成数字。</p>
+</blockquote>
+<p><em>摘录说明：标「原文原句」的为官方访谈短引，标「原文要点」的为归纳转述；原始出处（仅核验用）：https://openai.com/index/john-deere-justin-rose/</em></p>
+</section><section class="content-section score-section"><h2>评分与维度分析（总分 76 · A 级，海外榜第 3）</h2>
+<div class="table-scroll" tabindex="0"><table class="score-table">
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>26/30</td>
+<td>OpenAI 官方博客、客户方高管亲述，一手；但属访谈体、厂商渠道，数字未经第三方核验，扣 4 分</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>17/25</td>
+<td>7 环节覆盖 5 环半：选场景/开发交付/上线采用较实，定方案与数据集成只有方向、迭代扩单复制路径未披露</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>13/20</td>
+<td>经销商翻手册、务实采用、高 stakes、试点后规模化错位都是真困难，但都没有展开解法过程</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>11/15</td>
+<td>36 摄像头、时速、70% 上限等参数具体且可对照产品公开资料，但均为官方口径、无第三方复核</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>9/10</td>
+<td>订阅制采用设计、全旅程 ROI 结算、翻资料环节切入，三处可直接照做；扣 1 分因农业场景专用性</td>
+</tr>
+</tbody>
+</table></div>
+<p class="coverage-note"><strong>7 环节覆盖分析</strong>：①选场景 ●（少打药多打粮、时间是第一判据）②摸现场 ◐（务实采用、经销商翻手册、买后不会用）③定方案 ◐（订阅制、统一愿景、三方协作议题，验收标准未披露）④数据与集成 ◐（实时远程数据、千台级实时诊断，系统与回流细节未披露）⑤开发交付 ●（See &amp; Spray 硬参数、季中诊断三件套）⑥上线采用 ●（购机→季中→季末全旅程、1000:1 愿景）⑦迭代扩单 ◐（跨行业迁移宣称，复制路径未披露）</p>
+<hr />
+<p><em>本文为公开来源的学习拆解，归纳自 OpenAI 官方访谈，引文均为短引并注明出处；官方口径与愿景表述已逐项标注，请以原文为准。</em></p></section></article>
+</main>
+<footer><div class="wrap"><p>FDE Casebook · 本页由仓库 Markdown 自动生成，GitHub 仅作源码仓库。维护：Bruce Cao（<a href="https://x.com/sycbruce">@sycbruce</a>）</p></div></footer>
+</body>
+</html>

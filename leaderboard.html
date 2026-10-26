@@ -133,7 +133,7 @@ footer a{min-height:40px;display:inline-flex;align-items:center}
 <p>热度榜排的是谁会炒，我们排的是<strong>一条案例到底能让人学到多少真东西</strong>。评分标准见 <a href="standards.html">STANDARDS.md</a>：硬门槛一票否决，100 分制五维评分（来源可信度 30 / 流程完整度 25 / 困难与解法密度 20 / 数字可核验性 15 / 可迁移性 10），分数与理由全部公开。</p>
 <p>榜单按<strong>海外 / 国内</strong>分开呈现——两边的 FDE 生态、信源形态和岗位结构差别很大，混排没有意义。案例榜之外另有<strong>人物榜</strong>（值得长期盯的一手来源），同样分国内/海外。</p>
 <p><strong>网页版（全部内容站内可读，原文核心段落已摘录进各案例页）</strong>：https://cwybruce.github.io/fde-casebook/</p>
-<p>最近更新：2026-10-26（新增 FDE-005 张立行甲方案例，86 分 S 级，国内榜首易主）</p>
+<p>最近更新：2026-10-26（新增 FDE-006 约翰迪尔、FDE-007 BBVA、FDE-008 摩根士丹利，海外榜从 1 案扩到 4 案；三篇均为 OpenAI 官方口径，且原文篇幅比筛查摘要薄，评分已按实际原文下调，筛查多写细节已剔除）</p>
 <hr />
 </section><section class="content-section"><h2>一、海外案例榜</h2>
 <h3>第 1 名 · <a href="cases/FDE-002-openai-deployment-gap.html">FDE-002 OpenAI：删掉 90% 定制代码</a> — 92 分 · S 级</h3>
@@ -176,7 +176,126 @@ footer a{min-height:40px;display:inline-flex;align-items:center}
 </tbody>
 </table></div>
 <p>总评：目前公开材料里 FDE 项目复盘的天花板。这个库的主榜第 1 名短期内很难被超过。</p>
-<p><em>海外榜目前仅 1 个入选——完整项目型且过硬门槛的海外公开材料同样稀缺（多数大厂 FDE 项目不公开过程），持续收集中。</em></p>
+<h3>第 2 名 · <a href="cases/FDE-008-morgan-stanley-eval-first.html">FDE-008 摩根士丹利：先建考题，再谈上线</a> — 77 分 · A 级</h3>
+<p>分类：方法型 ｜ 银行 / 金融服务（财富管理）｜ 客户方 AI 团队 + OpenAI 联合调优 ｜ 强项环节 ⑤开发交付 ③定方案
+原文：https://openai.com/index/morgan-stanley/</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>26/30</td>
+<td>OpenAI 官方案例、客户方负责人具名表态，一手；但属厂商渠道短案例，数字未经第三方核验</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>16/25</td>
+<td>7 环节覆盖 5 环：选场景/定方案/开发交付较实，数据集成只有检索调优一句，迭代扩单未披露</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>15/20</td>
+<td>严格质量标准、专家打分、语料膨胀下的检索调优，困难与解法一一对应；但无失败与调优细节</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>10/15</td>
+<td>7000 问到 10 万文档是硬边界数字，但无准确率、无时间线、无采用率</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>10/10</td>
+<td>满分。Eval 先行、业务专家打分、框架随学习演进，任何行业都能直接照做</td>
+</tr>
+</tbody>
+</table></div>
+<p>总评：本批方法论最硬的一张，和 FDE-002 的 Eval 先行形成一线一证。A 级给的是方法密度，不是完整度——原文只有约一页，筛查摘要里的每日回归拦截原文没有，已剔除。</p>
+<h3>第 3 名 · <a href="cases/FDE-006-john-deere-ai-customer-success.html">FDE-006 约翰迪尔：用 AI 客户成功模型卖精准农业</a> — 76 分 · A 级</h3>
+<p>分类：项目型 ｜ 农业（精准农业 / 农机）｜ 大厂客户成功模型 ｜ 强项环节 ⑥上线采用 ⑤开发交付
+原文：https://openai.com/index/john-deere-justin-rose/</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>26/30</td>
+<td>OpenAI 官方博客、客户方高管亲述，一手；但属访谈体、厂商渠道，数字未经第三方核验</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>17/25</td>
+<td>7 环节覆盖 5 环半：选场景/开发交付/上线采用较实，定方案与数据集成只有方向、迭代扩单复制路径未披露</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>13/20</td>
+<td>经销商翻手册、务实采用、高 stakes、试点后规模化错位都是真困难，但都没有展开解法过程</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>11/15</td>
+<td>36 摄像头、时速、70% 上限等参数具体且可对照产品公开资料，但均为官方口径、无第三方复核</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>9/10</td>
+<td>订阅制采用设计、全旅程 ROI 结算、翻资料环节切入，三处可直接照做；扣 1 分因农业场景专用性</td>
+</tr>
+</tbody>
+</table></div>
+<p>总评：按访谈读，别按复盘读。价值在订阅定价与全旅程客户成功设计；70% 是上限口径，1000:1 是愿景，筛查摘要里的农户互动提升 6 倍原文没有，已剔除。</p>
+<h3>第 4 名 · <a href="cases/FDE-007-bbva-chatgpt-enterprise-rollout.html">FDE-007 BBVA：3300 到 120000，高度监管银行的 ChatGPT 推广</a> — 69 分 · B 级</h3>
+<p>分类：推广型 ｜ 银行（金融服务）｜ 厂商协助的大规模内部推广 ｜ 强项环节 ⑥上线采用 ③定方案
+原文：https://openai.com/index/bbva-collaboration-expansion/</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>26/30</td>
+<td>OpenAI 官方公告、双方一把手表态，一手；但属公告体、厂商渠道，数字未经第三方核验</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>14/25</td>
+<td>7 环节覆盖 4 环半：选场景/定方案/上线采用较实，摸现场与数据集成基本空白，迭代扩单只有方向</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>9/20</td>
+<td>高度监管、安全隐私、规模化采用三个困难只点了名，没有任何一个展开了解法过程</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>11/15</td>
+<td>三级人数、省时、日活三组数字具体且互相印证，但 120000 是进行时目标、定制 GPT 无精确数</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>9/10</td>
+<td>三级跳骨架、采用模型同步立项、控制先行，三处可直接照做；扣 1 分因银行监管场景专用性</td>
+</tr>
+</tbody>
+</table></div>
+<p>总评：当推广骨架读，别当复盘读。120000 人是扩展中目标不是已完成战绩；cases.md 的 83% 周活跃、2 万多个定制助手原文没有，以原文的 80% 以上日活与数千个定制 GPT 为准。</p>
 <hr />
 </section><section class="content-section"><h2>二、国内案例榜</h2>
 <h3>第 1 名 · <a href="cases/FDE-005-bylixing-agent-into-enterprise.html">FDE-005 张立行：用一流模型，选二流方案</a> — 86 分 · S 级</h3>
