@@ -27,6 +27,8 @@ CASE_STEMS = [
     "FDE-006-john-deere-ai-customer-success",
     "FDE-007-bbva-chatgpt-enterprise-rollout",
     "FDE-008-morgan-stanley-eval-first",
+    "FDE-009-cnzhihao-funds-report",
+    "FDE-010-miles-mazy-data-cleaning",
 ]
 
 CSS = """

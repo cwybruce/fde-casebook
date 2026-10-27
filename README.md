@@ -28,6 +28,7 @@ FDE 是 2025 年以来科技行业增长最快的岗位之一：OpenAI、Anthrop
 | 编号 | 标题 | 来源 | 行业 | 评分 |
 |---|---|---|---|---|
 | [FDE-002](cases/FDE-002-openai-deployment-gap.md) | OpenAI 的 FDE：删掉 90% 定制代码 | OpenAI 官方博客（FDE 负责人亲笔） | 半导体 / 电信 | 92 · S |
+| [FDE-009](cases/FDE-009-cnzhihao-funds-report.md) | 一张资金报表的流程改造：9 天把每天“打仗”的手工赶表变成自动发 | 智昊 @cnzhihao，一手从业者自述 | 制造业（资金管理） | 81 · A |
 | [FDE-006](cases/FDE-006-john-deere-ai-customer-success.md) | 约翰迪尔：用 AI 客户成功模型卖精准农业 | OpenAI 官方博客（客户方高管访谈） | 农业（精准农业 / 农机） | 76 · A |
 
 **推广型**
@@ -39,6 +40,7 @@ FDE 是 2025 年以来科技行业增长最快的岗位之一：OpenAI、Anthrop
 | 编号 | 标题 | 来源 | 行业 | 评分 |
 |---|---|---|---|---|
 | [FDE-008](cases/FDE-008-morgan-stanley-eval-first.md) | 摩根士丹利：先建考题，再谈上线 | OpenAI 官方博客（客户案例） | 银行 / 金融服务（财富管理） | 77 · A |
+| [FDE-010](cases/FDE-010-miles-mazy-data-cleaning.md) | 美妆企业数据清洗：海量多模态数据，怎么洗成一套可信数据 | @miles_mazy，一手从业者自述 | 美妆（舆情 / 竞品 / 营销复盘） | 71 · A |
 
 **框架型**
 | 编号 | 标题 | 来源 | 行业 | 评分 |

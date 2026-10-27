@@ -133,7 +133,7 @@ footer a{min-height:40px;display:inline-flex;align-items:center}
 <p>热度榜排的是谁会炒，我们排的是<strong>一条案例到底能让人学到多少真东西</strong>。评分标准见 <a href="standards.html">STANDARDS.md</a>：硬门槛一票否决，100 分制五维评分（来源可信度 30 / 流程完整度 25 / 困难与解法密度 20 / 数字可核验性 15 / 可迁移性 10），分数与理由全部公开。</p>
 <p>榜单按<strong>海外 / 国内</strong>分开呈现——两边的 FDE 生态、信源形态和岗位结构差别很大，混排没有意义。案例榜之外另有<strong>人物榜</strong>（值得长期盯的一手来源），同样分国内/海外。</p>
 <p><strong>网页版（全部内容站内可读，原文核心段落已摘录进各案例页）</strong>：https://cwybruce.github.io/fde-casebook/</p>
-<p>最近更新：2026-10-26（新增 FDE-006 约翰迪尔、FDE-007 BBVA、FDE-008 摩根士丹利，海外榜从 1 案扩到 4 案；三篇均为 OpenAI 官方口径，且原文篇幅比筛查摘要薄，评分已按实际原文下调，筛查多写细节已剔除）</p>
+<p>最近更新：2026-10-28（新增 FDE-009 智昊资金报表流程改造、FDE-010 Miles 数据清洗方法文，国内榜从 4 案扩到 6 案，编号空缺补齐；009 客户名、费用、节省工时、准确率均未披露，文章由作者自研写作 Agent 生成，卡内已标注；010 为数据环节专项方法文，非全流程复盘，A 级给的是方法密度）</p>
 <hr />
 </section><section class="content-section"><h2>一、海外案例榜</h2>
 <h3>第 1 名 · <a href="cases/FDE-002-openai-deployment-gap.html">FDE-002 OpenAI：删掉 90% 定制代码</a> — 92 分 · S 级</h3>
@@ -338,7 +338,47 @@ footer a{min-height:40px;display:inline-flex;align-items:center}
 </tbody>
 </table></div>
 <p>总评：本库第一篇甲方案例，也是国内榜第一个 S 级。与良竹 FDE 实战 01 做正反对照读效果最好；引用时注意公司名未披露、内部数字自报、分配方案自承未落地三处口径。</p>
-<h3>第 2 名 · <a href="cases/FDE-004-china-entrepreneur-fde-truth.html">FDE-004 《中国企业家》深访：落地的残酷真相</a> — 78 分 · A 级</h3>
+<h3>第 2 名 · <a href="cases/FDE-009-cnzhihao-funds-report.html">FDE-009 智昊：一张资金报表的流程改造</a> — 81 分 · A 级</h3>
+<p>分类：项目型 ｜ 制造业（资金管理）｜ 外部 FDE 团队 + 客户方业务负责人牵头落地 ｜ 强项环节 ⑤开发交付 ⑥上线采用
+原文：https://x.com/i/article/2114702907987968000</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>24/30</td>
+<td>作者一手自述，分工、流程、时间线、兜底均亲述；但客户名未披露、数字全为自报、文章由作者自研写作 Agent 生成、文末带招生引流</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>22/25</td>
+<td>7 环节覆盖 6 环半：选场景有筛子、定方案有一句验收、数据集成有三路分类、开发交付有现场 demo 节奏与三层兜底、上线采用有并行复盘维护分工；仅迭代扩单为建议非事实</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>18/20</td>
+<td>200 账户手工赶表、三路来源、格式不一、银行页面改版，困难与解法一一对应；但无真实失败案例的量化复盘</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>8/15</td>
+<td>银行数、账户数、U 盾数、9 天、凌晨 4 点跑 1 小时、并行 2 周均具体；但全为自报，无节省工时、准确率、费用数字</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>9/10</td>
+<td>三个选流程条件、一句验收、并行复盘维护分工、三层兜底均可直接照做；扣 1 分因银行流水场景专用性</td>
+</tr>
+</tbody>
+</table></div>
+<p>总评：本库第一张把"选流程、定验收、并行、复盘、维护分工"全套讲齐的国内项目卡。引用时守住口径：数字全是作者自报，"基本没有转过人工"不能写成零人工。</p>
+<h3>第 3 名 · <a href="cases/FDE-004-china-entrepreneur-fde-truth.html">FDE-004 《中国企业家》深访：落地的残酷真相</a> — 78 分 · A 级</h3>
 <p>分类：拼图型 ｜ 跨行业（制造 / to B 软件）｜ 强项环节 ②摸现场 ⑥上线采用
 原文：https://finance.sina.cn/stock/jdts/2026-10-21/detail-inivysym6175878.d.html</p>
 <div class="table-scroll" tabindex="0"><table>
@@ -378,7 +418,47 @@ footer a{min-height:40px;display:inline-flex;align-items:center}
 </tbody>
 </table></div>
 <p>总评：国内榜目前信息量最大的一条。把它当"行业现场拼图"读，不要当单一项目复盘引用。</p>
-<h3>第 3 名 · <a href="cases/FDE-001-liangzhu-fde-framework.html">FDE-001 良竹：FDE 定义与三层漏斗</a> — 68 分 · B 级（观察）</h3>
+<h3>第 4 名 · <a href="cases/FDE-010-miles-mazy-data-cleaning.html">FDE-010 @miles_mazy：美妆企业数据清洗</a> — 71 分 · A 级</h3>
+<p>分类：方法型 ｜ 美妆（舆情分析 / 竞品调研 / 营销活动复盘）｜ FDE 落地交付 ｜ 强项环节 ④数据与集成
+原文：https://x.com/miles_mazy/status/2115006510979801566</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>24/30</td>
+<td>作者一手自述的落地方法文，业务与链路亲述；但客户名未披露、数字全为自报、文末带个人品牌引导</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>15/25</td>
+<td>7 环节覆盖 4 环半：数据与集成极实，定方案与开发交付较实，选场景与摸现场只有背景，上线采用只有验收、迭代扩单未披露</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>17/20</td>
+<td>多模态归一、证据分级冲突、重复与异常分流、版本化验收，困难与解法一一对应；但无真实失败案例与调优数字</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>5/15</td>
+<td>无项目时间、数据量、准确率、成本、采用数字；文中质量看板数字含义未说明，不得引用</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>10/10</td>
+<td>满分。八步链路、证据分级、验收清单，任何行业的多模态数据项目都能直接照做</td>
+</tr>
+</tbody>
+</table></div>
+<p>总评：数据环节的必读方法文，和 FDE-008 的 Eval 先行形成一线一证：008 讲结论上线前怎么考，010 讲结论的数据底座怎么洗干净。按"链路 + checklist"用，别按战绩引用。</p>
+<h3>第 5 名 · <a href="cases/FDE-001-liangzhu-fde-framework.html">FDE-001 良竹：FDE 定义与三层漏斗</a> — 68 分 · B 级（观察）</h3>
 <p>分类：框架型 ｜ 通用 ｜ 强项环节 ⑥上线采用
 原文：作者主页 https://x.com/liangzhu_AI （原帖直链待补）</p>
 <div class="table-scroll" tabindex="0"><table>
@@ -418,7 +498,7 @@ footer a{min-height:40px;display:inline-flex;align-items:center}
 </tbody>
 </table></div>
 <p>总评：分数不高是因为它不是项目案例；但就"框架价值"单项论，它是国内材料里最值得先读的一篇。</p>
-<h3>第 4 名 · <a href="cases/FDE-003-miles-mazy-geely-training.html">FDE-003 @miles_mazy：吉利近 500 人培训现场</a> — 58 分 · B 级（观察）</h3>
+<h3>第 6 名 · <a href="cases/FDE-003-miles-mazy-geely-training.html">FDE-003 @miles_mazy：吉利近 500 人培训现场</a> — 58 分 · B 级（观察）</h3>
 <p>分类：观察型 ｜ 汽车 ｜ 专家培训切入 ｜ 强项环节 ⑥上线采用
 原文：https://x.com/miles_mazy/status/2113624481759429118</p>
 <div class="table-scroll" tabindex="0"><table>
@@ -513,7 +593,14 @@ footer a{min-height:40px;display:inline-flex;align-items:center}
 <td>大厂 AI 专家裸辞，做企业培训与落地</td>
 <td>高频发布企业现场信号（车企培训、multi-agent 教学），观察头部企业需求的窗口</td>
 <td>A</td>
-<td><a href="cases/FDE-003-miles-mazy-geely-training.html">FDE-003</a></td>
+<td><a href="cases/FDE-003-miles-mazy-geely-training.html">FDE-003</a>、<a href="cases/FDE-010-miles-mazy-data-cleaning.html">FDE-010</a></td>
+</tr>
+<tr>
+<td>智昊 <a href="https://x.com/cnzhihao">@cnzhihao</a></td>
+<td>杭州 FDE 落地交付者，CPA 出身，做高管 FDE 训练与企业主陪跑</td>
+<td>首篇实录即资金报表流程改造（81 · A），选流程筛子与三层兜底讲得极实，待后续系列验证长期一手含量</td>
+<td>B</td>
+<td><a href="cases/FDE-009-cnzhihao-funds-report.html">FDE-009</a></td>
 </tr>
 <tr>
 <td>冯璐瑶</td>

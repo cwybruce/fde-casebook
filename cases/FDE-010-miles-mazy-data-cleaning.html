@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>FDE-010｜美妆企业数据清洗：海量多模态数据，怎么洗成一套可信数据 — FDE Casebook</title>
+<style>
+:root{
+  --paper:#f7f4ee;--surface:#fffdfa;--surface-muted:#f0ebe2;--ink:#202522;--sub:#66675f;
+  --line:#ded8cc;--line-strong:#c7bfb1;--accent:#954b25;--accent-bright:#dda77d;--green:#2f6656;
+  --grade-s:#98711c;--grade-a:#954b25;--grade-b:#526b7b;--night:#19211f;--night-sub:#b9c1ba;
+  --font-sans:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --font-serif:Georgia,"Songti SC","Noto Serif CJK SC","SimSun",serif;
+  --text-xs:12px;--text-sm:14px;--text-base:16.5px;--text-h3:19px;--text-h2:26px;--text-h1:42px;
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;
+  --radius-sm:5px;--radius:9px;--shadow:0 8px 24px rgba(34,39,32,.045);--measure:880px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-sans);font-size:var(--text-base);line-height:1.85;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.wrap{width:min(var(--measure),calc(100% - 48px));margin-inline:auto}
+.topnav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px;border-bottom:1px solid var(--line);font-size:var(--text-sm)}
+.brand{color:var(--ink);font-family:var(--font-serif);font-size:18px;font-weight:700;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+.navlinks{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.navlinks a{display:inline-flex;align-items:center;min-height:40px;padding:4px 10px;color:var(--sub);text-decoration:none;border-radius:var(--radius-sm)}
+.navlinks a:hover{color:var(--accent);background:var(--surface-muted)}
+.page-hero{background:var(--night);color:#f6f2e9;border-bottom:3px solid var(--accent)}
+.page-hero .wrap{padding-block:52px 46px}
+.eyebrow{margin:0 0 18px;color:var(--accent-bright);font-size:var(--text-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.page-hero h1{max-width:780px;margin:0;font-family:var(--font-serif);font-size:clamp(32px,5vw,var(--text-h1));font-weight:700;line-height:1.28;letter-spacing:-.035em}
+.case-meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px;padding:0;list-style:none}
+.case-meta li{padding:3px 10px;border:1px solid #46504a;border-radius:var(--radius-sm);color:#d5dbd4;font-size:var(--text-xs);line-height:1.7}
+.score-band{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:30px;padding-top:24px;border-top:1px solid #3a433e}
+.total-score{display:flex;align-items:baseline;gap:7px;font-variant-numeric:tabular-nums;line-height:1}
+.total-score strong{font-family:var(--font-serif);font-size:52px;font-weight:400;letter-spacing:-.04em}
+.total-score span{color:var(--night-sub);font-size:var(--text-sm)}
+.grade{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:2px 10px;border:1px solid currentColor;border-radius:var(--radius-sm);font-size:var(--text-sm);font-weight:700;line-height:1.2;white-space:nowrap}
+.grade-s{color:#e0bc69}.grade-a{color:var(--accent-bright)}.grade-b{color:#a8bfce}
+.rank{color:var(--night-sub);font-size:var(--text-sm)}
+.origin{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin-left:auto;padding:8px 18px;background:var(--accent-bright);border:1px solid var(--accent-bright);border-radius:var(--radius-sm);color:var(--night)!important;font-size:var(--text-sm);font-weight:700;text-decoration:none;transition:background .18s ease,transform .18s ease}
+.origin:hover{background:#edbd97;transform:translateY(-1px)}
+.article-body{padding-block:36px 64px}
+.content-section{margin:0 0 24px;padding:30px 34px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow-wrap:anywhere}
+.content-section.intro{padding-top:26px}
+.content-section h2{margin:0 0 20px;padding-bottom:14px;border-bottom:1px solid var(--line);font-family:var(--font-serif);font-size:var(--text-h2);line-height:1.4;letter-spacing:-.025em}
+.content-section h3{margin:28px 0 10px;font-size:var(--text-h3);line-height:1.55;letter-spacing:-.015em}
+.content-section p{margin:0 0 17px}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{margin:0 0 18px;padding-left:1.5em}
+.content-section li{margin:7px 0}
+.content-section a{overflow-wrap:anywhere}
+.source-meta{margin:0!important;padding:0!important;list-style:none;color:var(--sub);font-size:var(--text-sm)}
+.source-meta li{padding:9px 0;margin:0;border-bottom:1px solid var(--line)}
+.source-meta li:last-child{border-bottom:0}
+.summary-section{border-top:3px solid var(--green)}
+.summary-section p:last-child{font-family:var(--font-serif);font-size:20px;line-height:1.75}
+.stage-section{background:#f2f3ed;border-color:#d5ddd2}
+.verdict-section{border-left:3px solid var(--accent)}
+.verdict-section p:last-child{font-size:18px}
+.excerpt-section{scroll-margin-top:24px}
+blockquote{margin:22px 0;padding:20px 24px;background:var(--surface-muted);border-left:3px solid var(--accent);color:var(--ink)}
+blockquote p{font-family:var(--font-serif);line-height:1.85}
+.content-section em{color:var(--sub);font-size:var(--text-sm)}
+.table-scroll{width:100%;margin:20px 0;overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm)}
+table{width:100%;min-width:560px;border-collapse:collapse;font-size:var(--text-sm);line-height:1.7;font-variant-numeric:tabular-nums}
+.score-table{min-width:660px}
+th,td{min-width:96px;padding:13px 15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--surface-muted);color:#484d47;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td:nth-child(2){white-space:nowrap}
+.score-section{padding:0;overflow:hidden;border-top:3px solid var(--green)}
+.score-section>h2{margin:0;padding:26px 34px 20px;background:#eef1e9;border-bottom:1px solid #d5ddd2}
+.score-section>.table-scroll{margin:0;border:0;border-radius:0}
+.score-section td:first-child{font-weight:700;white-space:nowrap}
+.score-section td:nth-child(2){color:var(--green);font-weight:700}
+.coverage-note{margin:0!important;padding:24px 34px;background:#f8f8f2;border-top:1px solid #d5ddd2}
+.coverage-note strong{color:var(--green);font-size:var(--text-sm);letter-spacing:.05em}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+footer{border-top:1px solid var(--line);color:var(--sub);font-size:var(--text-xs)}
+footer .wrap{padding-block:24px 40px}
+footer p{margin:0}
+footer a{min-height:40px;display:inline-flex;align-items:center}
+@media(max-width:680px){
+  :root{--text-base:16px;--text-h2:23px}
+  .wrap{width:min(var(--measure),calc(100% - 32px))}
+  .topnav{align-items:flex-start;flex-direction:column;gap:4px;padding-block:14px 10px}
+  .navlinks{width:100%;gap:0 2px}
+  .navlinks a{padding-inline:8px;font-size:13px}
+  .page-hero .wrap{padding-block:34px 30px}
+  .page-hero h1{font-size:32px;line-height:1.35}
+  .case-meta{margin-bottom:18px}
+  .score-band{gap:14px;margin-top:24px;padding-top:20px}
+  .total-score strong{font-size:46px}
+  .origin{width:100%;margin:6px 0 0}
+  .article-body{padding-block:24px 44px}
+  .content-section{margin-bottom:16px;padding:24px 20px}
+  .content-section h2{margin-bottom:16px;padding-bottom:12px}
+  .summary-section p:last-child{font-size:18px}
+  blockquote{margin:18px 0;padding:16px 18px}
+  th,td{padding:11px 12px}
+  .score-section>h2{padding:22px 20px 17px}
+  .coverage-note{padding:20px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="topnav wrap" aria-label="站内导航">
+  <a class="brand" href="../index.html">FDE Casebook</a>
+  <div class="navlinks">
+    <a href="../index.html">榜单首页</a>
+    <a href="../leaderboard.html">完整榜单</a>
+    <a href="../standards.html">入选标准</a>
+    <a href="../guide.html">7 环节能力地图</a>
+    <a href="../certifications.html">证书栏目</a>
+    <a href="../job-market.html">招聘与市场</a>
+    <a href="../changelog.html">更新日志</a>
+  </div>
+</nav>
+<header class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">FDE Casebook · Field research</p>
+    <ul class="case-meta"><li>方法型</li><li>行业：美妆（舆情分析 / 竞品调研 / 营销活动复盘）</li><li>模式：FDE 落地交付</li><li>强项环节：④数据与集成</li></ul>
+    <h1>FDE-010｜美妆企业数据清洗：海量多模态数据，怎么洗成一套可信数据</h1>
+    <div class="score-band">
+      <div class="total-score"><strong>71</strong><span>/ 100</span></div>
+      <span class="grade grade-a">A 级</span>
+      <span class="rank"></span>
+      <a class="origin" href="#original-excerpts">站内读原文摘录 ↓</a>
+    </div>
+  </div>
+</header>
+<main class="article-body wrap">
+  <article><section class="content-section intro">
+<ul class="source-meta">
+<li><strong>来源</strong>：Miles Ma（@miles_mazy，大厂 AI 专家裸辞，做企业培训与落地）X Article《FDE 实战案例｜数据清洗（海量多模态数据，怎么洗成一套可信数据）》，2026-10-27 发布。原文帖：https://x.com/miles_mazy/status/2115006510979801566</li>
+<li><strong>可信度</strong>：作者一手自述的落地方法文（业务与链路均为作者亲述）；但客户公司名未披露，项目时间、成本、采用数字均未披露，数字全为自报口径，未经第三方核验；文末附作者自我介绍与关注引导，属个人品牌内容，阅读时须区分方法与营销</li>
+<li><strong>类型</strong>：方法型——不是全流程项目复盘，是数据与集成环节的专项方法文</li>
+<li><strong>分类</strong>：方法型 ｜ 行业：美妆（舆情分析 / 竞品调研 / 营销活动复盘）｜ 模式：FDE 落地交付 ｜ 强项环节：④数据与集成 ｜ 榜单评分：71 · A（国内榜），见 <a href="../leaderboard.html">LEADERBOARD.md</a></li>
+</ul>
+</section><section class="content-section summary-section"><h2>一句话摘要</h2>
+<p>这篇的价值不在"做了一个什么项目"，而在"数据脏到没法用时，一步一步怎么洗干净"：一家美妆企业要做舆情分析、竞品调研和营销活动复盘，数据已经从小红书、抖音、视频号、微博采回来了，但文字、图片、音频、视频混在一起，同一个产品有多个叫法，原帖、评论、回复的关系还不能丢。作者给出的答案是一条八步清洗链路——先定规范、原始内容永保留、关系先理清、多模态归一、冲突看证据、重复与异常分流、结构化成可查询数据、验收后按版本入库。这是本库目前数据与集成环节讲得最完整的一张卡，也是 FDE-005 之后第二张值得当"数据环节教科书"对照读的国内方法文。</p>
+</section><section class="content-section stage-section"><h2>全流程 7 环节拆解（只引来源真实讲到的）</h2>
+<h3>① 选场景</h3>
+<ul>
+<li><strong>业务已经定下来了，选场景的决策过程没写</strong>：舆情分析、竞品调研、营销活动复盘，以及从评论区提取用户对功效、肤感、成分、价格和使用场景的真实反馈。这四个用途是全文的前提，但客户为什么先做这四个、排了什么优先级：来源未披露。</li>
+<li><strong>可迁移的一点</strong>：场景落在"已经发生的真实讨论"上，不是新造一个 AI 功能。数据清洗这个环节本身，就是因为业务要"从评论区里读出真实反馈"才成立的。</li>
+</ul>
+<h3>② 摸现场</h3>
+<ul>
+<li><strong>现场的脏，是四种脏叠在一起</strong>：多平台（小红书、抖音、视频号、微博）数据已采集回来；文字、图片、音频、视频四类模态混杂；同一产品有多个叫法；原帖、评论、回复之间的关系必须保持完整。摸现场的结论就是这四句，没有平台量级、采集周期、数据量数字。</li>
+<li><strong>一个容易被忽略的现场前提</strong>：数据是"已采集回来"的，采集环节本身（爬取、合规授权、反爬）怎么做的：来源未披露。引用时不能把这篇当成采集方案。</li>
+</ul>
+<h3>③ 定方案</h3>
+<ul>
+<li><strong>方案的第一步不是选工具，是先问用途</strong>：同一批数据最后拿来干什么，用途不同清洗方式就不同。作者举的例子是：同一条种草素材被十个账号发布，做传播复盘要保留全部，做自然讨论统计则标为一组重复。用途先行，是全文最值得抄的一句话。</li>
+<li><strong>规范要先写清五件事</strong>：必须保留的字段、帖 / 评论 / 用户的关联方式、哪些判断必须附原文、哪些数据可直接使用、哪些需人工确认。规范先行于清洗，是这篇与"直接上模型洗"的做法最根本的区别。</li>
+</ul>
+<h3>④ 数据与集成</h3>
+<ul>
+<li><strong>原始内容永远保留</strong>：原文、图片、音频、视频、链接、发布时间、平台原始 ID 全部保留；清洗后文本另存，不覆盖原文；OCR、ASR、模型标签只能作为新增结果。好处作者写得很实在：可回查、可换模型重跑、报告结论能找到证据。</li>
+<li><strong>关系梳理分平台内与平台间两层</strong>：单平台至少保留 user_id、post_id、comment_id、parent_comment_id 四类 ID，主键可用"平台名 + 平台原始 ID"；跨平台不直接"认人"，昵称 / 头像相同只算线索，无可靠主键和授权时只汇总话题、对象和内容。概括成一句：平台内把关系梳理清楚，平台间把来源分开保存。</li>
+<li><strong>多模态分别处理，再统一格式</strong>：最终统一为"谁在什么时间说了什么、提到什么对象、证据在原内容哪个位置"。文字保留原文后处理乱码 / 空白 / 链接 / 语言 / 重复段落，模型提取观点要返回对应原句；图片 OCR 提取价格 / 型号 / 日期 / 截图文字，视觉模型识别对象、场景、部件，两者都保留图片位置；音频先统一格式与采样率再做 ASR（带时间码），多人对话加说话人区分；视频拆音轨 + 关键帧，音轨 ASR、关键帧 OCR / 视觉识别，按时间合并，无需逐帧，先低频抽帧全文转写再对相关片段提高密度。</li>
+<li><strong>工具选型写明了取舍</strong>：小批量直接调 API，量稳后高频任务搬本地。提及的工具与服务：FFmpeg（拆音轨 / 转码 / 抽帧）、PaddleOCR（本地 OCR）、Whisper（本地语音识别）、云端 OCR（百度智能云 / 腾讯云）、云端 ASR（腾讯云 / 火山引擎音视频字幕生成）。上线前要看控制台额度与并发限制，用真实样本测试方言、噪声、中英混合、竖屏字幕、截图小字。作者还建议做一个轻量工作台：文件 / 链接进入 → 自动选工具 → 查看原文与识别结果 → 人工修正 → 导出 JSON / CSV，并记录调用次数、耗时、费用、失败原因。</li>
+<li><strong>冲突处理是全文最硬的一段</strong>：一条视频 ASR 识别成一个数、画面 OCR 识别成另一个数时，不能只信置信度高的一方。证据分级五档：A 级（官方字段 / 人工确认）、B 级（原图原音原视频可直接确认）、C 级（多模型一致且上下文对上）、D 级（单个模型识别判断）、E 级（关键词 / 正则 / 简单规则候选）。处理流程是：按时间码和图片位置找原始证据、核对单位 / 上下文 / 发布时间；能确认就修正，不能确认就进入待核队列、不参与精确数值统计；修正时保留原值、修正值、证据等级、原因、复核状态、模型版本，原值不覆盖。</li>
+<li><strong>重复、低质量、异常分开处理</strong>：先筛相关内容（关键词词典找全 + 语义模型补简称、缩写、相近说法），再处理重复（完全复制 / 轻微改写 / 同图不同文 / 同视频再发布归入同一重复组，原始记录保留，统计时再定按帖 / 素材 / 账号去重），最后识别异常（发布时间、内容相似度、账号历史、发帖节奏、互动网络为信号）。系统输出四种状态：正常可用、重复关联、低质量（待修复或隔离）、高风险（人工复核）。风险分只用于排序，活动统一素材、媒体矩阵、合作账号也高度相似，不能见高分就删。</li>
+</ul>
+<h3>⑤ 开发交付</h3>
+<ul>
+<li><strong>交付物是链路 + 工作台，不是单个模型</strong>：八步链路本身、轻量人工复核工作台、JSON / CSV 导出，是文中明确写出的交付形态。工作台的记录字段（调用次数、耗时、费用、失败原因）是交付可审计性的关键。</li>
+<li><strong>结构化是开发交付的收口</strong>：用户评价不能只打"负面 / 中性"标签，要整理成五类结构：表达者与评价对象、提到的产品 / 部件 / 功能 / 服务、对象间发生什么、用户观点 / 问题 / 意图、判断依据（哪句原文 / 图片位置 / 音频段）。高频规则稳定任务给规则和小模型，多语种 / 多对象 / 复杂指代 / 长文本给大模型，低置信进人工复核；大模型按固定 JSON 返回字段和证据，字段名 / 可选值 / 空值规则提前写清。</li>
+<li><strong>验收是交付的门，不是事后检查</strong>：检查原始内容链接完整、评论可回溯原帖和上级评论、OCR / ASR / 视觉结果带位置、冲突有处理状态、标签绑定正确对象、规则模型字段有版本号；准备人工确认的测试样本（含正常和难例），每次换规则 / 模型都重跑；入库时原始数据、处理结果、质量状态、版本信息分开保存。</li>
+</ul>
+<h3>⑥ 上线采用</h3>
+<ul>
+<li><strong>验收与版本入库写了，采用本身没写</strong>：谁在用这套清洗后的数据、业务方是否采信报告结论、有没有因为数据质量问题返工、培训与交接怎么做：来源未披露。验收清单与版本记录是上线采用的前置条件，不是采用证据，引用时不能偷换。</li>
+<li><strong>下一篇预告不是已交付</strong>：作者文末说下一篇将讲 Elasticsearch 查询与可信报告。这是作者的写作计划，不是本项目的交付内容，不得写成已发生的迭代。</li>
+</ul>
+<h3>⑦ 迭代扩单</h3>
+<ul>
+<li>扩到新品牌、新业务线、新平台的具体路径：来源未披露。全文只讲了"把业务规则、数据处理、模型能力和人工复核接成长期运行的流程"这一判断，没有写扩单事实。</li>
+</ul>
+</section><section class="content-section"><h2>关键数字（口径已注明）</h2>
+<ul>
+<li>四个业务用途：舆情分析、竞品调研、营销活动复盘、评论区真实反馈提取（原文列举）</li>
+<li>四个平台：小红书、抖音、视频号、微博（原文列举，数据量未披露）</li>
+<li>八步链路：定规范、保留原始内容、梳理关系、多模态归一、冲突处理、重复与异常分流、结构化、验收与版本入库（原文结构）</li>
+<li>证据分级五档：A 官方字段 / 人工确认、B 原内容可直接确认、C 多模型一致且上下文对上、D 单个模型识别判断、E 关键词 / 正则 / 简单规则候选（原文分级）</li>
+<li>质量状态四种：正常可用、重复关联、低质量（待修复或隔离）、高风险（人工复核）（原文分类）</li>
+<li>以下内容本篇原文没有，成卡时已剔除，不得引用：项目时间线、数据总量、清洗前后准确率、成本与费用数字、采用率、文中质量看板图上的统计数字（含义未说明，不得引用）、采集环节做法、扩单路径</li>
+</ul>
+</section><section class="content-section"><h2>对入行者的启示</h2>
+<ul>
+<li><strong>数据环节的第一课是"用途先行"，不是"工具先行"</strong>：同一批数据，传播复盘和自然讨论统计的去重口径完全相反。面试讲数据项目时，先讲用途怎么定规范，再讲用了什么模型，顺序本身就是专业度。</li>
+<li><strong>原始内容永保留，是 FDE 数据工作里最便宜的后悔药</strong>：OCR、ASR、模型标签只能做新增结果，不能覆盖原文。换模型重跑、报告结论回查、客户质疑时拿证据，全靠这一条。自己的项目里先把这条写进规范，再谈准确率。</li>
+<li><strong>冲突不要只信置信度，要信证据等级</strong>：ASR 与 OCR 打架时，按时间码和图片位置找原始证据，确认不了就进待核队列、不进精确统计。这一条直接对应 FDE-008 的 Eval 先行：评估与证据，都是"结论能不能追溯到原文"的问题。</li>
+<li><strong>风险分只排序，不删帖</strong>：活动统一素材、媒体矩阵、合作账号天然高度相似，见高分就删会把正常营销内容当水军清掉。做异常识别时，先分流、再人工复核，删除永远是最后一个动作。</li>
+<li><strong>验收清单可以直接抄去当交付 checklist</strong>：链接完整、评论可回溯、识别结果带位置、冲突有状态、标签绑定正确对象、字段有版本号——这六条过不了，数据就不能叫"可信数据"，只能叫"跑过模型的数据"。</li>
+</ul>
+</section><section class="content-section verdict-section"><h2>verdict</h2>
+<p><strong>学，数据环节的必读方法文。</strong> 它是本库目前把数据清洗讲到"字段、主键、证据等级、复核队列、版本号"这个粒度的方法文，和 FDE-008 的 Eval 先行形成一线一证：008 讲的是结论上线前怎么考，010 讲的是结论的数据底座怎么洗干净。短板也很明确：这是一篇方法文，不是项目复盘——客户名、时间线、成本、采用数字、扩单路径一概未披露，A 级给的是方法密度与可迁移性，不是完整度。读的时候按"链路 + checklist"用，别按"某家美妆企业花了多少钱、省了多少时间"的战绩引用。</p>
+<p><a id="original-excerpts"></a></p>
+</section><section class="content-section excerpt-section"><h2>原文摘录（站内可读）</h2>
+<blockquote>
+<p><strong>作者（原文要点）</strong>：先问业务"这批数据最后拿来干什么"，用途不同清洗方式就不同；规范要写清必须保留的字段、帖 / 评论 / 用户的关联方式、哪些判断必须附原文、哪些需人工确认。</p>
+<p><strong>作者（原文要点）</strong>：原始内容永远保留，清洗后文本另存、不覆盖原文，OCR、ASR、模型标签只能作为新增结果；平台内把关系梳理清楚，平台间把来源分开保存。</p>
+<p><strong>作者（原文要点）</strong>：冲突时先看证据，按时间码和图片位置找原始证据；能确认就修正，不能确认就进入待核队列、不参与精确数值统计，修正时原值、修正值、证据等级、原因、复核状态、模型版本都要保留。</p>
+</blockquote>
+<p><em>摘录说明：标「原文要点」的为归纳转述；原始出处（仅核验用）：https://x.com/miles_mazy/status/2115006510979801566</em></p>
+</section><section class="content-section score-section"><h2>评分与维度分析（总分 71 · A 级，国内榜）</h2>
+<div class="table-scroll" tabindex="0"><table class="score-table">
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>24/30</td>
+<td>作者一手自述的落地方法文，业务与链路亲述；但客户名未披露、数字全为自报、文末带个人品牌引导，扣 6 分</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>15/25</td>
+<td>7 环节覆盖 4 环半：数据与集成极实，定方案与开发交付较实，选场景与摸现场只有背景，上线采用只有验收、迭代扩单未披露</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>17/20</td>
+<td>多模态归一、证据分级冲突、重复与异常分流、版本化验收，困难与解法一一对应；但无真实失败案例与调优数字</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>5/15</td>
+<td>无项目时间、数据量、准确率、成本、采用数字；文中质量看板数字含义未说明，不得引用</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>10/10</td>
+<td>满分。八步链路、证据分级、验收清单，任何行业的多模态数据项目都能直接照做</td>
+</tr>
+</tbody>
+</table></div>
+<p class="coverage-note"><strong>7 环节覆盖分析</strong>：①选场景 ◐（四个业务用途已定，决策过程未披露）②摸现场 ◐（四种脏叠加的现场描述，无量级数字）③定方案 ◐（用途先行、规范五件事）④数据与集成 ●（原始保留、关系梳理、多模态归一、证据分级、重复与异常分流，全文强项）⑤开发交付 ◐（链路 + 工作台 + 结构化收口 + 验收门）⑥上线采用 ◐（只有验收与版本入库，采用证据未披露）⑦迭代扩单 ○（来源未披露，下一篇预告不是已交付）</p>
+<hr />
+<p><em>本文为公开来源的学习拆解，归纳自作者 X Article，引文均为短引并注明出处；原文未写的内容已逐项剔除，请以原文为准。</em></p></section></article>
+</main>
+<footer><div class="wrap"><p>FDE Casebook · 本页由仓库 Markdown 自动生成，GitHub 仅作源码仓库。维护：Bruce Cao（<a href="https://x.com/sycbruce">@sycbruce</a>）</p></div></footer>
+</body>
+</html>
