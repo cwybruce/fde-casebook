@@ -29,6 +29,7 @@ FDE 是 2025 年以来科技行业增长最快的岗位之一：OpenAI、Anthrop
 |---|---|---|---|---|
 | [FDE-002](cases/FDE-002-openai-deployment-gap.md) | OpenAI 的 FDE：删掉 90% 定制代码 | OpenAI 官方博客（FDE 负责人亲笔） | 半导体 / 电信 | 92 · S |
 | [FDE-009](cases/FDE-009-cnzhihao-funds-report.md) | 一张资金报表的流程改造：9 天把每天“打仗”的手工赶表变成自动发 | 智昊 @cnzhihao，一手从业者自述 | 制造业（资金管理） | 81 · A |
+| [FDE-011](cases/FDE-011-21jingji-manufacturing-quotation.md) | 五金制造企业报价从 2–5 天变 15 分钟：半年驻场，先问员工最烦什么 | 21世纪经济报道，驻场 FDE 本人口述 | 制造业（五金制造） | 73 · A |
 | [FDE-006](cases/FDE-006-john-deere-ai-customer-success.md) | 约翰迪尔：用 AI 客户成功模型卖精准农业 | OpenAI 官方博客（客户方高管访谈） | 农业（精准农业 / 农机） | 76 · A |
 
 **推广型**
