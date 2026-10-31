@@ -42,6 +42,7 @@ FDE 是 2025 年以来科技行业增长最快的岗位之一：OpenAI、Anthrop
 |---|---|---|---|---|
 | [FDE-008](cases/FDE-008-morgan-stanley-eval-first.md) | 摩根士丹利：先建考题，再谈上线 | OpenAI 官方博客（客户案例） | 银行 / 金融服务（财富管理） | 77 · A |
 | [FDE-010](cases/FDE-010-miles-mazy-data-cleaning.md) | 美妆企业数据清洗：海量多模态数据，怎么洗成一套可信数据 | @miles_mazy，一手从业者自述 | 美妆（舆情 / 竞品 / 营销复盘） | 71 · A |
+| [FDE-012](cases/FDE-012-miles-mazy-trusted-query.md) | 可信取数：四次踩坑之后，才敢让 AI 每天查数 | @miles_mazy，一手从业者自述 | 美妆（舆情 / 口碑查询） | 74 · A |
 
 **框架型**
 | 编号 | 标题 | 来源 | 行业 | 评分 |

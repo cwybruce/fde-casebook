@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>FDE-012｜可信取数：四次踩坑之后，才敢让 AI 每天查数 — FDE Casebook</title>
+<style>
+:root{
+  --paper:#f7f4ee;--surface:#fffdfa;--surface-muted:#f0ebe2;--ink:#202522;--sub:#66675f;
+  --line:#ded8cc;--line-strong:#c7bfb1;--accent:#954b25;--accent-bright:#dda77d;--green:#2f6656;
+  --grade-s:#98711c;--grade-a:#954b25;--grade-b:#526b7b;--night:#19211f;--night-sub:#b9c1ba;
+  --font-sans:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --font-serif:Georgia,"Songti SC","Noto Serif CJK SC","SimSun",serif;
+  --text-xs:12px;--text-sm:14px;--text-base:16.5px;--text-h3:19px;--text-h2:26px;--text-h1:42px;
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;
+  --radius-sm:5px;--radius:9px;--shadow:0 8px 24px rgba(34,39,32,.045);--measure:880px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-sans);font-size:var(--text-base);line-height:1.85;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.wrap{width:min(var(--measure),calc(100% - 48px));margin-inline:auto}
+.topnav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px;border-bottom:1px solid var(--line);font-size:var(--text-sm)}
+.brand{color:var(--ink);font-family:var(--font-serif);font-size:18px;font-weight:700;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+.navlinks{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.navlinks a{display:inline-flex;align-items:center;min-height:40px;padding:4px 10px;color:var(--sub);text-decoration:none;border-radius:var(--radius-sm)}
+.navlinks a:hover{color:var(--accent);background:var(--surface-muted)}
+.page-hero{background:var(--night);color:#f6f2e9;border-bottom:3px solid var(--accent)}
+.page-hero .wrap{padding-block:52px 46px}
+.eyebrow{margin:0 0 18px;color:var(--accent-bright);font-size:var(--text-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.page-hero h1{max-width:780px;margin:0;font-family:var(--font-serif);font-size:clamp(32px,5vw,var(--text-h1));font-weight:700;line-height:1.28;letter-spacing:-.035em}
+.case-meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px;padding:0;list-style:none}
+.case-meta li{padding:3px 10px;border:1px solid #46504a;border-radius:var(--radius-sm);color:#d5dbd4;font-size:var(--text-xs);line-height:1.7}
+.score-band{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:30px;padding-top:24px;border-top:1px solid #3a433e}
+.total-score{display:flex;align-items:baseline;gap:7px;font-variant-numeric:tabular-nums;line-height:1}
+.total-score strong{font-family:var(--font-serif);font-size:52px;font-weight:400;letter-spacing:-.04em}
+.total-score span{color:var(--night-sub);font-size:var(--text-sm)}
+.grade{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:2px 10px;border:1px solid currentColor;border-radius:var(--radius-sm);font-size:var(--text-sm);font-weight:700;line-height:1.2;white-space:nowrap}
+.grade-s{color:#e0bc69}.grade-a{color:var(--accent-bright)}.grade-b{color:#a8bfce}
+.rank{color:var(--night-sub);font-size:var(--text-sm)}
+.origin{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin-left:auto;padding:8px 18px;background:var(--accent-bright);border:1px solid var(--accent-bright);border-radius:var(--radius-sm);color:var(--night)!important;font-size:var(--text-sm);font-weight:700;text-decoration:none;transition:background .18s ease,transform .18s ease}
+.origin:hover{background:#edbd97;transform:translateY(-1px)}
+.article-body{padding-block:36px 64px}
+.content-section{margin:0 0 24px;padding:30px 34px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow-wrap:anywhere}
+.content-section.intro{padding-top:26px}
+.content-section h2{margin:0 0 20px;padding-bottom:14px;border-bottom:1px solid var(--line);font-family:var(--font-serif);font-size:var(--text-h2);line-height:1.4;letter-spacing:-.025em}
+.content-section h3{margin:28px 0 10px;font-size:var(--text-h3);line-height:1.55;letter-spacing:-.015em}
+.content-section p{margin:0 0 17px}
+.content-section p:last-child{margin-bottom:0}
+.content-section ul,.content-section ol{margin:0 0 18px;padding-left:1.5em}
+.content-section li{margin:7px 0}
+.content-section a{overflow-wrap:anywhere}
+.source-meta{margin:0!important;padding:0!important;list-style:none;color:var(--sub);font-size:var(--text-sm)}
+.source-meta li{padding:9px 0;margin:0;border-bottom:1px solid var(--line)}
+.source-meta li:last-child{border-bottom:0}
+.summary-section{border-top:3px solid var(--green)}
+.summary-section p:last-child{font-family:var(--font-serif);font-size:20px;line-height:1.75}
+.stage-section{background:#f2f3ed;border-color:#d5ddd2}
+.verdict-section{border-left:3px solid var(--accent)}
+.verdict-section p:last-child{font-size:18px}
+.excerpt-section{scroll-margin-top:24px}
+blockquote{margin:22px 0;padding:20px 24px;background:var(--surface-muted);border-left:3px solid var(--accent);color:var(--ink)}
+blockquote p{font-family:var(--font-serif);line-height:1.85}
+.content-section em{color:var(--sub);font-size:var(--text-sm)}
+.table-scroll{width:100%;margin:20px 0;overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm)}
+table{width:100%;min-width:560px;border-collapse:collapse;font-size:var(--text-sm);line-height:1.7;font-variant-numeric:tabular-nums}
+.score-table{min-width:660px}
+th,td{min-width:96px;padding:13px 15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--surface-muted);color:#484d47;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td:nth-child(2){white-space:nowrap}
+.score-section{padding:0;overflow:hidden;border-top:3px solid var(--green)}
+.score-section>h2{margin:0;padding:26px 34px 20px;background:#eef1e9;border-bottom:1px solid #d5ddd2}
+.score-section>.table-scroll{margin:0;border:0;border-radius:0}
+.score-section td:first-child{font-weight:700;white-space:nowrap}
+.score-section td:nth-child(2){color:var(--green);font-weight:700}
+.coverage-note{margin:0!important;padding:24px 34px;background:#f8f8f2;border-top:1px solid #d5ddd2}
+.coverage-note strong{color:var(--green);font-size:var(--text-sm);letter-spacing:.05em}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+footer{border-top:1px solid var(--line);color:var(--sub);font-size:var(--text-xs)}
+footer .wrap{padding-block:24px 40px}
+footer p{margin:0}
+footer a{min-height:40px;display:inline-flex;align-items:center}
+@media(max-width:680px){
+  :root{--text-base:16px;--text-h2:23px}
+  .wrap{width:min(var(--measure),calc(100% - 32px))}
+  .topnav{align-items:flex-start;flex-direction:column;gap:4px;padding-block:14px 10px}
+  .navlinks{width:100%;gap:0 2px}
+  .navlinks a{padding-inline:8px;font-size:13px}
+  .page-hero .wrap{padding-block:34px 30px}
+  .page-hero h1{font-size:32px;line-height:1.35}
+  .case-meta{margin-bottom:18px}
+  .score-band{gap:14px;margin-top:24px;padding-top:20px}
+  .total-score strong{font-size:46px}
+  .origin{width:100%;margin:6px 0 0}
+  .article-body{padding-block:24px 44px}
+  .content-section{margin-bottom:16px;padding:24px 20px}
+  .content-section h2{margin-bottom:16px;padding-bottom:12px}
+  .summary-section p:last-child{font-size:18px}
+  blockquote{margin:18px 0;padding:16px 18px}
+  th,td{padding:11px 12px}
+  .score-section>h2{padding:22px 20px 17px}
+  .coverage-note{padding:20px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="topnav wrap" aria-label="站内导航">
+  <a class="brand" href="../index.html">FDE Casebook</a>
+  <div class="navlinks">
+    <a href="../index.html">榜单首页</a>
+    <a href="../leaderboard.html">完整榜单</a>
+    <a href="../standards.html">入选标准</a>
+    <a href="../guide.html">7 环节能力地图</a>
+    <a href="../certifications.html">证书栏目</a>
+    <a href="../job-market.html">招聘与市场</a>
+    <a href="../changelog.html">更新日志</a>
+  </div>
+</nav>
+<header class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">FDE Casebook · Field research</p>
+    <ul class="case-meta"><li>方法型</li><li>行业：美妆（舆情分析 / 口碑查询）</li><li>模式：FDE 落地交付</li><li>强项环节：⑤开发交付 ④数据与集成</li></ul>
+    <h1>FDE-012｜可信取数：四次踩坑之后，才敢让 AI 每天查数</h1>
+    <div class="score-band">
+      <div class="total-score"><strong>74</strong><span>/ 100</span></div>
+      <span class="grade grade-a">A 级</span>
+      <span class="rank">国内榜第 4</span>
+      <a class="origin" href="#original-excerpts">站内读原文摘录 ↓</a>
+    </div>
+  </div>
+</header>
+<main class="article-body wrap">
+  <article><section class="content-section intro">
+<ul class="source-meta">
+<li><strong>来源</strong>：Miles Ma（@miles_mazy，大厂 AI 专家裸辞，做企业培训与落地）X Article《FDE 实战案例：可信取数（AI 工具选型与四次踩坑复盘）》，2026-10-30 发布。原文帖：https://x.com/miles_mazy/status/2116118053872079045（文章页：https://x.com/miles_mazy/article/2116118053872079045）</li>
+<li><strong>可信度</strong>：作者一手自述的落地方法文（FDE-010 美妆数据清洗的直接续集，同一家美妆企业、同一套清洗后的数据库）；但客户公司名、周期、成本、准确率均未披露，数字全为自报口径，未经第三方核验；文末附作者自我介绍与关注引导，属个人品牌内容</li>
+<li><strong>类型</strong>：方法型——不是全流程项目复盘，是"数据取数可信"这个环节的专项方法文</li>
+<li><strong>分类</strong>：方法型 ｜ 行业：美妆（舆情分析 / 口碑查询）｜ 模式：FDE 落地交付 ｜ 强项环节：⑤开发交付 ④数据与集成 ｜ 榜单评分：74 · A（国内榜第 4），见 <a href="../leaderboard.html">LEADERBOARD.md</a></li>
+</ul>
+</section><section class="content-section summary-section"><h2>一句话摘要</h2>
+<p>数据洗干净之后，客户要的不是"演示能跑"，而是每天能稳定跑、结果准、还能回溯证据的取数查询。这篇是 FDE-010 的直接续集：客户的新需求是查过去 30 天某款精华在小红书和抖音的口碑，作者用四次真实踩坑讲清了为什么"演示能跑"不等于"生产可信"——AI 直接写查询会把多产品同帖的情感算错人，固定模板稳住了格式却稳不住"声量"这种业务词的意思，让 AI 像分析师一样点页面会在第二、第三轮开始混进上一轮的筛选条件，直接调业务 API 又会因为缺了前端才知道的上下文而返回"看起来正常、实际无用"的数据。最终解法是把高频需求做成 Tool、让 AI 通过 MCP 发现并调用，AI 只确认有限条件，内部查询与业务规则留在 Tool 内；但作者明确提醒，接入 MCP 本身不会自动保证准确，业务规则仍需人工定义。</p>
+</section><section class="content-section stage-section"><h2>全流程 7 环节拆解（只引来源真实讲到的）</h2>
+<h3>① 选场景</h3>
+<ul>
+<li><strong>真实高频问题，值得做成每天稳定运行的方案</strong>：查过去 30 天某款精华在小红书和抖音的口碑，大家主要在讨论保湿、抗老、肤感还是香味，负面评价集中在哪里。这不是一次性演示需求，是客户每天都要问的问题，选场景的判据就是"高频 + 每天都要准"。</li>
+<li><strong>核心矛盾先讲清</strong>：演示能跑与生产可信之间的差距，是本篇的中心问题。选场景时先问"这个查询以后是不是每天都要跑、跑错了有没有人发现"，答不上来就不该直接上 Agent 查数。</li>
+</ul>
+<h3>② 摸现场</h3>
+<ul>
+<li><strong>落实查询前必须先明确五件事</strong>：查哪个对象、看哪个时间、从哪些来源取数、用什么指标、最后要不要把原帖证据一起带回来。任何一件不清楚，系统都无法给出正确结果。这五件事是摸现场的输出物，不是事后补的文档。</li>
+<li><strong>ES 文档不是一张简单的表</strong>：一篇社媒内容展开后是一份宽文档，含原帖、发帖用户、图片 OCR、视频 ASR、品牌与产品、评论关系、互动快照、模型标签，随着业务需要字段可达数百个。更难的是很多字段看起来相似、实际业务含义不同，AI 选错位置，查询照样跑得出数字，但答案已经不再回答原来的问题。</li>
+</ul>
+<h3>③ 定方案</h3>
+<ul>
+<li><strong>已签字的 POC 边界与验收标准</strong>：来源未披露。文末方法建议是：先选真实高频问题、用难例测试、把高频需求做成 Tool、结果附带证据复核。这是方法建议，不是本项目已签字的验收事实，引用时不能偷换。</li>
+<li><strong>方案的第一步是"把问题问清楚"</strong>：FDE 的工作排序是先澄清业务问题（报告给谁看、为哪个决策服务、负面是指整帖还是针对某个产品的具体体验、多产品同帖怎么算、要不要附原帖复核），再把这些变成 AI 能理解的条件。业务定义决定结果能不能用，MCP 只是连接器。</li>
+</ul>
+<h3>④ 数据与集成</h3>
+<ul>
+<li><strong>按数据形态与用法选库</strong>：内容多、来源多、查询方式多变的搜索统计用 ES；结构稳定、关系明确的业务数据（如项目、用户、权限、订单）用 PostgreSQL；图片、音频、视频原始文件单独保存。选库的判据是"数据长什么样、别人会怎么用"，不是"哪个库更新"。</li>
+<li><strong>数据底座就是 FDE-010 清洗后的数据库</strong>：本篇不重复讲清洗，清洗链路见 FDE-010。两篇合读才是"清洗 → 取数"的完整链条，单读本篇会以为取数问题只出在查询层。</li>
+<li><strong>ES 查询有两棵树</strong>：查询树（哪些数据进来）与聚合树（数据怎么算）。查询能跑通、不报错，不等于算对了。这是本篇对"查询层"最关键的一句提醒。</li>
+</ul>
+<h3>⑤ 开发交付</h3>
+<ul>
+<li><strong>第一次踩坑：AI 直接写 ES 查询</strong>：简单查询可行，但"某款精华的负面评价"会算错人——一篇帖子同时提到两款产品，一款保湿好、一款太黏，AI 只看到"出现该精华 + 帖子有负面"，就把负面算到该精华头上，这类错配非常常见。更多条件还可能漏平台、选错时间、把原帖与评论混在一起。更隐蔽的是聚合方式错：先过滤提到该精华的帖子再数整帖情感，与数针对该精华的具体观点，负面比例会差很多。结论：适合快速验证，太冒险，不适合日报。</li>
+<li><strong>第二次踩坑：固定查询模板</strong>：产品、平台、时间做成固定选项，AI 只填选择，查询格式变稳、测试可重复。但模板只固定了动作，没固定业务含义："声量"可以是数原帖、数原帖加评论，也可以是数人数，三种算法都讲得通、结果各不相同；模板默认数原帖，就会稳定地给出一个与客户需要不符的数字。结论：稳住了格式，没稳住业务词的意思。</li>
+<li><strong>第三次踩坑：AI 像分析师一样操作页面（Computer Use）</strong>：复用现有分析系统、无需改后端，演示或偶尔查询没问题。问题在步骤太多：上一轮查品牌 B 的筛选没清干净，下一轮查精华 A 就会混进上一轮的条件；页面还没加载完 AI 就读结果，数字看起来正常、实际是上一轮的旧数或残留条件；按钮位置变化、加载变慢、中途失败都会抬高恢复成本。第一轮通常很顺，第二、第三轮才开始出问题。结论：演示直观，连续任务越来越不可靠。</li>
+<li><strong>第四次踩坑：直接调原有业务 API</strong>：速度快、跳过界面，但接口是为前端设计的：页面本身知道用户是哪个项目、数据源是什么、每个按钮是什么意思，AI 只拿到一句"查精华 A 的负面口碑"，缺了这些上下文。作者打的比方是饭店收银系统：店员按"招牌套餐"系统就知道是哪些菜，把内部结构直接交给只看到内部编码的外人，对方只能猜。实测结果是速度没问题、数据也返回了，但模型要猜项目、数据源、字段与组合规则，少一个条件可能返回空，条件错了可能返回看起来正常、实际无用的数据。</li>
+<li><strong>最终解法：Tool 预先定义，MCP 负责发现与调用</strong>：一个 Tool 就是一个具体动作，如查产品口碑、比竞品趋势、找负面增长最快的话题，每个 Tool 预先定义输入与返回格式。以查产品口碑为例，AI 只需要确认产品、平台、时间范围、数帖子还是评论还是人数、要不要带回原帖证据这几项有限条件；内部名称、查询执行、空结果诊断都留在 Tool 内。MCP 是 AI 发现并调用这些工具的标准方式，像一份工具菜单：有哪些工具、每个是干什么的、要填什么。AI 选工具、填几个条件，更像做选择题，而不是现场写一段无界程序。</li>
+<li><strong>作者的警告必须原样带走</strong>：接入 MCP 本身不会自动保证准确，业务规则仍需人工定义。现有 API 继续负责执行，前面加一层 AI 能理解、业务能检查的工具层。把 MCP 当成准确性保证，是本篇明确反对的误读。</li>
+</ul>
+<h3>⑥ 上线采用</h3>
+<ul>
+<li><strong>已发生的上线与采用情况</strong>：来源未披露。作者给出的采用侧要求是：结果必须附带原帖、评论等证据，以便分析师抽查，报告才敢继续用。这是采用的前提条件，不是采用事实。</li>
+<li><strong>可执行清单（作者给出的方法，可直接抄）</strong>：从一个真实每天被问的问题出发，不做"通用数据查询 Agent"；按数据与用法选库；把没说出口的条件写清（查谁、查什么、怎么算、给谁用）；用真实难例测试（一帖多产品、一产品多名、原帖加评论）；把高频需求做成 Tool（一 Tool 一动作、输入最少、计算规则固定、失败原因清楚）；通过 MCP 交给 AI；结果必须可验证（附带原帖、评论或其他证据）。</li>
+</ul>
+<h3>⑦ 迭代扩单</h3>
+<ul>
+<li><strong>已发生的续费与扩单</strong>：来源未披露。作者预告下一篇讲 Tools 做好后 Agent 如何分步执行、查询失败后怎么重新规划。这是写作计划，不是已交付的迭代事实。</li>
+</ul>
+</section><section class="content-section"><h2>关键数字（口径已注明）</h2>
+<ul>
+<li>客户新需求：过去 30 天某款精华在小红书和抖音的口碑（讨论主题与负面评价分布）（原文需求）</li>
+<li>四次踩坑：AI 直接写查询、固定查询模板、Computer Use 操作页面、直接调业务 API（原文结构）</li>
+<li>可执行清单 7 条：真实高频问题、按用法选库、写清未说出口的条件、难例测试、做成 Tool、MCP 交付、结果可验证（原文清单）</li>
+<li>以下内容本篇原文没有，成卡时已剔除，不得引用：客户公司名、项目周期、成本、准确率、已签字的 POC 边界与验收标准、已发生的上线与采用情况、扩单事实；文章页互动数据（约 1.6 万查看）为传播数据，不作交付证据</li>
+</ul>
+</section><section class="content-section"><h2>对入行者的启示</h2>
+<ul>
+<li><strong>面试答"Agent 查数不准怎么办"，四次踩坑就是失败史</strong>：不要只讲最终方案，先讲四种"看起来能跑、实际不可靠"的解法各错在哪——情感算错人、业务词意思没定、上一轮筛选残留、缺了前端才知道的上下文。讲得出失败史，比只讲成功方案可信得多。</li>
+<li><strong>数据类交付的验收标准只有一句话</strong>：结果必须附带原帖证据。没有证据的数字，不管跑得多快，都不能直接进报告。</li>
+<li><strong>FDE 的核心工作排序是"先问清楚，再交给工具"</strong>：报告给谁看、为哪个决策服务、负面是指整帖还是具体体验、多产品同帖怎么算、要不要附原帖复核——这些问题问清之前，写查询、做模板、接 MCP 都是在错误的方向上加速。</li>
+<li><strong>与 FDE-010 合读，讲"清洗 → 取数"完整链条</strong>：010 解决的是数据怎么洗干净，012 解决的是洗干净之后怎么取数才可信。讲自己的数据项目时，两篇合起来讲，比单讲一篇完整得多。</li>
+</ul>
+</section><section class="content-section verdict-section"><h2>verdict</h2>
+<p><strong>学，方法极硬的取数专项文。</strong> 四次失败原因都具体，且恰好对应现场最常见的四种"看起来能跑、实际不可靠"的解法；最终解法也没有神化 MCP，反而明确说业务规则仍需人工定义。短板也很明确：这是一篇方法文，不是项目复盘——客户名、周期、成本、准确率、上线与采用事实一概未披露，A 级给的是方法密度与可迁移性，不是完整度。读的时候按"四次踩坑 + 七条清单"用，别按战绩引用。</p>
+<p><a id="original-excerpts"></a></p>
+</section><section class="content-section excerpt-section"><h2>原文摘录（站内可读）</h2>
+<blockquote>
+<p><strong>作者（原文要点）</strong>：落实查询前必须先明确对象、时间、来源、指标以及是否附带原帖证据，否则系统无法给出正确结果；ES 查询有查询树与聚合树两棵树，能跑通不等于算对了。</p>
+<p><strong>作者（原文要点）</strong>：四次踩坑分别是 AI 直接写查询（多产品同帖情感算错人）、固定模板（稳住了格式、没稳住"声量"的意思）、Computer Use 操作页面（上一轮筛选残留、页面未加载完就读结果）、直接调业务 API（缺了前端才知道的上下文，返回看起来正常、实际无用的数据）。</p>
+<p><strong>作者（原文要点）</strong>：最终解法是 Tool 预先定义输入与返回，MCP 让 AI 发现并调用，AI 只确认有限条件；接入 MCP 本身不会自动保证准确，业务规则仍需人工定义；结果必须附带原帖证据以便复核。</p>
+</blockquote>
+<p><em>摘录说明：标「原文要点」的为归纳转述；原始出处（仅核验用）：https://x.com/miles_mazy/article/2116118053872079045</em></p>
+</section><section class="content-section score-section"><h2>评分与维度分析（总分 74 · A 级，国内榜第 4）</h2>
+<div class="table-scroll" tabindex="0"><table class="score-table">
+<thead>
+<tr>
+<th>维度</th>
+<th>分数</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源可信度</td>
+<td>24/30</td>
+<td>作者一手自述的落地方法文，FDE-010 的直接续集、同一数据库；但客户名未披露、数字全为自报、文末带个人品牌引导，扣 6 分</td>
+</tr>
+<tr>
+<td>流程完整度</td>
+<td>16/25</td>
+<td>7 环节覆盖 5 环：数据与集成、开发交付极实，选场景与摸现场较实，定方案只有方法建议、上线采用只有证据要求、迭代扩单只有预告</td>
+</tr>
+<tr>
+<td>困难与解法密度</td>
+<td>18/20</td>
+<td>四次踩坑原因与解法一一对应，且每种都讲清了"为什么看起来能跑"；但无真实失败案例的量化复盘</td>
+</tr>
+<tr>
+<td>数字可核验性</td>
+<td>6/15</td>
+<td>无项目周期、成本、准确率、上线数字；文章页互动数据为传播数据，不作交付证据</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>10/10</td>
+<td>满分。四次踩坑、五件事清单、七条可执行清单，任何行业的 AI 查数项目都能直接照做</td>
+</tr>
+</tbody>
+</table></div>
+<p class="coverage-note"><strong>7 环节覆盖分析</strong>：①选场景 ●（真实高频问题、每天都要准）②摸现场 ●（五件事清单、ES 宽文档与字段含义陷阱）③定方案 ◐（只有方法建议，已签字验收未披露）④数据与集成 ●（按用法选库、查询树与聚合树）⑤开发交付 ●（四次踩坑 + Tool 与 MCP 解法，全文强项）⑥上线采用 ◐（只有结果附证据的要求，采用事实未披露）⑦迭代扩单 ○（只有下一篇预告，扩单事实未披露）</p>
+<hr />
+<p><em>本文为公开来源的学习拆解，归纳自作者 X Article，引文均为短引并注明出处；原文未写的内容已逐项剔除，请以原文为准。</em></p></section></article>
+</main>
+<footer><div class="wrap"><p>FDE Casebook · 本页由仓库 Markdown 自动生成，GitHub 仅作源码仓库。维护：Bruce Cao（<a href="https://x.com/sycbruce">@sycbruce</a>）</p></div></footer>
+</body>
+</html>

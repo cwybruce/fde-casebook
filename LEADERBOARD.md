@@ -6,7 +6,7 @@
 
 **网页版（全部内容站内可读，原文核心段落已摘录进各案例页）**：https://cwybruce.github.io/fde-casebook/
 
-最近更新：2026-10-30（新增 FDE-011 21世纪经济报道 FDE 进厂报价改造，国内榜从 6 案扩到 7 案；企业名与 FDE 姓名均未披露，数字为媒体报道口径，3 人转岗不是裁员）
+最近更新：2026-10-31（新增 FDE-012 Miles 可信取数方法文，国内榜从 7 案扩到 8 案；客户名、周期、成本、准确率、上线事实均未披露，A 级给的是方法密度）
 
 ---
 
@@ -114,7 +114,21 @@
 
 总评：国内榜目前信息量最大的一条。把它当"行业现场拼图"读，不要当单一项目复盘引用。
 
-### 第 4 名 · [FDE-011 21世纪经济报道：五金制造企业报价从 2–5 天变 15 分钟](cases/FDE-011-21jingji-manufacturing-quotation.md) — 73 分 · A 级
+### 第 4 名 · [FDE-012 @miles_mazy：可信取数](cases/FDE-012-miles-mazy-trusted-query.md) — 74 分 · A 级
+分类：方法型 ｜ 美妆（舆情分析 / 口碑查询）｜ FDE 落地交付 ｜ 强项环节 ⑤开发交付 ④数据与集成
+原文：https://x.com/miles_mazy/article/2116118053872079045
+
+| 维度 | 分数 | 评价 |
+|---|---|---|
+| 来源可信度 | 24/30 | 作者一手自述的落地方法文，FDE-010 的直接续集、同一数据库；但客户名未披露、数字全为自报、文末带个人品牌引导 |
+| 流程完整度 | 16/25 | 7 环节覆盖 5 环：数据与集成、开发交付极实，选场景与摸现场较实，定方案只有方法建议、上线采用只有证据要求、迭代扩单只有预告 |
+| 困难与解法密度 | 18/20 | 四次踩坑原因与解法一一对应，且每种都讲清了"为什么看起来能跑"；但无真实失败案例的量化复盘 |
+| 数字可核验性 | 6/15 | 无项目周期、成本、准确率、上线数字；文章页互动数据为传播数据，不作交付证据 |
+| 可迁移性 | 10/10 | 满分。四次踩坑、五件事清单、七条可执行清单，任何行业的 AI 查数项目都能直接照做 |
+
+总评：方法极硬的取数专项文，和 FDE-010 合读才是"清洗 → 取数"完整链条。按"四次踩坑 + 七条清单"用，别按战绩引用。
+
+### 第 5 名 · [FDE-011 21世纪经济报道：五金制造企业报价从 2–5 天变 15 分钟](cases/FDE-011-21jingji-manufacturing-quotation.md) — 73 分 · A 级
 分类：项目型 ｜ 制造业（五金制造）｜ FDE 半年驻场、写生产代码、对生产结果负责 ｜ 强项环节 ⑥上线采用 ②摸现场
 原文：https://www.21jingji.com/article/20261029/herald/1d3fa32469983b0ff63544ee89d44c6c.html
 
@@ -128,7 +142,7 @@
 
 总评：制造业 FDE 上线采用的必读实录。引用时守住口径：数字全是媒体报道口径，3 人是转岗不是裁员；文章后半部分行业市场数字是背景信息，不得混入本案例引用。
 
-### 第 5 名 · [FDE-010 @miles_mazy：美妆企业数据清洗](cases/FDE-010-miles-mazy-data-cleaning.md) — 71 分 · A 级
+### 第 6 名 · [FDE-010 @miles_mazy：美妆企业数据清洗](cases/FDE-010-miles-mazy-data-cleaning.md) — 71 分 · A 级
 分类：方法型 ｜ 美妆（舆情分析 / 竞品调研 / 营销活动复盘）｜ FDE 落地交付 ｜ 强项环节 ④数据与集成
 原文：https://x.com/miles_mazy/status/2115006510979801566
 
@@ -142,7 +156,7 @@
 
 总评：数据环节的必读方法文，和 FDE-008 的 Eval 先行形成一线一证：008 讲结论上线前怎么考，010 讲结论的数据底座怎么洗干净。按"链路 + checklist"用，别按战绩引用。
 
-### 第 6 名 · [FDE-001 良竹：FDE 定义与三层漏斗](cases/FDE-001-liangzhu-fde-framework.md) — 68 分 · B 级（观察）
+### 第 7 名 · [FDE-001 良竹：FDE 定义与三层漏斗](cases/FDE-001-liangzhu-fde-framework.md) — 68 分 · B 级（观察）
 分类：框架型 ｜ 通用 ｜ 强项环节 ⑥上线采用
 原文：作者主页 https://x.com/liangzhu_AI （原帖直链待补）
 
@@ -156,7 +170,7 @@
 
 总评：分数不高是因为它不是项目案例；但就"框架价值"单项论，它是国内材料里最值得先读的一篇。
 
-### 第 7 名 · [FDE-003 @miles_mazy：吉利近 500 人培训现场](cases/FDE-003-miles-mazy-geely-training.md) — 58 分 · B 级（观察）
+### 第 8 名 · [FDE-003 @miles_mazy：吉利近 500 人培训现场](cases/FDE-003-miles-mazy-geely-training.md) — 58 分 · B 级（观察）
 分类：观察型 ｜ 汽车 ｜ 专家培训切入 ｜ 强项环节 ⑥上线采用
 原文：https://x.com/miles_mazy/status/2113624481759429118
 
@@ -188,7 +202,7 @@
 |---|---|---|---|---|
 | 张立行 [@bylixing](https://x.com/bylixing) | 跨境电商公司 Agent 架构师，一人搭完全公司 Agent 底座 | 中文语境第一篇甲方视角落地长文，二流解/信息税/分配先于考核的源头 | A | [FDE-005](cases/FDE-005-bylixing-agent-into-enterprise.md) |
 | 良竹 [@liangzhu_AI](https://x.com/liangzhu_AI) | 一线实践者，自述 14 年软件与项目经验 | 《掌控AI·FDE实战》系列，把 FDE 讲成可执行框架的中文作者 | A | [FDE-001](cases/FDE-001-liangzhu-fde-framework.md) |
-| [@miles_mazy](https://x.com/miles_mazy) | 大厂 AI 专家裸辞，做企业培训与落地 | 高频发布企业现场信号（车企培训、multi-agent 教学），观察头部企业需求的窗口 | A | [FDE-003](cases/FDE-003-miles-mazy-geely-training.md)、[FDE-010](cases/FDE-010-miles-mazy-data-cleaning.md) |
+| [@miles_mazy](https://x.com/miles_mazy) | 大厂 AI 专家裸辞，做企业培训与落地 | 高频发布企业现场信号（车企培训、multi-agent 教学），观察头部企业需求的窗口 | A | [FDE-003](cases/FDE-003-miles-mazy-geely-training.md)、[FDE-010](cases/FDE-010-miles-mazy-data-cleaning.md)、[FDE-012](cases/FDE-012-miles-mazy-trusted-query.md) |
 | 智昊 [@cnzhihao](https://x.com/cnzhihao) | 杭州 FDE 落地交付者，CPA 出身，做高管 FDE 训练与企业主陪跑 | 首篇实录即资金报表流程改造（81 · A），选流程筛子与三层兜底讲得极实，待后续系列验证长期一手含量 | B | [FDE-009](cases/FDE-009-cnzhihao-funds-report.md) |
 | 冯璐瑶 | 钥蚀科技创始人，FDE 创业交付团队 | 少数公开真实定价与中小客户画像的创业型 FDE（目前信源经媒体深访转述） | B | [FDE-004](cases/FDE-004-china-entrepreneur-fde-truth.md) |
 | 码良 [@cxjwin](https://x.com/cxjwin) | Agent 工程作者 | 其 multi-agent 材料被 FDE 企业培训直接引用——相邻领域，但 FDE 必学 | B | 关联 [FDE-003](cases/FDE-003-miles-mazy-geely-training.md) |

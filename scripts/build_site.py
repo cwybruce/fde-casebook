@@ -30,6 +30,7 @@ CASE_STEMS = [
     "FDE-009-cnzhihao-funds-report",
     "FDE-010-miles-mazy-data-cleaning",
     "FDE-011-21jingji-manufacturing-quotation",
+    "FDE-012-miles-mazy-trusted-query",
 ]
 
 CSS = """
